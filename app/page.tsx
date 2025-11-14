@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logo from '@/public/oliyrank.svg'
+import logo from '@/public/logo.png'
 
 export default function HomePage() {
   return (
