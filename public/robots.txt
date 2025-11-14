@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://oliyrank.com
+
+# Sitemaps
+Sitemap: https://oliyrank.com/sitemap.xml
