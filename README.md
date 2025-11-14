@@ -70,7 +70,7 @@ This is the first serious attempt to bring **QS-style ranking** to Uzbekistan, b
 
 ## 🧠 Creator
 
-Built with ambition, obsession, and painfully high standards by **Vincent**.  
+Built with ambition, obsession, and painfully high standards by **ZARTSAWORKS TEAM**.  
 This project aims to raise the bar for educational transparency in Uzbekistan.
 
 ---
