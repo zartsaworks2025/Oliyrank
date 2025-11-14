@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OliyRank
 
-## Getting Started
+OliyRank is a modern platform that ranks universities and learning centers in Uzbekistan.  
+The goal is simple: give students clean, honest, transparent information without the chaos.
 
-First, run the development server:
+### 🚀 Current Status
+MVP is in early development.  
+Domain is live → https://oliyrank.com  
+Core features, database schema, and UI design are under active construction.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⭐ Vision
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Education in Uzbekistan is fragmented and confusing.  
+OliyRank fixes that.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The platform will offer:
 
-## Learn More
+- University rankings with clear criteria  
+- Student reviews with upvote/downvote  
+- Tuition, scholarship info, and cost of living  
+- Faculty details  
+- Employment rates  
+- Compare-universities tool  
+- Bookmarking + user profiles  
+- Full multilingual support (UZ, EN, RU)  
+- Modern UI with dark/light mode  
 
-To learn more about Next.js, take a look at the following resources:
+This is the first serious attempt to bring **QS-style ranking** to Uzbekistan, but cleaner and more transparent.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+- **Next.js 14**  
+- **TypeScript**  
+- **TailwindCSS**  
+- **PostgreSQL / Prisma** (soon)  
+- **Vercel** for deployment  
+- **GitHub** for version control  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📂 Project Structure
+
