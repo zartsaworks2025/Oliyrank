@@ -25,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-slate-950 text-slate-100 antialiased">
-        <Navbar />
         <main className="min-h-[calc(100vh-56px)]">
           {children}
         </main>
