@@ -79,3 +79,8 @@ This project aims to raise the bar for educational transparency in Uzbekistan.
 
 For questions or contributions:  
 **zartsaworks@gmail.com**
+
+
+![photo_2025-10-13_16-32-08](https://github.com/user-attachments/assets/3a929338-dade-4902-aaa9-18220289d65a)
+
+
