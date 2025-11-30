@@ -1,4 +1,10 @@
-@import "./base/_base.scss";
-@import "./base/_variables.scss";
+// Base
+@import 'base/variables';
+@import 'base/reset';
 
-@import "./layout/_header.scss";
+// Layout
+@import 'layout/header';
+@import 'layout/footer';
+
+// Pages
+// @import 'pages/contact';
