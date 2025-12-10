@@ -59,12 +59,12 @@ export default function Footer() {
           <h3>Bog'lanish</h3>
           <p><FaMapMarkerAlt /> O'zbekiston, Toshkent sh., Universitet ko'chasi, 123</p>
           <p><FaPhone /> +998 90 123 45 67</p>
-          <p><FaEnvelope /> info@oliyrank.uz</p>
+          <p><FaEnvelope /> zartsaworks@gmail.com</p>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {currentYear} OliyRank. Barcha huquqlar himoyalangan. | <Link href="/privacy">Maxfiylik siyosati</Link> | <Link href="/terms">Foydalanish shartlari</Link></p>
+        <p>&copy; {currentYear} ZartsaWorks. Barcha huquqlar himoyalangan. | <Link href="/privacy">Maxfiylik siyosati</Link> | <Link href="/terms">Foydalanish shartlari</Link></p>
       </div>
     </footer>
   );
