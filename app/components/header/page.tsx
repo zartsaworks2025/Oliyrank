@@ -3,49 +3,49 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const Navbar = () => {
-  return (
-    <nav className="header-navbar">
-      <Link href="/" className="header-navbar-items">
-        Home
-      </Link>
-      <Link href="/rankings" className="header-navbar-items">
-        Rankings
-      </Link>
-      <Link href="/about" className="header-navbar-items">
-        About
-      </Link>
-      <Link href="/news" className="header-navbar-items">
-        News
-      </Link>
-      <Link href="/faqs" className="header-navbar-items">
-        FAQs
-      </Link>
-      <Link href="/contact" className="header-navbar-items">
-        Contact us
-      </Link>
-    </nav>
-  );
+type NavbarProps = {
+  onLinkClick?: () => void;
 };
+
+const Navbar = ({ onLinkClick }: NavbarProps) => (
+  <nav className="header-navbar">
+    <Link href="/" className="header-navbar-items" onClick={onLinkClick}>
+      Home
+    </Link>
+    <Link href="/rankings" className="header-navbar-items" onClick={onLinkClick}>
+      Rankings
+    </Link>
+    <Link href="/about" className="header-navbar-items" onClick={onLinkClick}>
+      About
+    </Link>
+    <Link href="/news" className="header-navbar-items" onClick={onLinkClick}>
+      News
+    </Link>
+    <Link href="/faqs" className="header-navbar-items" onClick={onLinkClick}>
+      FAQs
+    </Link>
+    <Link href="/contact" className="header-navbar-items" onClick={onLinkClick}>
+      Contact us
+    </Link>
+  </nav>
+);
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // change header when scrolling
+  // change header on scroll
   useEffect(() => {
     const handleScroll = () => {
       const isScrolledNow = window.scrollY > 10;
-      if (isScrolledNow !== scrolled) {
-        setScrolled(isScrolledNow);
-      }
+      if (isScrolledNow !== scrolled) setScrolled(isScrolledNow);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
 
-  // lock body scroll when menu is open
+  // lock/unlock body scroll when menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -54,10 +54,7 @@ export default function Header() {
     }
   }, [isMobileMenuOpen]);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
-
+  const toggleMobileMenu = () => setIsMobileMenuOpen(prev => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
@@ -94,13 +91,11 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu overlay */}
       <div className={`mobile-menu ${isMobileMenuOpen ? "active" : ""}`}>
         <div className="mobile-menu-inner">
-          {/* Vertical nav */}
-          <Navbar />
+          <Navbar onLinkClick={closeMobileMenu} />
 
-          {/* Auth buttons */}
           <div className="mobile-auth-buttons">
             <Link
               href="/signin"
