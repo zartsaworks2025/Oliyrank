@@ -102,17 +102,93 @@
 }
 
 /* Base state: hidden */
+/* MOBILE MENU OVERLAY */
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 30;
-  background: rgba(3, 7, 18, 0.92);
-  backdrop-filter: blur(20px);
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(18px);
+  transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-8px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+  z-index: 40;
+
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  /* NAV INSIDE MOBILE MENU */
+  .header-navbar {
+    flex-direction: column;
+    align-items: stretch; // full width
+    gap: 0.9rem;
+  }
+
+  .header-navbar-items {
+    font-size: 1.05rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    text-decoration: none;
+  }
+
+  /* Keep active style still visible */
+  .header-navbar-items.active {
+    color: #f9fafb;
+
+    &::after {
+      width: 0; // hide underline in mobile, we already have pill
+    }
+  }
+
+  .mobile-auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .mobile-signin-btn,
+    .mobile-signup-btn {
+      font-size: 0.95rem;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .mobile-signin-btn {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.8);
+    }
+
+    .mobile-signup-btn {
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      color: #020617;
+      font-weight: 600;
+    }
+  }
 }
+
 
 /* Shown */
 .mobile-menu.active {

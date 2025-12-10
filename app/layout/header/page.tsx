@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/rankings", label: "Rankings" },
-  { href: "/about", label: "About" },
   { href: "/news", label: "News" },
+  // NOTE: change this to "/faqs" if your folder is app/faqs/page.tsx
   { href: "/faq", label: "FAQs" },
   { href: "/contact", label: "Contact us" },
 ];
@@ -40,6 +40,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // header shadow / bg on scroll
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
@@ -49,6 +50,15 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -67,7 +77,7 @@ export default function Header() {
           {/* Desktop navbar */}
           <Navbar />
 
-          {/* Desktop auth buttons */}
+          {/* Desktop auth buttons — now real links */}
           <div className="header-button">
             <Link href="/signin" className="header-signin-btn">
               Sign In
@@ -77,13 +87,13 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button (burger -> X) */}
           <button
             className="mobile-menu-btn"
             onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            ☰
+            {isMobileMenuOpen ? "✕" : "☰"}
           </button>
         </div>
       </header>
@@ -91,17 +101,25 @@ export default function Header() {
       {/* Mobile Menu */}
       <div className={`mobile-menu ${isMobileMenuOpen ? "active" : ""}`}>
         <div className="mobile-menu-inner">
+          {/* full-width clickable links */}
           <Navbar onLinkClick={closeMobileMenu} />
 
           <div className="mobile-auth-buttons">
-            <button className="mobile-signin-btn">
+            <Link
+              href="/signin"
+              className="mobile-signin-btn"
+              onClick={closeMobileMenu}
+            >
               Sign In
-            </button>
-            <button className="mobile-signup-btn">
+            </Link>
+            <Link
+              href="/signup"
+              className="mobile-signup-btn"
+              onClick={closeMobileMenu}
+            >
               Sign Up
-            </button>
+            </Link>
           </div>
-
         </div>
       </div>
     </>
