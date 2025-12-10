@@ -1,0 +1,176 @@
+.cards {
+  padding: 3.5rem 1.5rem 4.5rem;
+  background: radial-gradient(circle at bottom left, #1f293733, transparent 55%);
+
+  &__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    max-width: 640px;
+    margin-bottom: 2.2rem;
+  }
+
+  &__eyebrow {
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.75;
+    margin-bottom: 0.4rem;
+  }
+
+  &__title {
+    font-size: clamp(1.6rem, 2.3vw + 1rem, 2.1rem);
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+
+  &__subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  &__grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.3rem;
+  }
+
+  &__item {
+    position: relative;
+    border-radius: 1.1rem;
+    overflow: hidden;
+    background: #020617;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+
+  &__image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  &__image {
+    object-fit: cover;
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75),
+      rgba(15, 23, 42, 0.15)
+    );
+    mix-blend-mode: normal;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+  }
+
+  &__type {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  &__content {
+    padding: 0.85rem 0.95rem 1rem;
+  }
+
+  &__name {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    opacity: 0.85;
+  }
+
+  &__city {
+    font-weight: 500;
+  }
+
+  &__dot {
+    opacity: 0.6;
+  }
+
+  &__label {
+    opacity: 0.8;
+  }
+
+  &__value {
+    margin-left: auto;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: #22c55e;
+  }
+
+  &__disclaimer {
+    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    opacity: 0.6;
+  }
+
+  /* Hover: cinema mode */
+  &__item:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+    border-color: rgba(96, 165, 250, 0.6);
+  }
+
+  &__item:hover .cards__image {
+    transform: scale(1.06);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .cards {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .cards {
+    padding-inline: 1.1rem;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__item {
+      border-radius: 1rem;
+    }
+  }
+}
+
+.cards {
+  background:
+    radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(139,92,246,0.12), transparent 55%),
+    linear-gradient(180deg, #020617 0%, #030712 50%, #020617 100%);
+}
