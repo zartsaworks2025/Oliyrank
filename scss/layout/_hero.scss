@@ -1,0 +1,207 @@
+.hero {
+  padding: 4rem 1.5rem 5rem;
+  background: radial-gradient(circle at top left, #273bff33, transparent 55%),
+              #050814;
+  color: #f5f7ff;
+
+  &__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  &__content {
+    max-width: 640px;
+  }
+
+  &__eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 0.75rem;
+  }
+
+  &__title {
+    font-size: clamp(2.1rem, 3vw + 1rem, 3.3rem);
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__title-highlight {
+    display: block;
+    color: #6b8bff;
+  }
+
+  &__subtitle {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 1.6rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    opacity: 0.85;
+
+    span {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(6px);
+    }
+  }
+
+  &__visual {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__card {
+    background: linear-gradient(135deg, #111827, #020617);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    width: 100%;
+    max-width: 320px;
+  }
+
+  &__card-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.75;
+    margin-bottom: 0.75rem;
+  }
+
+  &__rank-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: grid;
+      grid-template-columns: 1.2rem 1fr auto;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      span:first-child {
+        font-weight: 600;
+        color: #a5b4fc;
+      }
+
+      span:last-child {
+        font-variant-numeric: tabular-nums;
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+/* Phone / tablet */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 3rem;
+
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    &__visual {
+      justify-content: flex-start;
+    }
+
+    &__card {
+      max-width: 100%;
+    }
+  }
+}
+
+.btn--primary {
+  background:  #3b5cffa8;
+  box-shadow: 0 3px 9px rgba(0, 140, 255, 0.35);
+  font-weight: 800;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn--ghost {
+  font-weight: 800;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn--primary,
+.btn--ghost {
+  cursor: pointer;
+  transition: 
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.btn--primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 3px 10px rgba(0, 140, 255, 0.25);
+}
+
+.btn--ghost:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 140, 255, 0.25);
+}
+
+.btn--ghost {
+  border: 1px solid rgba(0, 140, 255, 0.4);
+}
+
+.btn--ghost:hover {
+  background: rgba(0, 140, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .btn--primary,
+  .btn--ghost {
+    padding: 14px 18px;       // Bigger taps
+    width: 100%;              // Stack like apps
+    text-align: center;
+    font-size: 0.95rem;       // Cleaner on small screens
+    border-radius: 10px;      // Softer = modern
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .btn--primary,
+  .btn--ghost {
+    font-size: 0.9rem;
+    padding: 15px 16px;
+  }
+}
