@@ -35,11 +35,23 @@ function Navbar({ onLinkClick }: { onLinkClick?: () => void }) {
     );
 }
 
-export default function Header() {
+import { logout } from "@/app/lib/actions";
+
+// ... imports
+
+interface HeaderProps {
+    user?: {
+        name?: string | null;
+        email?: string | null;
+        image?: string | null;
+    };
+}
+
+export default function Header({ user }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
-    // header shadow / bg on scroll
+    // ... existing useEffects for scroll and body lock ...
     useEffect(() => {
         const handleScroll = () => {
             const isScrolled = window.scrollY > 10;
@@ -50,7 +62,6 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // lock body scroll when mobile menu is open
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -58,6 +69,7 @@ export default function Header() {
             document.body.style.overflow = "";
         }
     }, [isMobileMenuOpen]);
+
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen((prev) => !prev);
@@ -77,13 +89,28 @@ export default function Header() {
                     <Navbar />
 
                     {/* Desktop auth buttons — now real links */}
-                    <div className="header-button">
-                        <Link href="/signin" className="header-signin-btn">
-                            Sign In
-                        </Link>
-                        <Link href="/signup" className="header-signup-btn">
-                            Sign Up
-                        </Link>
+                    <div className="header-button flex items-center gap-4">
+                        {user ? (
+                            <>
+                                <span className="text-sm font-medium text-slate-300">
+                                    {user.name || user.email}
+                                </span>
+                                <form action={logout}>
+                                    <button className="header-signup-btn bg-red-600 hover:bg-red-700 border-none">
+                                        Chiqish
+                                    </button>
+                                </form>
+                            </>
+                        ) : (
+                            <>
+                                <Link href="/signin" className="header-signin-btn">
+                                    Sign In
+                                </Link>
+                                <Link href="/signup" className="header-signup-btn">
+                                    Sign Up
+                                </Link>
+                            </>
+                        )}
                     </div>
 
                     {/* Mobile menu button (burger -> X) */}
@@ -104,20 +131,30 @@ export default function Header() {
                     <Navbar onLinkClick={closeMobileMenu} />
 
                     <div className="mobile-auth-buttons">
-                        <Link
-                            href="/signin"
-                            className="mobile-signin-btn"
-                            onClick={closeMobileMenu}
-                        >
-                            Sign In
-                        </Link>
-                        <Link
-                            href="/signup"
-                            className="mobile-signup-btn"
-                            onClick={closeMobileMenu}
-                        >
-                            Sign Up
-                        </Link>
+                        {user ? (
+                            <form action={logout} className="w-full">
+                                <button className="mobile-signup-btn w-full bg-red-600 hover:bg-red-700 border-none">
+                                    Chiqish ({user.name?.split(' ')[0]})
+                                </button>
+                            </form>
+                        ) : (
+                            <>
+                                <Link
+                                    href="/signin"
+                                    className="mobile-signin-btn"
+                                    onClick={closeMobileMenu}
+                                >
+                                    Sign In
+                                </Link>
+                                <Link
+                                    href="/signup"
+                                    className="mobile-signup-btn"
+                                    onClick={closeMobileMenu}
+                                >
+                                    Sign Up
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

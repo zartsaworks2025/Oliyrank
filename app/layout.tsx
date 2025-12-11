@@ -22,18 +22,24 @@ export const metadata: Metadata = {
   description: "Ranking platform for universities in Uzbekistan",
 };
 
-export default function RootLayout({
+import { auth } from "@/auth";
+
+// ... existing imports
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await auth();
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="bg-slate-950 text-slate-100 antialiased flex flex-col min-h-screen">
-        <Header />
+        <Header user={session?.user} />
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
