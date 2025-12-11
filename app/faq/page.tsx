@@ -29,10 +29,13 @@ export default function FAQPage() {
       <section className="faqs-hero">
         <h1>Ko‘p beriladigan savollar</h1>
         <p>
-          Agar sizni qiziqtirgan savol bo‘lsa, ehtimol avval kimdir uni bergan. Quyida eng ko‘p so‘raladigan
-          savollarga qisqa javoblar jamlangan.
+          Quyida eng ko‘p so‘raladigan savollarga qisqa javoblar jamlangan.
         </p>
       </section>
+
+      <div className="faq-search">
+        <input type="text" placeholder="Savolingizni yozing..." />
+      </div>
 
       <section className="faq-list">
         {faqs.map((item, index) => {
