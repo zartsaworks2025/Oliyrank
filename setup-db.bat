@@ -1,0 +1,11 @@
+@echo off
+echo Updating .env.local file for Prisma Accelerate...
+(
+echo DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19fQjVBMFV6eG9uLTh1NTdqaHZ4eHYiLCJhcGlfa2V5IjoiMDFLQ0dCNkZFV0NUQk5CMDM5WTlGNUZNR0siLCJ0ZW5hbnRfaWQiOiIxODg5NjE5OWJjYWJkOGQzM2NjZjQ2NGE4NTg3ZWIxYTZiY2I2Nzg3NWRiNDFiZWFmNjA4ODMwMGUxNjdhNDgwIiwiaW50ZXJuYWxfc2VjcmV0IjoiM2Y3MGMxNjItNGQzMC00Y2Q2LTkyOGEtZmE0ZDcwODY5Y2VhIn0.J8WDdpnknO81wVNEYraMQ9q559KYkEq-biiZqV5qOnk"
+echo DIRECT_URL="postgres://18896199bcabd8d33ccf464a8587eb1a6bcb67875db41beaf6088300e167a480:sk__B5A0Uzxon-8u57jhvxxv@db.prisma.io:5432/postgres?sslmode=require"
+echo AUTH_SECRET="w0yLUiLa0PdcD0cNVNFj3DZMCGlpe6HGxQ/B0nPX5co="
+) > .env.local
+echo .env.local updated!
+echo.
+echo Running database migration...
+npx prisma db push
