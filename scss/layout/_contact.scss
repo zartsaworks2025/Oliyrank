@@ -146,15 +146,15 @@
 
 .contact-submit {
   width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
+  padding: 0.875rem 1rem;
+  font-size: 0.95rem;
   margin-top: 0.5rem;
   background: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: -10%));
   border: none;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+    opacity: 0.9;
+    transform: translateY(-1px);
   }
 }
 
