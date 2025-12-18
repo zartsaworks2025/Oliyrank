@@ -1,12 +1,9 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "../scss/main.scss"; // 🔹 SCSS shu yerda ulanyapti
-
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
-export const dynamic = "force-dynamic";
+import "../scss/main.scss"; // SCSS imports
+import LayoutContent from "@/components/layout/LayoutContent";
+import { auth } from "@/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,10 +20,6 @@ export const metadata: Metadata = {
   description: "Ranking platform for universities in Uzbekistan",
 };
 
-import { auth } from "@/auth";
-
-// ... existing imports
-
 export default async function RootLayout({
   children,
 }: {
@@ -40,9 +33,9 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="bg-slate-950 text-slate-100 antialiased flex flex-col min-h-screen">
-        <Header user={session?.user} />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <LayoutContent user={session?.user}>
+          {children}
+        </LayoutContent>
       </body>
     </html>
   );
