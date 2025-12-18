@@ -1,4 +1,5 @@
-// app/layout.tsx
+```
+"use client";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -6,6 +7,7 @@ import "../scss/main.scss"; // 🔹 SCSS shu yerda ulanyapti
 
 import Header from "./layout/header/page";
 import Footer from "./layout/footer/page";
+import { usePathname } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,16 +29,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isAdmin = pathname.startsWith("/admin");
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${ geistSans.variable } ${ geistMono.variable } `}
     >
       <body className="bg-slate-950 text-slate-100 antialiased flex flex-col min-h-screen">
-        <Header />
+        {!isAdmin && <Header />}
         <main className="flex-grow">{children}</main>
-        <Footer />
+        {!isAdmin && <Footer />}
       </body>
     </html>
   );
 }
+```
