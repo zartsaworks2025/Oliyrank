@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "../scss/main.scss"; // 🔹 SCSS shu yerda ulanyapti
+import "../scss/main.scss"; // SCSS imports
 
 import Header from "./layout/header/page";
 import Footer from "./layout/footer/page";

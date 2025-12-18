@@ -6,6 +6,15 @@
 @use 'layout/header' as *;
 @use 'layout/footer' as *;
 @use 'layout/admin' as *;
+@use 'layout/hero' as *;
+@use 'layout/cards' as *;
+@use 'layout/rankings' as *;
+@use 'layout/about' as *;
+@use 'layout/contact' as *;
+@use 'layout/faq' as *;
+@use 'layout/news' as *;
+@use 'layout/auth' as *;
+@use 'layout/profile' as *;
 
 // Pages
 // @use 'pages/contact' as *;

@@ -1,155 +1,107 @@
-// scss/layout/_header.scss
-
 .header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background-color: #020617;
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.25); // slate-400
-  transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+  z-index: 40;
+  backdrop-filter: blur(18px);
+  background: rgba(2, 6, 23, 0.88);
+  border-bottom: 1px solid rgba(15, 23, 42, 1);
+}
 
-  &.scrolled {
-    background: rgba(15, 23, 42, 0.97);
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-  }
+.header-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
 
-  .header-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.75rem 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.25rem;
-  }
+/* Logo */
+.header-logo a {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
 
-  .header-logo a {
-    font-weight: 800;
-    font-size: 1.2rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #e5e7eb; // slate-200
-    text-decoration: none;
-    white-space: nowrap;
+/* Desktop nav */
+.header-navbar {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.9rem;
+}
 
-    &:hover {
-      color: #ffffff;
-    }
-  }
+.header-navbar-items {
+  position: relative;
+  opacity: 0.78;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
 
-  .header-navbar {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
+.header-navbar-items:hover {
+  opacity: 1;
+}
 
-  .header-navbar-items {
-    font-size: 0.95rem;
-    color: #9ca3af; // slate-400
-    text-decoration: none;
-    position: relative;
-    padding: 0.25rem 0;
-    transition:
-      color 0.15s ease,
-      transform 0.15s ease;
+.header-navbar-items.active {
+  opacity: 1;
+}
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #38bdf8, #a855f7);
-      transition: width 0.2s ease;
-    }
+/* Desktop auth buttons */
+.header-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
 
-    &:hover {
-      color: #e5e7eb;
-      transform: translateY(-1px);
+.header-signin-btn,
+.header-signup-btn {
+  font-size: 0.85rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  text-decoration: none;
+}
 
-      &::after {
-        width: 100%;
-      }
-    }
+/* primary / secondary */
+.header-signin-btn {
+  background: transparent;
+}
 
-    &.active {
-      color: #f9fafb;
+.header-signup-btn {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(59, 130, 246, 0.7);
+}
 
-      &::after {
-        width: 100%;
-      }
-    }
-  }
+/* Burger button container */
+.mobile-menu-btn {
+  display: none; /* hidden on desktop */
+}
 
+/* Icon itself inherits your button styles; keep it simple */
+.mobile-menu-btn button {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.35rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 900px) {
+  .header-navbar,
   .header-button {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .header-signin-btn,
-  .header-signup-btn {
-    font-size: 0.9rem;
-    padding: 0.45rem 0.95rem;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition:
-      background 0.15s ease,
-      color 0.15s ease,
-      border-color 0.15s ease,
-      transform 0.1s ease;
-    white-space: nowrap;
-  }
-
-  .header-signin-btn {
-    background: transparent;
-    color: #e5e7eb;
-    border-color: rgba(148, 163, 184, 0.6);
-
-    &:hover {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: #38bdf8;
-      transform: translateY(-1px);
-    }
-  }
-
-  .header-signup-btn {
-    background: linear-gradient(135deg, #38bdf8, #a855f7);
-    color: #0b1120;
-    font-weight: 600;
-
-    &:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
+    display: none;
   }
 
   .mobile-menu-btn {
-    display: none;
-    background: transparent;
-    border: 1px solid rgba(148, 163, 184, 0.7);
-    color: #e5e7eb;
-    border-radius: 999px;
-    padding: 0.25rem 0.8rem;
-    font-size: 1.15rem;
-    cursor: pointer;
-    transition:
-      background 0.15s ease,
-      border-color 0.15s ease;
-
-    &:hover {
-      background: rgba(15, 23, 42, 0.95);
-      border-color: #38bdf8;
-    }
+    display: block;
+    margin-left: auto;
   }
 }
 
+/* Base state: hidden */
 /* MOBILE MENU OVERLAY */
 .mobile-menu {
   position: fixed;
@@ -179,14 +131,32 @@
     gap: 2.5rem;
   }
 
+  /* NAV INSIDE MOBILE MENU */
   .header-navbar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: stretch; // full width
+    gap: 0.9rem;
   }
 
   .header-navbar-items {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    text-decoration: none;
+  }
+
+  /* Keep active style still visible */
+  .header-navbar-items.active {
+    color: #f9fafb;
+
+    &::after {
+      width: 0; // hide underline in mobile, we already have pill
+    }
   }
 
   .mobile-auth-buttons {
@@ -201,6 +171,8 @@
       border-radius: 999px;
       border: 1px solid transparent;
       cursor: pointer;
+      text-align: center;
+      text-decoration: none;
     }
 
     .mobile-signin-btn {
@@ -217,42 +189,248 @@
   }
 }
 
-/* BREAKPOINTS */
 
-/* Tablet & Phone (<= 900px) */
+/* Shown */
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Inner content */
+.mobile-menu-inner {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Use same navbar but vertically */
+.mobile-menu .header-navbar {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.mobile-menu .header-navbar-items {
+  font-size: 1rem;
+}
+
+/* Mobile auth buttons */
+.mobile-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.mobile-signin-btn,
+.mobile-signup-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  text-decoration: none;
+}
+
+.mobile-signup-btn {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border-color: transparent;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.7);
+}
+
+
+.mobile-menu-btn {
+  display: none; // desktop hidden
+}
+
+/* The button itself */
+.mobile-menu-toggle {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.25rem 0.6rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Show burger on small screens */
 @media (max-width: 900px) {
-  .header {
-    .header-navbar {
-      display: none;
-    }
+  .header-navbar,
+  .header-button {
+    display: none;
+  }
 
-    .header-button {
-      display: none;
-    }
-
-    .mobile-menu-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
+  .mobile-menu-btn {
+    display: block;
+    margin-left: auto;
   }
 }
 
-/* Kichik telefonlar (<= 480px) – paddinglarni biroz kichraytiramiz */
-@media (max-width: 480px) {
-  .header {
-    .header-wrap {
-      padding-inline: 0.9rem;
-    }
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(3, 7, 18, 0.92);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
 
-    .header-logo a {
-      font-size: 1.05rem;
-    }
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-menu-inner {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .header-navbar,
+  .header-button {
+    display: none;
   }
 
-  .mobile-menu {
-    .mobile-menu-inner {
-      padding-inline: 1rem;
-    }
+  .mobile-menu-btn {
+    display: block;
+    margin-left: auto;
+  }
+
+  /* BUT inside the mobile menu, we show nav vertically */
+  .mobile-menu .header-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  .mobile-menu .header-navbar-items {
+    opacity: 1;
+  }
+
+  .mobile-auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .mobile-signin-btn,
+  .mobile-signup-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    text-decoration: none;
+  }
+
+  .mobile-signup-btn {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    border-color: transparent;
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.7);
+  }
+}
+
+.mobile-menu-toggle {
+  cursor: pointer;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .header-navbar,
+  .header-button {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(3, 7, 18, 0.95);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-menu-inner {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-menu .header-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.6rem;
+}
+
+.mobile-menu .header-navbar-items {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(51, 65, 85, 0.7);
+}
+
+.mobile-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mobile-signin-btn,
+.mobile-signup-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+@media (max-width: 768px) {
+  .rank-table__head,
+  .rank-table__row {
+    grid-template-columns: 32px minmax(0, 3fr) minmax(0, 2fr) 70px;
+    gap: 0.5rem;
+    padding-inline: 0.9rem;
+    font-size: 0.78rem;
   }
 }

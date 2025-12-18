@@ -1,0 +1,157 @@
+@use "../base/variables" as *;
+
+.page--news {
+  padding: 8rem 1.5rem 6rem;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(96, 165, 250, 0.05) 0%, transparent 50%);
+}
+
+.news-hero {
+  max-width: 960px;
+  margin: 0 auto 5rem;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #fff, #cbd5e0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.news-list {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2.5rem;
+}
+
+.news-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  /* Glass/Gradient Background Effect */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(30, 41, 59, 0) 0%, rgba(15, 23, 42, 0.9) 100%),
+      radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 70%);
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+  }
+
+  &:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow:
+      0 20px 40px -5px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(59, 130, 246, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .news-card__tag {
+      background: $primary-color;
+      color: white;
+      border-color: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .news-card__title {
+      color: #60a5fa; // Light blue highlight
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+  }
+
+  &__meta {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    background: rgba(15, 23, 42, 0.6);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  &__date {
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    color: #f1f5f9;
+    transition: color 0.3s ease;
+  }
+
+  &__summary {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 640px) {
+  .news-list {
+    grid-template-columns: 1fr;
+  }
+}
