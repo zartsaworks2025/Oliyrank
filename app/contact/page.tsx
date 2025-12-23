@@ -17,15 +17,15 @@ export default function ContactPage() {
             <div className="contact-info-list">
               <div className="contact-info-item">
                 <span className="contact-info-label">Elektron pochta</span>
-                <span className="contact-info-value">info@oliyrank.uz</span>
+                <span className="contact-info-value">zartsaworks@gmail.com</span>
               </div>
               <div className="contact-info-item">
                 <span className="contact-info-label">Telefon</span>
-                <span className="contact-info-value">+998 90 123 45 67</span>
+                <span className="contact-info-value">+998 97 790 21 05</span>
               </div>
               <div className="contact-info-item">
                 <span className="contact-info-label">Manzil</span>
-                <span className="contact-info-value">Toshkent, O‘zbekiston</span>
+                <span className="contact-info-value">O‘zbekiston, Xorazm viloyati, Urganch shahri</span>
               </div>
             </div>
   
@@ -42,7 +42,7 @@ export default function ContactPage() {
             </div>
             <div className="field">
               <label>Elektron pochta</label>
-              <input type="email" placeholder="email@example.com" required />
+              <input type="email" placeholder="example@gmail.com" required />
             </div>
             <div className="field">
               <label>Mavzu</label>

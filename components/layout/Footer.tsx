@@ -109,14 +109,14 @@ export default function Footer() {
                 <div className="footer-contact">
                     <h3>Bog&apos;lanish</h3>
                     <p>
-                        <FaMapMarkerAlt /> O&apos;zbekiston, Toshkent sh.,
-                        Universitet ko&apos;chasi, 123
+                        <FaMapMarkerAlt /> O&apos;zbekiston, Xorazm viloyati,
+                        Urganch shahri
                     </p>
                     <p>
-                        <FaPhone /> +998 90 123 45 67
+                        <FaPhone /> +998 97 790 21 05 
                     </p>
                     <p>
-                        <FaEnvelope /> info@oliyrank.uz
+                        <FaEnvelope /> zartsaworks@gmail.com
                     </p>
                 </div>
             </div>
