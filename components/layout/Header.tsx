@@ -149,7 +149,7 @@ export default function Header({ user }: HeaderProps) {
                                             </div>
                                             <div className="flex-1">
                                                 <p className="font-semibold text-sm mb-0.5">Profil</p>
-                                                <p className="text-xs text-slate-500 group-hover/item:text-slate-400 leading-relaxed">Profilingizni ko'rish</p>
+                                                <p className="text-xs text-slate-500 group-hover/item:text-slate-400 leading-relaxed">Profilingizni ko&apos;rish</p>
                                             </div>
                                             <svg className="w-4 h-4 text-slate-600 group-hover/item:text-indigo-400 transition-all opacity-0 group-hover/item:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

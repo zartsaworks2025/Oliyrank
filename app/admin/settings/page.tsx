@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FiSave, FiLock, FiBell, FiMonitor, FiGlobe, FiCheck } from "react-icons/fi";
+import { FiSave, FiBell, FiMonitor, FiGlobe, FiCheck } from "react-icons/fi";
 
 const SettingsSection = ({
     title,
@@ -9,7 +9,7 @@ const SettingsSection = ({
     children,
 }: {
     title: string;
-    icon: any;
+    icon: React.ElementType;
     children: React.ReactNode;
 }) => (
     <div className="settings-section">

@@ -6,7 +6,11 @@ import Footer from "./Footer";
 
 interface LayoutContentProps {
     children: React.ReactNode;
-    user?: any;
+    user?: {
+        name?: string | null;
+        email?: string | null;
+        image?: string | null;
+    } | null;
 }
 
 export default function LayoutContent({ children, user }: LayoutContentProps) {

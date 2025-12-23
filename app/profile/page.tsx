@@ -26,7 +26,7 @@ export default async function ProfilePage() {
                 {/* Header */}
                 <div className="profile-header">
                     <h1>Mening Profilim</h1>
-                    <p>Shaxsiy ma'lumotlaringizni boshqaring</p>
+                    <p>Shaxsiy ma&apos;lumotlaringizni boshqaring</p>
                 </div>
 
                 <div className="grid lg:grid-cols-3 gap-6">
@@ -65,11 +65,11 @@ export default async function ProfilePage() {
                                 <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                Hisob Ma'lumotlari
+                                Hisob Ma&apos;lumotlari
                             </h3>
                             <div className="profile-info-grid">
                                 <div className="profile-info-item">
-                                    <label>To'liq Ism</label>
+                                    <label>To&apos;liq Ism</label>
                                     <p>{user.name}</p>
                                 </div>
                                 <div className="profile-info-item">
@@ -77,7 +77,7 @@ export default async function ProfilePage() {
                                     <p className="truncate">{user.email}</p>
                                 </div>
                                 <div className="profile-info-item">
-                                    <label>Ro'yxatdan O'tgan Sana</label>
+                                    <label>Ro&apos;yxatdan O&apos;tgan Sana</label>
                                     <p>
                                         {new Date(user.createdAt).toLocaleDateString("uz-UZ", {
                                             year: 'numeric',
@@ -114,7 +114,7 @@ export default async function ProfilePage() {
                                 </div>
                                 <div className="profile-stat">
                                     <span className="stat-value">0</span>
-                                    <span className="stat-label">Ko'rishlar</span>
+                                    <span className="stat-label">Ko&apos;rishlar</span>
                                 </div>
                                 <div className="profile-stat">
                                     <span className="stat-value">0</span>

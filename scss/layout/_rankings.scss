@@ -19,29 +19,29 @@
   pointer-events: none;
 }
 
-/* Hero Section */
 .rankings-hero {
   max-width: 1120px;
   margin: 0 auto 3rem;
   position: relative;
   z-index: 1;
+  display: grid;
+  gap: 2rem;
 
   &__content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 2rem;
+    align-items: flex-start;
+    gap: 2rem;
     flex-wrap: wrap;
-    gap: 1.5rem;
   }
 
   &__text {
-    max-width: 600px;
+    max-width: 620px;
 
     h1 {
-      font-size: 2.5rem;
+      font-size: clamp(2.2rem, 3vw, 3rem);
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
       background: linear-gradient(to right, #fff, #cbd5e0);
       background-clip: text;
       -webkit-background-clip: text;
@@ -50,14 +50,47 @@
 
     p {
       font-size: 1rem;
-      line-height: 1.6;
-      opacity: 0.8;
-      max-width: 500px;
+      line-height: 1.7;
+      opacity: 0.82;
+    }
+  }
+
+  &__eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $primary-light;
+    margin-bottom: 0.8rem;
+    display: inline-block;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+
+    span:not(.skeleton) {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
     }
   }
 
   &__stats {
     display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
   }
 }
@@ -72,32 +105,85 @@
   min-width: 140px;
 
   &__label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     opacity: 0.6;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
   }
 
   &__val {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: $primary-light;
   }
 }
 
-/* Controls (Search + Tabs) */
+.summary-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  &__label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #94a3b8;
+  }
+
+  &__value {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+  }
+}
+
 .rankings-controls {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: rgba(15, 23, 42, 0.6);
+  align-items: flex-end;
+  background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(12px);
-  padding: 0.5rem;
-  border-radius: 1rem;
+  padding: 1rem;
+  border-radius: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  flex-wrap: wrap;
   gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.rankings-controls__left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.rankings-controls__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.rankings-controls__dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.6);
+}
+
+.rankings-controls__right {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .rank-tabs {
@@ -108,9 +194,9 @@
 }
 
 .rank-tab {
-  padding: 0.5rem 1.25rem;
+  padding: 0.55rem 1.25rem;
   font-size: 0.9rem;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   font-weight: 500;
   opacity: 0.7;
   transition: all 0.2s;
@@ -121,6 +207,11 @@
     color: white;
   }
 
+  &:focus-visible {
+    outline: 2px solid rgba(99, 179, 237, 0.6);
+    outline-offset: 2px;
+  }
+
   &--active {
     background: rgba(59, 130, 246, 0.2);
     color: $primary-light;
@@ -129,40 +220,86 @@
   }
 }
 
-.rank-search {
-  flex-grow: 1;
-  max-width: 300px;
+.rank-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 180px;
 
-  input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 0.6rem 1rem;
-    color: white;
+  label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(148, 163, 184, 0.8);
+  }
+
+  input,
+  select {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 0.75rem;
+    padding: 0.6rem 0.9rem;
+    color: #f8fafc;
     font-size: 0.9rem;
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
 
     &::placeholder {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(148, 163, 184, 0.6);
     }
 
-    &:focus {
+    &:focus-visible {
       outline: none;
+      border-color: $primary-light;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      background: rgba(15, 23, 42, 0.9);
     }
+  }
+
+  select {
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.6) 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.6) 50%, transparent 50%);
+    background-position:
+      calc(100% - 18px) calc(50% - 3px),
+      calc(100% - 13px) calc(50% - 3px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 2rem;
   }
 }
 
-/* Table */
+.rank-clear {
+  padding: 0.65rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+  background: rgba(15, 23, 42, 0.5);
+  transition: all 0.2s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #fff;
+  }
+}
+
 .rank-table-wrapper {
   max-width: 1120px;
   margin: 0 auto;
   border-radius: 1.25rem;
-  background: rgba(17, 24, 39, 0.4);
+  background: rgba(17, 24, 39, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
   position: relative;
   z-index: 1;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
 }
 
 .rank-table {
@@ -170,33 +307,44 @@
 
   &__head {
     display: grid;
-    grid-template-columns: 60px 2.5fr 1.5fr 1.5fr 80px;
+    grid-template-columns: 60px 2.6fr 1.2fr 1.6fr 140px;
     padding: 1rem 1.5rem;
     background: rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     font-weight: 600;
-    opacity: 0.7;
+    color: #94a3b8;
   }
 
   &__body {
-    max-height: 600px;
+    max-height: 560px;
     overflow-y: auto;
+    scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+  }
+
+  &__body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &__body::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 999px;
   }
 
   &__row {
     display: grid;
-    grid-template-columns: 60px 2.5fr 1.5fr 1.5fr 80px;
-    padding: 1.25rem 1.5rem;
+    grid-template-columns: 60px 2.6fr 1.2fr 1.6fr 140px;
+    padding: 1.1rem 1.5rem;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
     cursor: default;
 
     &:hover {
       background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-1px);
     }
 
     &:last-child {
@@ -205,36 +353,50 @@
   }
 
   &__empty {
-    padding: 3rem;
-    text-align: center;
-    opacity: 0.6;
+    padding: 2.5rem 1.5rem;
   }
 }
 
 .rank-idx {
   font-family: monospace;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #fbbf24;
   opacity: 0.9;
+}
+
+.rank-name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
 }
 
 .rank-name {
   font-weight: 600;
   color: white;
   font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rank-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  display: none;
 }
 
 .rank-meta {
   font-size: 0.9rem;
-  opacity: 0.8;
+  color: #cbd5f5;
 }
 
 .rank-type-badge {
   display: inline-block;
   justify-self: start;
   font-size: 0.75rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 999px;
   background: rgba(59, 130, 246, 0.15);
   color: $primary-light;
@@ -246,20 +408,44 @@
   font-weight: 700;
   color: #34d399;
   font-variant-numeric: tabular-nums;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.rank-score__track {
+  width: 100%;
+  height: 6px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.rank-score__fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.9), rgba(16, 185, 129, 0.9));
 }
 
 .page__note {
   text-align: center;
   margin-top: 1.5rem;
   font-size: 0.8rem;
-  opacity: 0.5;
+  opacity: 0.6;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Mobile */
+@media (max-width: 900px) {
+  .rankings-hero__summary {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .rankings-hero__content {
     flex-direction: column;
@@ -271,26 +457,41 @@
     align-items: stretch;
   }
 
-  .rank-search {
-    max-width: 100%;
+  .rankings-controls__right {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    input {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 0.5rem;
-    }
+  .rank-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .rank-clear {
+    width: 100%;
   }
 
   .rank-table__head,
   .rank-table__row {
-    grid-template-columns: 40px 1fr 80px;
+    grid-template-columns: 40px 1fr 100px;
     gap: 0.5rem;
   }
 
-  /* Hide columns on mobile */
+  .rank-name {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
   .rank-table__head span:nth-child(3),
   .rank-table__head span:nth-child(4),
-  .rank-table__row span:nth-child(3),
-  .rank-table__row span:nth-child(4) {
+  .rank-table__row > :nth-child(3),
+  .rank-table__row > :nth-child(4) {
     display: none;
+  }
+
+  .rank-sub {
+    display: inline-flex;
   }
 }

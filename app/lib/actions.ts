@@ -3,7 +3,6 @@
 import { signIn, signOut } from '@/auth';
 import { AuthError } from 'next-auth';
 import { z } from 'zod';
-import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
 import { prisma } from '@/app/lib/prisma';
@@ -80,7 +79,7 @@ export async function register(prevState: State, formData: FormData) {
             },
         });
 
-    } catch (error) {
+    } catch {
         return {
             message: 'Maʼlumotlar bazasida xatolik: Foydalanuvchi yaratilmadi.',
         };
@@ -94,3 +93,4 @@ export async function register(prevState: State, formData: FormData) {
 export async function logout() {
     await signOut({ redirectTo: '/' });
 }
+

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { FiSearch, FiPlus, FiEdit2, FiTrash2, FiSave, FiX } from "react-icons/fi";
+import { FiSearch, FiPlus, FiEdit2, FiTrash2, FiSave } from "react-icons/fi";
 
 type UniversityStatus = "active" | "inactive";
 

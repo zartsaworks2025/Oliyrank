@@ -7,7 +7,7 @@ export default function Hero() {
                 {/* LEFT: text */}
                 <div className="hero__content">
                     <p className="hero__eyebrow">
-                        Universitetlar · O'quv Markazlari
+                        Universitetlar · O&apos;quv Markazlari
                     </p>
 
                     <h1 className="hero__title">
@@ -75,3 +75,4 @@ export default function Hero() {
         </section>
     );
 }
+

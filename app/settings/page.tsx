@@ -36,10 +36,10 @@ export default async function SettingsPage() {
                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
-                                Profil Ma'lumotlari
+                                Profil Ma&apos;lumotlari
                             </h2>
                             <div className="settings-field">
-                                <label>To'liq Ism</label>
+                                <label>To&apos;liq Ism</label>
                                 <input
                                     type="text"
                                     defaultValue={user.name || ""}
@@ -55,7 +55,7 @@ export default async function SettingsPage() {
                                 />
                             </div>
                             <button className="btn-primary">
-                                O'zgarishlarni Saqlash
+                                O&apos;zgarishlarni Saqlash
                             </button>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ export default async function SettingsPage() {
                             <div className="settings-toggle-item">
                                 <div className="toggle-info">
                                     <p>Profilni Ommaviy Qilish</p>
-                                    <small>Boshqalar sizning profilingizni ko'rishi mumkin</small>
+                                    <small>Boshqalar sizning profilingizni ko&apos;rishi mumkin</small>
                                 </div>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" className="sr-only peer" />
@@ -159,8 +159,8 @@ export default async function SettingsPage() {
                             </div>
                             <div className="settings-toggle-item">
                                 <div className="toggle-info">
-                                    <p>Faoliyatni Ko'rsatish</p>
-                                    <small>Oxirgi faoliyatingizni ko'rsatish</small>
+                                    <p>Faoliyatni Ko&apos;rsatish</p>
+                                    <small>Oxirgi faoliyatingizni ko&apos;rsatish</small>
                                 </div>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" className="sr-only peer" defaultChecked />
@@ -180,10 +180,10 @@ export default async function SettingsPage() {
                                 Xavfli Zona
                             </h2>
                             <div className="danger-item">
-                                <p>Hisobni O'chirish</p>
-                                <small>Hisobingizni butunlay o'chirib tashlash. Bu amalni qaytarib bo'lmaydi.</small>
+                                <p>Hisobni O&apos;chirish</p>
+                                <small>Hisobingizni butunlay o&apos;chirib tashlash. Bu amalni qaytarib bo&apos;lmaydi.</small>
                                 <button>
-                                    Hisobni O'chirish
+                                    Hisobni O&apos;chirish
                                 </button>
                             </div>
                         </div>
