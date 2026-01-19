@@ -55,7 +55,7 @@ export default function Footer() {
                             <FaInstagram />
                         </a>
                         <a
-                            href="https://linkedin.com"
+                            href="https://www.linkedin.com/in/zartsa-works-0aa5273a5?utm_sourse=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app."
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"

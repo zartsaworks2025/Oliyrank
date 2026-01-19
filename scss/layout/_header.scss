@@ -37,6 +37,7 @@
   position: relative;
   opacity: 0.78;
   transition: opacity 0.15s ease, color 0.15s ease;
+  font-weight: 600;
 }
 
 .header-navbar-items:hover {
@@ -179,6 +180,7 @@
       background: transparent;
       color: #e5e7eb;
       border-color: rgba(148, 163, 184, 0.8);
+      font-weight: 600;
     }
 
     .mobile-signup-btn {
