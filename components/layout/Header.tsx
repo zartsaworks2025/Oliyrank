@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 const NAV_LINKS = [
     { href: "/", label: "Home" },
     { href: "/rankings", label: "Rankings" },
+    { href: "/compare", label: "Compare" },
     { href: "/news", label: "News" },
     { href: "/faq", label: "FAQs" },
     { href: "/contact", label: "Contact us" },
@@ -156,6 +157,21 @@ export default function Header({ user }: HeaderProps) {
                                             </svg>
                                         </Link>
 
+                                        <Link href="/bookmarks" className="flex items-center gap-3.5 px-4 py-3.5 text-sm text-slate-300 rounded-xl hover:bg-gradient-to-r hover:from-emerald-600/10 hover:to-emerald-600/5 hover:text-white transition-all duration-200 group/item border border-transparent hover:border-emerald-500/20 mb-1.5">
+                                            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600/15 to-emerald-600/5 flex items-center justify-center group-hover/item:from-emerald-600/25 group-hover/item:to-emerald-600/10 transition-all">
+                                                <svg className="w-4.5 h-4.5 text-emerald-400 group-hover/item:text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3-7 3V5z" />
+                                                </svg>
+                                            </div>
+                                            <div className="flex-1">
+                                                <p className="font-semibold text-sm mb-0.5">Saqlanganlar</p>
+                                                <p className="text-xs text-slate-500 group-hover/item:text-slate-400 leading-relaxed">Bookmarklar ro&apos;yxati</p>
+                                            </div>
+                                            <svg className="w-4 h-4 text-slate-600 group-hover/item:text-emerald-400 transition-all opacity-0 group-hover/item:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </Link>
+
                                         <Link href="/settings" className="flex items-center gap-3.5 px-4 py-3.5 text-sm text-slate-300 rounded-xl hover:bg-gradient-to-r hover:from-purple-600/10 hover:to-pink-600/10 hover:text-white transition-all duration-200 group/item border border-transparent hover:border-purple-500/20">
                                             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-600/15 to-purple-600/5 flex items-center justify-center group-hover/item:from-purple-600/25 group-hover/item:to-purple-600/10 transition-all">
                                                 <svg className="w-4.5 h-4.5 text-purple-400 group-hover/item:text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -237,6 +253,13 @@ export default function Header({ user }: HeaderProps) {
                                     onClick={closeMobileMenu}
                                 >
                                     Profil
+                                </Link>
+                                <Link
+                                    href="/bookmarks"
+                                    className="mobile-signin-btn text-center"
+                                    onClick={closeMobileMenu}
+                                >
+                                    Saqlanganlar
                                 </Link>
                                 <form action={logout} className="w-full">
                                     <button className="mobile-signup-btn w-full bg-red-600 hover:bg-red-700 border-none">

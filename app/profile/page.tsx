@@ -20,6 +20,19 @@ export default async function ProfilePage() {
         return <div>User not found</div>;
     }
 
+    const [bookmarkCount, reviewCount, pendingReviewCount] = await prisma.$transaction([
+        prisma.bookmark.count({ where: { userId: user.id } }),
+        prisma.review.count({ where: { userId: user.id } }),
+        prisma.review.count({ where: { userId: user.id, status: "PENDING" } }),
+    ]);
+
+    const recentBookmarks = await prisma.bookmark.findMany({
+        where: { userId: user.id },
+        include: { institution: true },
+        orderBy: { createdAt: "desc" },
+        take: 3,
+    });
+
     return (
         <main className="profile-container">
             <div className="container mx-auto max-w-5xl">
@@ -109,19 +122,47 @@ export default async function ProfilePage() {
                             </h3>
                             <div className="profile-stats">
                                 <div className="profile-stat">
-                                    <span className="stat-value">0</span>
+                                    <span className="stat-value">{bookmarkCount}</span>
                                     <span className="stat-label">Saqlangan</span>
                                 </div>
                                 <div className="profile-stat">
-                                    <span className="stat-value">0</span>
-                                    <span className="stat-label">Ko&apos;rishlar</span>
+                                    <span className="stat-value">{reviewCount}</span>
+                                    <span className="stat-label">Sharhlar</span>
                                 </div>
                                 <div className="profile-stat">
-                                    <span className="stat-value">0</span>
-                                    <span className="stat-label">Izohlar</span>
+                                    <span className="stat-value">{pendingReviewCount}</span>
+                                    <span className="stat-label">Moderatsiyada</span>
                                 </div>
                             </div>
                         </div>
+
+                        {recentBookmarks.length > 0 && (
+                            <div className="profile-card">
+                                <h3 className="text-xl font-bold text-white mb-4">
+                                    Saqlanganlar
+                                </h3>
+                                <div className="space-y-3">
+                                    {recentBookmarks.map((bookmark) => (
+                                        <div key={bookmark.id} className="flex items-center justify-between">
+                                            <div>
+                                                <p className="text-sm font-semibold text-white">
+                                                    {bookmark.institution.name}
+                                                </p>
+                                                <p className="text-xs text-slate-400">
+                                                    {bookmark.institution.city ?? "-"}
+                                                </p>
+                                            </div>
+                                            <Link
+                                                href={`/institutions/${bookmark.institutionId}`}
+                                                className="text-sm text-indigo-400 hover:text-indigo-300"
+                                            >
+                                                Ko&apos;rish
+                                            </Link>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,6 +1,17 @@
-export const dynamic = 'force-dynamic';
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
 
-export default function DiagnosticPage() {
+export const dynamic = "force-dynamic";
+
+export default async function DiagnosticPage() {
+    const isDev = process.env.NODE_ENV !== "production";
+    const session = await auth();
+    const isAdmin = session?.user?.role === "ADMIN";
+
+    if (!isDev && !isAdmin) {
+        redirect("/");
+    }
+
     const dbUrl = process.env.DATABASE_URL;
     const authSecret = process.env.AUTH_SECRET;
 

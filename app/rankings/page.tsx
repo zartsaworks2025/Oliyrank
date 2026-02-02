@@ -1,6 +1,37 @@
-"use client";
+﻿"use client";
 
-import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
+type InstitutionType = "UNIVERSITY" | "LEARNING_CENTER";
+
+type ApiInstitution = {
+  id: number;
+  name: string;
+  type: InstitutionType;
+  city: string | null;
+  country: string | null;
+};
+
+type ApiResult = {
+  rank: number;
+  totalScore: number;
+  institution: ApiInstitution;
+};
+
+type ApiPeriod = {
+  id: number;
+  name: string;
+  year: number;
+  startDate: string;
+  endDate: string;
+  status: string;
+};
+
+type ApiResponse = {
+  period: ApiPeriod | null;
+  results: ApiResult[];
+};
 
 type RankingItem = {
   rank: number;
@@ -8,125 +39,9 @@ type RankingItem = {
   city: string;
   score: number;
   type: string;
+  institutionId: number;
+  category: "unis" | "centers";
 };
-
-const universityData: RankingItem[] = [
-  {
-    rank: 1,
-    name: "O'zbekiston Milliy Universiteti",
-    city: "Toshkent",
-    score: 92.4,
-    type: "Davlat universiteti",
-  },
-  {
-    rank: 2,
-    name: "Toshkent Axborot Texnologiyalari Universiteti",
-    city: "Toshkent",
-    score: 90.1,
-    type: "Texnika universiteti",
-  },
-  {
-    rank: 3,
-    name: "Westminster International University in Tashkent",
-    city: "Toshkent",
-    score: 88.7,
-    type: "Xalqaro universitet",
-  },
-  {
-    rank: 4,
-    name: "Samarqand Davlat Universiteti",
-    city: "Samarqand",
-    score: 87.2,
-    type: "Davlat universiteti",
-  },
-  {
-    rank: 5,
-    name: "Toshkent Davlat Iqtisodiyot Universiteti",
-    city: "Toshkent",
-    score: 86.4,
-    type: "Iqtisodiyot universiteti",
-  },
-  {
-    rank: 6,
-    name: "Farg'ona Davlat Universiteti",
-    city: "Farg'ona",
-    score: 84.6,
-    type: "Davlat universiteti",
-  },
-  {
-    rank: 7,
-    name: "Buxoro Davlat Universiteti",
-    city: "Buxoro",
-    score: 83.1,
-    type: "Davlat universiteti",
-  },
-  {
-    rank: 8,
-    name: "Nukus Davlat Universiteti",
-    city: "Nukus",
-    score: 81.5,
-    type: "Davlat universiteti",
-  },
-];
-
-const centerData: RankingItem[] = [
-  {
-    rank: 1,
-    name: "Najot Ta'lim",
-    city: "Toshkent",
-    score: 91.3,
-    type: "Dasturlash kurslari",
-  },
-  {
-    rank: 2,
-    name: "Cambridge Learning Center",
-    city: "Toshkent",
-    score: 88.1,
-    type: "Til markazi",
-  },
-  {
-    rank: 3,
-    name: "Inha Training Center",
-    city: "Toshkent",
-    score: 86.4,
-    type: "IT kurslari",
-  },
-  {
-    rank: 4,
-    name: "PDP Academy",
-    city: "Toshkent",
-    score: 85.6,
-    type: "Dasturlash kurslari",
-  },
-  {
-    rank: 5,
-    name: "Registan Learning Center",
-    city: "Samarqand",
-    score: 84.2,
-    type: "Til markazi",
-  },
-  {
-    rank: 6,
-    name: "Farg'ona IT Park Training",
-    city: "Farg'ona",
-    score: 82.8,
-    type: "IT kurslari",
-  },
-  {
-    rank: 7,
-    name: "Buxoro Skills Hub",
-    city: "Buxoro",
-    score: 81.9,
-    type: "Kasbga tayyorlash",
-  },
-  {
-    rank: 8,
-    name: "Urganch EduLab",
-    city: "Urganch",
-    score: 80.7,
-    type: "IT kurslari",
-  },
-];
 
 const sortOptions = [
   { value: "score-desc", label: "Ball: yuqoridan pastga" },
@@ -135,16 +50,71 @@ const sortOptions = [
   { value: "name-desc", label: "Nomi: Z-A" },
 ];
 
+const formatDate = (value?: string | null) => {
+  if (!value) return "-";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "-";
+  return date.toISOString().slice(0, 10);
+};
+
 export default function RankingsPage() {
   const [activeTab, setActiveTab] = useState<"unis" | "centers">("unis");
   const [searchTerm, setSearchTerm] = useState("");
   const [cityFilter, setCityFilter] = useState("all");
   const [sortBy, setSortBy] = useState("score-desc");
+  const [viewMode, setViewMode] = useState<"table" | "cards">("table");
+  const [period, setPeriod] = useState<ApiPeriod | null>(null);
+  const [rawResults, setRawResults] = useState<ApiResult[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const data = activeTab === "unis" ? universityData : centerData;
+  useEffect(() => {
+    const fetchRankings = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("/api/rankings", { cache: "no-store" });
+        const data = (await response.json()) as ApiResponse;
+        setPeriod(data.period);
+        setRawResults(data.results ?? []);
+      } catch {
+        setPeriod(null);
+        setRawResults([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    void fetchRankings();
+  }, []);
+
+  const items = useMemo<RankingItem[]>(() => {
+    return rawResults.map((item) => {
+      const category =
+        item.institution.type === "UNIVERSITY" ? "unis" : "centers";
+      const label =
+        item.institution.type === "UNIVERSITY"
+          ? "Universitet"
+          : "O'quv markazi";
+
+      return {
+        rank: item.rank,
+        name: item.institution.name,
+        city: item.institution.city ?? "—",
+        score: item.totalScore,
+        type: label,
+        institutionId: item.institution.id,
+        category,
+      };
+    });
+  }, [rawResults]);
+
+  const data = useMemo(() => {
+    return items.filter((item) => item.category === activeTab);
+  }, [items, activeTab]);
 
   const cities = useMemo(() => {
-    return Array.from(new Set(data.map((item) => item.city)));
+    return Array.from(new Set(data.map((item) => item.city))).filter(
+      (city) => city !== "—"
+    );
   }, [data]);
 
   const filteredData = useMemo(() => {
@@ -163,25 +133,27 @@ export default function RankingsPage() {
   }, [data, searchTerm, cityFilter]);
 
   const sortedData = useMemo(() => {
-    const items = [...filteredData];
+    const itemsToSort = [...filteredData];
 
     switch (sortBy) {
       case "score-asc":
-        return items.sort((a, b) => a.score - b.score);
+        return itemsToSort.sort((a, b) => a.score - b.score);
       case "name-asc":
-        return items.sort((a, b) => a.name.localeCompare(b.name));
+        return itemsToSort.sort((a, b) => a.name.localeCompare(b.name));
       case "name-desc":
-        return items.sort((a, b) => b.name.localeCompare(a.name));
+        return itemsToSort.sort((a, b) => b.name.localeCompare(a.name));
       case "score-desc":
       default:
-        return items.sort((a, b) => b.score - a.score);
+        return itemsToSort.sort((a, b) => b.score - a.score);
     }
   }, [filteredData, sortBy]);
 
   const totalCount = data.length;
   const resultsCount = sortedData.length;
   const hasFilters =
-    searchTerm.trim().length > 0 || cityFilter !== "all" || sortBy !== "score-desc";
+    searchTerm.trim().length > 0 ||
+    cityFilter !== "all" ||
+    sortBy !== "score-desc";
 
   const clearFilters = () => {
     setSearchTerm("");
@@ -194,6 +166,12 @@ export default function RankingsPage() {
     setCityFilter("all");
   };
 
+  const universityCount = items.filter((item) => item.category === "unis").length;
+  const centerCount = items.filter((item) => item.category === "centers").length;
+  const cityCount = new Set(
+    items.map((item) => item.city).filter((city) => city !== "—")
+  ).size;
+
   return (
     <main className="page page--rankings">
       <div className="page__bg-glow" />
@@ -201,7 +179,9 @@ export default function RankingsPage() {
       <section className="rankings-hero">
         <div className="rankings-hero__content">
           <div className="rankings-hero__text">
-            <span className="rankings-hero__eyebrow">2025 yil reytinglari</span>
+            <span className="rankings-hero__eyebrow">
+              {period?.name ?? "Reyting natijalari"}
+            </span>
             <h1>OliyRank reytinglari</h1>
             <p>
               OliyRank universitetlar va o&apos;quv markazlarini bir xil mezonlar asosida
@@ -210,7 +190,7 @@ export default function RankingsPage() {
             </p>
             <div className="rankings-hero__meta">
               <span>Ochiq metodologiya</span>
-              <span>Oxirgi yangilanish: 2025-04-18</span>
+              <span>Oxirgi yangilanish: {formatDate(period?.endDate)}</span>
               <span>Manbalar: rasmiy hisobotlar</span>
             </div>
           </div>
@@ -218,15 +198,15 @@ export default function RankingsPage() {
           <div className="rankings-hero__stats">
             <div className="stat-pill">
               <span className="stat-pill__label">Universitetlar</span>
-              <span className="stat-pill__val">42</span>
+              <span className="stat-pill__val">{universityCount}</span>
             </div>
             <div className="stat-pill">
               <span className="stat-pill__label">O&apos;quv markazlari</span>
-              <span className="stat-pill__val">150+</span>
+              <span className="stat-pill__val">{centerCount}</span>
             </div>
             <div className="stat-pill">
               <span className="stat-pill__label">Shaharlar</span>
-              <span className="stat-pill__val">12</span>
+              <span className="stat-pill__val">{cityCount}</span>
             </div>
           </div>
         </div>
@@ -286,7 +266,7 @@ export default function RankingsPage() {
               <input
                 id="rank-search"
                 type="text"
-                placeholder="Nomi, shahar yoki yo&apos;nalish"
+                placeholder="Universitet nomi, shahar yoki yo'nalish"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -320,6 +300,22 @@ export default function RankingsPage() {
                 ))}
               </select>
             </div>
+            <div className="rank-view">
+              <button
+                type="button"
+                className={`rank-view__btn ${viewMode === "table" ? "active" : ""}`}
+                onClick={() => setViewMode("table")}
+              >
+                Jadval
+              </button>
+              <button
+                type="button"
+                className={`rank-view__btn ${viewMode === "cards" ? "active" : ""}`}
+                onClick={() => setViewMode("cards")}
+              >
+                Kartalar
+              </button>
+            </div>
             <button
               type="button"
               className="rank-clear"
@@ -333,67 +329,132 @@ export default function RankingsPage() {
       </section>
 
       <section className="page__content">
-        <div className="rank-table-wrapper">
-          <div className="rank-table">
-            <div className="rank-table__head">
-              <span>#</span>
-              <span>Muassasa</span>
-              <span>Shahar</span>
-              <span>Yo&apos;nalish</span>
-              <span>Ball</span>
-            </div>
+        {viewMode === "table" ? (
+          <div className="rank-table-wrapper">
+            <div className="rank-table">
+              <div className="rank-table__head">
+                <span>#</span>
+                <span>Muassasa</span>
+                <span>Shahar</span>
+                <span>Yo&apos;nalish</span>
+                <span>Ball</span>
+              </div>
 
-            <div className="rank-table__body">
-              {sortedData.length > 0 ? (
-                sortedData.map((item) => {
-                  const scoreWidth = Math.min(100, Math.max(0, item.score));
-
-                  return (
-                    <div key={`${item.rank}-${item.name}`} className="rank-table__row">
-                      <span className="rank-idx">{item.rank}</span>
-                      <div className="rank-name-wrap">
-                        <span className="rank-name">{item.name}</span>
-                        <span className="rank-sub">
-                          {item.city} - {item.type}
-                        </span>
-                      </div>
-                      <span className="rank-meta">{item.city}</span>
-                      <span className="rank-type-badge">{item.type}</span>
-                      <div className="rank-score">
-                        <span className="rank-score__value">{item.score.toFixed(1)}</span>
-                        <span className="rank-score__track">
-                          <span
-                            className="rank-score__fill"
-                            style={{ width: `${scoreWidth}%` }}
-                          />
-                        </span>
-                      </div>
+              <div className="rank-table__body">
+                {loading ? (
+                  <div className="rank-table__row">
+                    <span className="rank-idx">—</span>
+                    <div className="rank-name-wrap">
+                      <span className="rank-name">Yuklanmoqda...</span>
+                      <span className="rank-sub">Ma&apos;lumotlar yangilanmoqda</span>
                     </div>
-                  );
-                })
-              ) : (
-                <div className="rank-table__empty empty-state">
-                  <div className="empty-state__icon" />
-                  <div className="empty-state__title">Natija topilmadi</div>
-                  <div className="empty-state__text">
-                    Qidiruv so&apos;rovini qisqartiring yoki filtrlarni qayta sozlang.
+                    <span className="rank-meta">—</span>
+                    <span className="rank-type-badge">—</span>
+                    <div className="rank-score">
+                      <span className="rank-score__value">—</span>
+                      <span className="rank-score__track">
+                        <span className="rank-score__fill" style={{ width: "0%" }} />
+                      </span>
+                    </div>
                   </div>
-                  <button
-                    type="button"
-                    className="btn--ghost empty-state__action"
-                    onClick={clearFilters}
-                  >
-                    Filtrlarni tozalash
-                  </button>
-                </div>
-              )}
+                ) : sortedData.length > 0 ? (
+                  sortedData.map((item) => {
+                    const scoreWidth = Math.min(100, Math.max(0, item.score));
+
+                    return (
+                      <div key={`${item.rank}-${item.name}`} className="rank-table__row">
+                        <span className="rank-idx">{item.rank}</span>
+                        <div className="rank-name-wrap">
+                          <Link className="rank-name" href={`/institutions/${item.institutionId}`}>
+                            {item.name}
+                          </Link>
+                          <span className="rank-sub">
+                            {item.city} - {item.type}
+                          </span>
+                        </div>
+                        <span className="rank-meta">{item.city}</span>
+                        <span className="rank-type-badge">{item.type}</span>
+                        <div className="rank-score">
+                          <span className="rank-score__value">{item.score.toFixed(1)}</span>
+                          <span className="rank-score__track">
+                            <span
+                              className="rank-score__fill"
+                              style={{ width: `${scoreWidth}%` }}
+                            />
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="rank-table__empty empty-state">
+                    <div className="empty-state__icon" />
+                    <div className="empty-state__title">Natija topilmadi</div>
+                    <div className="empty-state__text">
+                      Qidiruv so&apos;rovini qisqartiring yoki filtrlarni qayta sozlang.
+                    </div>
+                    <button
+                      type="button"
+                      className="btn--ghost empty-state__action"
+                      onClick={clearFilters}
+                    >
+                      Filtrlarni tozalash
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="rank-card-grid">
+            {loading ? (
+              <div className="empty-state">
+                <div className="empty-state__title">Yuklanmoqda...</div>
+                <div className="empty-state__text">Ma&apos;lumotlar yangilanmoqda</div>
+              </div>
+            ) : sortedData.length > 0 ? (
+              sortedData.map((item) => (
+                <article key={`${item.rank}-${item.name}`} className="rank-card">
+                  <div className="rank-card__top">
+                    <div className="rank-card__rank">#{item.rank}</div>
+                    <div className="rank-card__score">{item.score.toFixed(1)}</div>
+                  </div>
+                  <h3 className="rank-card__title">
+                    <Link href={`/institutions/${item.institutionId}`}>{item.name}</Link>
+                  </h3>
+                  <div className="rank-card__meta">
+                    <span>{item.city}</span>
+                    <span>•</span>
+                    <span>{item.type}</span>
+                  </div>
+                  <div className="rank-card__progress">
+                    <span className="rank-card__progress-fill" style={{ width: `${item.score}%` }} />
+                  </div>
+                </article>
+              ))
+            ) : (
+              <div className="empty-state">
+                <div className="empty-state__icon" />
+                <div className="empty-state__title">Natija topilmadi</div>
+                <div className="empty-state__text">
+                  Qidiruv so&apos;rovini qisqartiring yoki filtrlarni qayta sozlang.
+                </div>
+                <button
+                  type="button"
+                  className="btn--ghost empty-state__action"
+                  onClick={clearFilters}
+                >
+                  Filtrlarni tozalash
+                </button>
+              </div>
+            )}
+          </div>
+        )}
 
         <p className="page__note">
-          * Jadvaldagi ma&apos;lumotlar hozircha dizayn va funksiyani namoyish qilish uchun
-          test ma&apos;lumotlari sifatida berilgan.
+          * Jadvaldagi ma&apos;lumotlar hozirda bazadan olinadi. Agar reytinglar
+          ko&apos;rinmasa, PUBLISHED holatidagi period va hisoblangan natijalar mavjud
+          ekanini tekshiring.
         </p>
       </section>
     </main>
