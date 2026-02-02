@@ -76,6 +76,7 @@ export async function register(prevState: State, formData: FormData) {
                 name,
                 email,
                 password: hashedPassword,
+                status: "ACTIVE",
             },
         });
 

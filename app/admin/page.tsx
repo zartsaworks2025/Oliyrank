@@ -1,63 +1,90 @@
-"use client";
+﻿"use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FiSearch, FiPlus, FiEdit2, FiTrash2, FiSave } from "react-icons/fi";
 
-type UniversityStatus = "active" | "inactive";
+type InstitutionType = "UNIVERSITY" | "LEARNING_CENTER";
 
-type University = {
+type InstitutionStatus = "ACTIVE" | "INACTIVE";
+
+type Institution = {
   id: number;
   name: string;
-  country: string;
-  city: string;
-  rank: number;
-  score: number;
-  status: UniversityStatus;
+  type: InstitutionType;
+  status: InstitutionStatus;
+  country: string | null;
+  city: string | null;
+  website: string | null;
 };
 
-const initialData: University[] = [
-  {
-    id: 1,
-    name: "Toshkent Davlat Universiteti",
-    country: "O‘zbekiston",
-    city: "Toshkent",
-    rank: 1,
-    score: 95,
-    status: "active",
-  },
-  {
-    id: 2,
-    name: "Samarqand Davlat Universiteti",
-    country: "O‘zbekiston",
-    city: "Samarqand",
-    rank: 2,
-    score: 90,
-    status: "active",
-  },
-];
+type Overview = {
+  institutions: number;
+  activeInstitutions: number;
+  users: number;
+  pendingReviews: number;
+  reviews: number;
+  latestPeriod: { name: string; status: string } | null;
+};
 
-export default function AdminUniversitiesPage() {
-  const [universities, setUniversities] = useState<University[]>(initialData);
+const emptyForm = {
+  name: "",
+  type: "UNIVERSITY" as InstitutionType,
+  status: "ACTIVE" as InstitutionStatus,
+  country: "",
+  city: "",
+  website: "",
+};
+
+export default function AdminInstitutionsPage() {
+  const [institutions, setInstitutions] = useState<Institution[]>([]);
   const [search, setSearch] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
-  const [form, setForm] = useState({
-    name: "",
-    country: "",
-    city: "",
-    rank: "",
-    score: "",
-    status: "active" as UniversityStatus,
-  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState(emptyForm);
+  const [overview, setOverview] = useState<Overview | null>(null);
+  const [overviewLoading, setOverviewLoading] = useState(false);
+
+  const fetchOverview = async () => {
+    setOverviewLoading(true);
+    try {
+      const response = await fetch("/api/admin/overview", { cache: "no-store" });
+      if (response.ok) {
+        const data = (await response.json()) as Overview;
+        setOverview(data);
+      }
+    } finally {
+      setOverviewLoading(false);
+    }
+  };
+
+  const fetchInstitutions = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/admin/institutions", {
+        cache: "no-store",
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch institutions");
+      }
+      const data = (await response.json()) as Institution[];
+      setInstitutions(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    void fetchInstitutions();
+    void fetchOverview();
+  }, []);
 
   const resetForm = () => {
-    setForm({
-      name: "",
-      country: "",
-      city: "",
-      rank: "",
-      score: "",
-      status: "active",
-    });
+    setForm(emptyForm);
     setEditingId(null);
   };
 
@@ -71,94 +98,135 @@ export default function AdminUniversitiesPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const rankNumber = Number(form.rank);
-    const scoreNumber = Number(form.score);
-
     if (!form.name.trim()) return;
-    if (Number.isNaN(rankNumber) || Number.isNaN(scoreNumber)) return;
 
-    if (editingId == null) {
-      const newUniversity: University = {
-        id: Date.now(),
-        name: form.name.trim(),
-        country: form.country.trim() || "—",
-        city: form.city.trim() || "—",
-        rank: rankNumber,
-        score: scoreNumber,
-        status: form.status,
-      };
+    const payload = {
+      name: form.name.trim(),
+      type: form.type,
+      status: form.status,
+      country: form.country.trim() || null,
+      city: form.city.trim() || null,
+      website: form.website.trim() || null,
+    };
 
-      setUniversities((prev) =>
-        [...prev, newUniversity].sort((a, b) => a.rank - b.rank)
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(
+        editingId ? `/api/admin/institutions/${editingId}` : "/api/admin/institutions",
+        {
+          method: editingId ? "PUT" : "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
       );
-    } else {
-      setUniversities((prev) =>
-        prev
-          .map((u) =>
-            u.id === editingId
-              ? {
-                ...u,
-                name: form.name.trim(),
-                country: form.country.trim() || "—",
-                city: form.city.trim() || "—",
-                rank: rankNumber,
-                score: scoreNumber,
-                status: form.status,
-              }
-              : u
-          )
-          .sort((a, b) => a.rank - b.rank)
-      );
+
+      if (!response.ok) {
+        throw new Error("Failed to save institution");
+      }
+
+      resetForm();
+      await fetchInstitutions();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setLoading(false);
     }
-
-    resetForm();
   };
 
-  const handleEdit = (u: University) => {
-    setEditingId(u.id);
+  const handleEdit = (institution: Institution) => {
+    setEditingId(institution.id);
     setForm({
-      name: u.name,
-      country: u.country === "—" ? "" : u.country,
-      city: u.city === "—" ? "" : u.city,
-      rank: String(u.rank),
-      score: String(u.score),
-      status: u.status,
+      name: institution.name,
+      type: institution.type,
+      status: institution.status,
+      country: institution.country ?? "",
+      city: institution.city ?? "",
+      website: institution.website ?? "",
     });
   };
 
-  const handleDelete = (id: number) => {
-    if (!confirm("Are you sure you want to delete this university?")) return;
-    setUniversities((prev) => prev.filter((u) => u.id !== id));
-    if (editingId === id) {
-      resetForm();
+  const handleDelete = async (id: number) => {
+    if (!confirm("Are you sure you want to delete this institution?")) return;
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`/api/admin/institutions/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete institution");
+      }
+
+      if (editingId === id) {
+        resetForm();
+      }
+
+      await fetchInstitutions();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setLoading(false);
     }
   };
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    if (!q) return [...universities].sort((a, b) => a.rank - b.rank);
+    if (!q) return institutions;
 
-    return universities
-      .filter(
-        (u) =>
-          u.name.toLowerCase().includes(q) ||
-          u.country.toLowerCase().includes(q) ||
-          u.city.toLowerCase().includes(q)
-      )
-      .sort((a, b) => a.rank - b.rank);
-  }, [universities, search]);
+    return institutions.filter((item) =>
+      [item.name, item.country ?? "", item.city ?? ""]
+        .join(" ")
+        .toLowerCase()
+        .includes(q)
+    );
+  }, [institutions, search]);
 
   return (
     <div className="admin-page">
       <div className="page-header">
-        <h1>University Rankings</h1>
-        <p>
-          Manage university data, scores, and rankings. Changes are currently
-          stored in frontend state only.
-        </p>
+        <h1>Institutions</h1>
+        <p>Manage universities and learning centers stored in the database.</p>
+      </div>
+
+      <div className="admin-stats">
+        {overviewLoading ? (
+          <div className="admin-stats__loading">Loading overview...</div>
+        ) : overview ? (
+          <>
+            <div className="admin-stat-card">
+              <span>Total institutions</span>
+              <strong>{overview.institutions}</strong>
+            </div>
+            <div className="admin-stat-card">
+              <span>Active institutions</span>
+              <strong>{overview.activeInstitutions}</strong>
+            </div>
+            <div className="admin-stat-card">
+              <span>Users</span>
+              <strong>{overview.users}</strong>
+            </div>
+            <div className="admin-stat-card">
+              <span>Pending reviews</span>
+              <strong>{overview.pendingReviews}</strong>
+            </div>
+            <div className="admin-stat-card">
+              <span>Latest period</span>
+              <strong>{overview.latestPeriod?.name ?? "—"}</strong>
+            </div>
+          </>
+        ) : (
+          <div className="admin-stats__loading">Overview unavailable.</div>
+        )}
       </div>
 
       <div className="admin-controls">
@@ -166,14 +234,14 @@ export default function AdminUniversitiesPage() {
           <FiSearch className="search-icon" />
           <input
             type="text"
-            placeholder="Search universities..."
+            placeholder="Search institutions..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <button type="button" onClick={resetForm} className="btn-create">
           <FiPlus className="text-lg" />
-          Add University
+          Add Institution
         </button>
       </div>
 
@@ -181,18 +249,18 @@ export default function AdminUniversitiesPage() {
         <h2>
           {editingId ? (
             <>
-              <FiEdit2 /> Edit University
+              <FiEdit2 /> Edit Institution
             </>
           ) : (
             <>
-              <FiPlus /> Add New University
+              <FiPlus /> Add New Institution
             </>
           )}
         </h2>
 
         <div className="form-grid">
           <div className="form-group">
-            <label>University Name *</label>
+            <label>Institution Name *</label>
             <input
               type="text"
               name="name"
@@ -201,6 +269,22 @@ export default function AdminUniversitiesPage() {
               required
               placeholder="e.g. National University"
             />
+          </div>
+
+          <div className="form-group">
+            <label>Type *</label>
+            <select name="type" value={form.type} onChange={handleChange}>
+              <option value="UNIVERSITY">University</option>
+              <option value="LEARNING_CENTER">Learning Center</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Status</label>
+            <select name="status" value={form.status} onChange={handleChange}>
+              <option value="ACTIVE">Active</option>
+              <option value="INACTIVE">Inactive</option>
+            </select>
           </div>
 
           <div className="form-group">
@@ -226,105 +310,80 @@ export default function AdminUniversitiesPage() {
           </div>
 
           <div className="form-group">
-            <label>Rank Position *</label>
+            <label>Website</label>
             <input
-              type="number"
-              name="rank"
-              value={form.rank}
+              type="url"
+              name="website"
+              value={form.website}
               onChange={handleChange}
-              min={1}
-              required
-              placeholder="e.g. 1"
+              placeholder="https://example.uz"
             />
-          </div>
-
-          <div className="form-group">
-            <label>Score (0-100) *</label>
-            <input
-              type="number"
-              name="score"
-              value={form.score}
-              onChange={handleChange}
-              min={0}
-              max={100}
-              required
-              placeholder="e.g. 95"
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Status</label>
-            <select
-              name="status"
-              value={form.status}
-              onChange={handleChange}
-            >
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-            </select>
           </div>
         </div>
 
         <div className="form-actions">
           {editingId && (
-            <button
-              type="button"
-              onClick={resetForm}
-              className="btn-cancel"
-            >
+            <button type="button" onClick={resetForm} className="btn-cancel">
               Cancel
             </button>
           )}
-          <button type="submit" className="btn-save">
+          <button type="submit" className="btn-save" disabled={loading}>
             <span className="flex items-center gap-2">
               <FiSave />
-              {editingId ? "Update University" : "Save University"}
+              {editingId ? "Update Institution" : "Save Institution"}
             </span>
           </button>
         </div>
+
+        {error && <p className="text-sm text-red-400 mt-3">{error}</p>}
       </form>
 
       <div className="admin-table-wrapper">
         <table>
           <thead>
             <tr>
-              <th>Rank</th>
-              <th>University Name</th>
+              <th>Name</th>
+              <th>Type</th>
               <th>Country</th>
               <th>City</th>
-              <th>Score</th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.length === 0 ? (
+            {loading ? (
               <tr>
-                <td colSpan={7} className="text-center py-8 opacity-50">
-                  No universities found matching your search.
+                <td colSpan={6} className="text-center py-8 opacity-50">
+                  Loading institutions...
+                </td>
+              </tr>
+            ) : filtered.length === 0 ? (
+              <tr>
+                <td colSpan={6} className="text-center py-8 opacity-50">
+                  No institutions found matching your search.
                 </td>
               </tr>
             ) : (
-              filtered.map((u) => (
-                <tr key={u.id}>
-                  <td className="font-bold text-white">#{u.rank}</td>
-                  <td className="col-name">{u.name}</td>
-                  <td>{u.country}</td>
-                  <td>{u.city}</td>
-                  <td className="font-mono">{u.score}</td>
+              filtered.map((institution) => (
+                <tr key={institution.id}>
+                  <td className="col-name">{institution.name}</td>
+                  <td>{institution.type === "UNIVERSITY" ? "University" : "Learning Center"}</td>
+                  <td>{institution.country ?? "—"}</td>
+                  <td>{institution.city ?? "—"}</td>
                   <td>
                     <span
-                      className={`badges ${u.status === "active" ? "badge-active" : "badge-inactive"
-                        }`}
+                      className={`badges ${
+                        institution.status === "ACTIVE" ? "badge-active" : "badge-inactive"
+                      }`}
                     >
-                      {u.status === "active" ? "Active" : "Inactive"}
+                      {institution.status === "ACTIVE" ? "Active" : "Inactive"}
                     </span>
                   </td>
                   <td>
                     <div className="action-buttons">
                       <button
                         type="button"
-                        onClick={() => handleEdit(u)}
+                        onClick={() => handleEdit(institution)}
                         className="btn-edit"
                         title="Edit"
                       >
@@ -332,7 +391,7 @@ export default function AdminUniversitiesPage() {
                       </button>
                       <button
                         type="button"
-                        onClick={() => handleDelete(u.id)}
+                        onClick={() => handleDelete(institution.id)}
                         className="btn-delete"
                         title="Delete"
                       >

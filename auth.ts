@@ -30,6 +30,7 @@ export const { auth, signIn, signOut } = NextAuth({
                     const { email, password } = parsedCredentials.data;
                     const user = await getUser(email);
                     if (!user) return null;
+                    if (user.status === "INACTIVE") return null;
                     if (!user.password) return null; // Passwords are required for credentials
 
                     const passwordsMatch = await bcrypt.compare(password, user.password);
