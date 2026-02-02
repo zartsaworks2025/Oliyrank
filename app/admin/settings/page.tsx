@@ -1,128 +1,166 @@
-"use client";
+﻿"use client";
 
-import { useState } from "react";
-import { FiSave, FiBell, FiMonitor, FiGlobe, FiCheck } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import { FiActivity, FiRefreshCcw, FiCheck, FiAlertTriangle } from "react-icons/fi";
 
-const SettingsSection = ({
-    title,
-    icon: Icon,
-    children,
-}: {
-    title: string;
-    icon: React.ElementType;
-    children: React.ReactNode;
-}) => (
-    <div className="settings-section">
-        <h2 className="section-title">
-            <Icon />
-            {title}
-        </h2>
-        <div className="form-grid">{children}</div>
-    </div>
-);
+type Period = {
+  id: number;
+  name: string;
+  status: string;
+  startDate: string;
+  endDate: string;
+};
+
+type Overview = {
+  institutions: number;
+  users: number;
+  pendingReviews: number;
+  reviews: number;
+};
 
 export default function AdminSettingsPage() {
-    const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false);
+  const [health, setHealth] = useState<"up" | "down" | "unknown">("unknown");
+  const [periods, setPeriods] = useState<Period[]>([]);
+  const [selectedPeriod, setSelectedPeriod] = useState<number | "">("");
+  const [overview, setOverview] = useState<Overview | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-    const handleSave = () => {
-        setLoading(true);
-        // Simulate API call
-        setTimeout(() => {
-            setLoading(false);
-            setSuccess(true);
-            setTimeout(() => setSuccess(false), 3000);
-        }, 1000);
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const [healthRes, periodsRes, overviewRes] = await Promise.all([
+          fetch("/api/health"),
+          fetch("/api/admin/periods"),
+          fetch("/api/admin/overview"),
+        ]);
+
+        if (healthRes.ok) {
+          const data = (await healthRes.json()) as { db?: string };
+          setHealth(data.db === "up" ? "up" : "down");
+        } else {
+          setHealth("down");
+        }
+
+        if (periodsRes.ok) {
+          const data = (await periodsRes.json()) as { periods: Period[] };
+          setPeriods(data.periods ?? []);
+          if (data.periods?.length) {
+            setSelectedPeriod(data.periods[0].id);
+          }
+        }
+
+        if (overviewRes.ok) {
+          const data = (await overviewRes.json()) as Overview;
+          setOverview(data);
+        }
+      } catch {
+        setHealth("down");
+      }
     };
 
-    return (
-        <div className="admin-page">
-            <div className="page-header">
-                <h1>Settings</h1>
-                <p>Configure global system preferences and defaults.</p>
-            </div>
+    void load();
+  }, []);
 
-            <div className="settings-container">
-                <SettingsSection title="General Settings" icon={FiGlobe}>
-                    <div className="form-group">
-                        <label>Site Name</label>
-                        <input type="text" defaultValue="OliyRank" />
-                    </div>
-                    <div className="form-group">
-                        <label>System Language</label>
-                        <select defaultValue="uz">
-                            <option value="uz">O‘zbekcha</option>
-                            <option value="en">English</option>
-                            <option value="ru">Русский</option>
-                        </select>
-                    </div>
-                    <div className="form-group" style={{ gridColumn: "1 / -1" }}>
-                        <label>Support Email</label>
-                        <input type="email" defaultValue="support@oliyrank.uz" />
-                    </div>
-                </SettingsSection>
+  const recompute = async () => {
+    if (!selectedPeriod) {
+      setError("Please select a ranking period.");
+      return;
+    }
 
-                <SettingsSection title="Appearance" icon={FiMonitor}>
-                    <div className="form-group">
-                        <label>Interface Theme</label>
-                        <select defaultValue="dark" disabled>
-                            <option value="dark">Dark (Default)</option>
-                            <option value="light">Light</option>
-                            <option value="system">System</option>
-                        </select>
-                        <p className="meta" style={{ marginTop: "0.5rem" }}>
-                            Currently locked to Dark theme for Admin Panel.
-                        </p>
-                    </div>
-                    <div className="form-group">
-                        <label>Density</label>
-                        <select defaultValue="comfortable">
-                            <option value="comfortable">Comfortable</option>
-                            <option value="compact">Compact</option>
-                        </select>
-                    </div>
-                </SettingsSection>
+    setLoading(true);
+    setMessage(null);
+    setError(null);
 
-                <SettingsSection title="Notifications" icon={FiBell}>
-                    <div className="form-group">
-                        <label className="checkbox-label">
-                            <span>Email Alerts</span>
-                            <input type="checkbox" defaultChecked />
-                        </label>
-                        <p className="meta" style={{ paddingLeft: "0.5rem" }}>
-                            Receive emails about new university registrations.
-                        </p>
-                    </div>
-                    <div className="form-group">
-                        <label className="checkbox-label">
-                            <span>Weekly Reports</span>
-                            <input type="checkbox" />
-                        </label>
-                    </div>
-                </SettingsSection>
+    try {
+      const response = await fetch("/api/admin/rankings/recompute", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ periodId: selectedPeriod }),
+      });
 
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginTop: "2rem", paddingBottom: "3rem" }}>
-                    <button
-                        onClick={handleSave}
-                        disabled={loading}
-                        className="btn-primary"
-                    >
-                        {loading ? (
-                            "Saving..."
-                        ) : (
-                            <>
-                                <FiSave /> Save Changes
-                            </>
-                        )}
-                    </button>
+      if (!response.ok) {
+        throw new Error("Failed to recompute ranking");
+      }
 
-                    {success && (
-                        <span className="success-message">
-                            <FiCheck /> Settings saved successfully!
-                        </span>
-                    )}
-                </div>
-            </div>
+      setMessage("Ranking successfully recomputed.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="admin-page">
+      <div className="page-header">
+        <h1>System Operations</h1>
+        <p>Monitor platform health and manage ranking operations.</p>
+      </div>
+
+      <div className="admin-stats">
+        <div className="admin-stat-card">
+          <span>Database</span>
+          <strong>{health === "up" ? "Online" : "Offline"}</strong>
         </div>
-    );
+        <div className="admin-stat-card">
+          <span>Institutions</span>
+          <strong>{overview?.institutions ?? "—"}</strong>
+        </div>
+        <div className="admin-stat-card">
+          <span>Users</span>
+          <strong>{overview?.users ?? "—"}</strong>
+        </div>
+        <div className="admin-stat-card">
+          <span>Pending Reviews</span>
+          <strong>{overview?.pendingReviews ?? "—"}</strong>
+        </div>
+      </div>
+
+      <div className="admin-form">
+        <h2>
+          <FiActivity /> Ranking operations
+        </h2>
+        <div className="form-grid">
+          <div className="form-group">
+            <label>Ranking period</label>
+            <select
+              value={selectedPeriod}
+              onChange={(e) => setSelectedPeriod(Number(e.target.value) || "")}
+            >
+              <option value="">Select period</option>
+              {periods.map((period) => (
+                <option key={period.id} value={period.id}>
+                  {period.name} ({period.status})
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Action</label>
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={recompute}
+              disabled={loading}
+            >
+              <FiRefreshCcw />
+              {loading ? "Recomputing..." : "Recompute ranking"}
+            </button>
+          </div>
+        </div>
+        {message && (
+          <p className="success-message">
+            <FiCheck /> {message}
+          </p>
+        )}
+        {error && (
+          <p className="text-sm text-red-400 mt-3 flex items-center gap-2">
+            <FiAlertTriangle /> {error}
+          </p>
+        )}
+      </div>
+    </div>
+  );
 }

@@ -1,0 +1,15 @@
+﻿services:
+  db:
+    image: postgres:16
+    container_name: oliyrank-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: oliyrank
+      POSTGRES_USER: oliyrank_user
+      POSTGRES_PASSWORD: oliyrank_pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - oliyrank_pgdata:/var/lib/postgresql/data
+volumes:
+  oliyrank_pgdata:
