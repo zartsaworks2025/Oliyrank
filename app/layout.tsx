@@ -4,6 +4,7 @@ import "./globals.css";
 import "../scss/main.scss"; // SCSS imports
 import LayoutContent from "@/components/layout/LayoutContent";
 import { auth } from "@/auth";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,16 +27,32 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
+  const themeInitScript = `
+    (function() {
+      try {
+        var saved = localStorage.getItem('oliyrank-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved === 'light' || saved === 'dark' ? saved : (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      } catch (_) {}
+    })();
+  `;
 
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="bg-slate-950 text-slate-100 antialiased flex flex-col min-h-screen">
-        <LayoutContent user={session?.user}>
-          {children}
-        </LayoutContent>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="antialiased flex flex-col min-h-screen">
+        <ThemeProvider>
+          <LayoutContent user={session?.user}>
+            {children}
+          </LayoutContent>
+        </ThemeProvider>
       </body>
     </html>
   );
