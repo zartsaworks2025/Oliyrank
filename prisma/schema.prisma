@@ -1,0 +1,227 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String?
+  image         String?
+  role          UserRole  @default(USER)
+  status        UserStatus @default(ACTIVE)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  reviews       Review[]
+  reviewVotes   ReviewVote[]
+  reviewReports ReviewReport[]
+  bookmarks     Bookmark[]
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  ANALYST
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum InstitutionType {
+  UNIVERSITY
+  LEARNING_CENTER
+}
+
+enum InstitutionStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum PeriodStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum IndicatorScope {
+  UNIVERSITY
+  LEARNING_CENTER
+  BOTH
+}
+
+enum SourceType {
+  OFFICIAL_REPORT
+  ACCREDITATION
+  SURVEY
+  EMPLOYER_SURVEY
+  STUDENT_SURVEY
+  OTHER
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Institution {
+  id             Int               @id @default(autoincrement())
+  name           String
+  slug           String?           @unique
+  type           InstitutionType
+  status         InstitutionStatus @default(ACTIVE)
+  country        String?
+  city           String?
+  website        String?
+  description    String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  scores         Score[]
+  rankingResults RankingResult[]
+  reviews        Review[]
+  bookmarks      Bookmark[]
+
+  @@index([type, status])
+}
+
+model RankingPeriod {
+  id             Int             @id @default(autoincrement())
+  name           String
+  year           Int
+  startDate      DateTime
+  endDate        DateTime
+  status         PeriodStatus    @default(DRAFT)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  scores         Score[]
+  rankingResults RankingResult[]
+
+  @@index([year, status])
+}
+
+model Indicator {
+  id          Int            @id @default(autoincrement())
+  key         String         @unique
+  name        String
+  description String?
+  weight      Float
+  scope       IndicatorScope @default(BOTH)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  scores      Score[]
+}
+
+model Source {
+  id          Int        @id @default(autoincrement())
+  name        String
+  type        SourceType
+  url         String?
+  publishedAt DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  scores      Score[]
+}
+
+model Score {
+  id            Int           @id @default(autoincrement())
+  value         Float
+  note          String?
+  institutionId Int
+  indicatorId   Int
+  periodId      Int
+  sourceId      Int?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  institution   Institution   @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  indicator     Indicator     @relation(fields: [indicatorId], references: [id], onDelete: Cascade)
+  period        RankingPeriod @relation(fields: [periodId], references: [id], onDelete: Cascade)
+  source        Source?       @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+
+  @@unique([institutionId, indicatorId, periodId])
+  @@index([periodId])
+}
+
+model RankingResult {
+  id            Int           @id @default(autoincrement())
+  periodId      Int
+  institutionId Int
+  totalScore    Float
+  rank          Int
+  calculatedAt  DateTime      @default(now())
+  institution   Institution   @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  period        RankingPeriod @relation(fields: [periodId], references: [id], onDelete: Cascade)
+
+  @@unique([periodId, institutionId])
+  @@index([periodId, rank])
+}
+
+model Review {
+  id            Int          @id @default(autoincrement())
+  rating        Int
+  title         String
+  body          String
+  status        ReviewStatus @default(PENDING)
+  isFlagged     Boolean      @default(false)
+  flagReason    String?
+  institutionId Int
+  userId        String
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  institution   Institution  @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  votes         ReviewVote[]
+  reports       ReviewReport[]
+
+  @@index([institutionId, status])
+}
+
+model ReviewVote {
+  id        Int      @id @default(autoincrement())
+  value     Int
+  userId    String
+  reviewId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  review    Review   @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, reviewId])
+}
+
+model ReviewReport {
+  id        Int      @id @default(autoincrement())
+  reason    String
+  note      String?
+  resolved  Boolean  @default(false)
+  userId    String
+  reviewId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  review    Review   @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+
+  @@index([reviewId, resolved])
+}
+
+model Bookmark {
+  id            Int         @id @default(autoincrement())
+  userId        String
+  institutionId Int
+  createdAt     DateTime    @default(now())
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  institution   Institution @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, institutionId])
+  @@index([userId])
+}
+
+
