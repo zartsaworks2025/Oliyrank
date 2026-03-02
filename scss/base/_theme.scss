@@ -1,0 +1,360 @@
+html[data-theme="light"] {
+  .page,
+  .wrapper,
+  .hero,
+  .cards,
+  .page--rankings,
+  .page--about,
+  .page--contact,
+  .page--faqs,
+  .page--news,
+  .page--institution,
+  .page--compare,
+  .page--bookmarks,
+  .page--methodology,
+  .page--legal,
+  .page--blog,
+  .auth-container,
+  .profile-container,
+  .settings-container {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  .hero,
+  .auth-container,
+  .profile-container,
+  .settings-container {
+    background-image:
+      radial-gradient(circle at 15% 30%, rgba(59, 130, 246, 0.1), transparent 45%),
+      radial-gradient(circle at 85% 20%, rgba(124, 58, 237, 0.08), transparent 40%);
+  }
+
+  .hero__title,
+  .about-hero__title,
+  .contact-hero h1,
+  .news-hero__content h1,
+  .rankings-hero__text h1 {
+    background: none;
+    color: #0f172a;
+    -webkit-text-fill-color: #0f172a;
+  }
+
+  .hero__subtitle,
+  .about-hero__subtitle,
+  .contact-hero p,
+  .news-hero__content p,
+  .faqs-hero p,
+  .rankings-hero__text p,
+  .page__note,
+  .empty-text,
+  .empty-state__text,
+  .rankings-controls__meta,
+  .rankings-controls__dot,
+  .summary-card__label,
+  .rank-meta,
+  .rank-sub,
+  .review-card__meta,
+  .reviews__empty,
+  .reviews__header p,
+  .contact-form__note,
+  .news-toolbar__count,
+  .news-card__meta,
+  .news-card__footer,
+  .news-feature__meta,
+  .news-feature__summary,
+  .news-feature__footer,
+  .faq-search__count,
+  .faq-card p,
+  .faq-card__label,
+  .faq-item__tag,
+  .about-section__title-wrap p,
+  .about-card p,
+  .about-list__item p,
+  .about-roadmap__item p,
+  .profile-header p,
+  .profile-info-item label,
+  .profile-stat .stat-label,
+  .settings-field small,
+  .settings-toggle-item .toggle-info small,
+  .danger-zone .danger-item small,
+  .auth-card__subtitle,
+  .auth-footer {
+    color: #475569;
+    opacity: 1;
+  }
+
+  .footer {
+    background: #ffffff;
+    color: #0f172a;
+    border-top-color: rgba(148, 163, 184, 0.35);
+  }
+
+  .footer .footer-about p,
+  .footer .footer-contact p,
+  .footer .footer-links h3,
+  .footer .footer-bottom p,
+  .footer .footer-bottom-links span {
+    color: #475569;
+  }
+
+  .footer .footer-links a,
+  .footer .footer-logo a,
+  .footer .footer-bottom-links a {
+    color: #0f172a;
+  }
+
+  .footer .footer-social a {
+    border-color: rgba(148, 163, 184, 0.4);
+    color: #334155;
+  }
+
+  .cards__item,
+  .hero__card,
+  .stat-pill,
+  .summary-card,
+  .rankings-controls,
+  .rank-table-wrapper,
+  .rank-card,
+  .about-card,
+  .about-list__item,
+  .about-roadmap__item,
+  .contact-highlight,
+  .contact-grid__info,
+  .contact-grid__form,
+  .contact-footer__card,
+  .news-hero__panel,
+  .news-highlight,
+  .news-feature,
+  .news-card,
+  .faq-item,
+  .faq-card,
+  .institution-details__card,
+  .reviews__form,
+  .review-card,
+  .compare-card,
+  .bookmark-card,
+  .methodology-card,
+  .methodology-note,
+  .legal-content,
+  .auth-card,
+  .profile-card,
+  .settings-card,
+  .profile-info-item,
+  .profile-stat,
+  .settings-toggle-item,
+  .danger-zone .danger-item,
+  .empty-state {
+    background: #ffffff;
+    border-color: rgba(148, 163, 184, 0.35);
+    color: #0f172a;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  }
+
+  .about-list__item,
+  .profile-stat,
+  .news-feature,
+  .news-card,
+  .rank-card,
+  .hero__card,
+  .contact-grid__info,
+  .contact-grid__form,
+  .reviews__form,
+  .review-card {
+    backdrop-filter: none;
+  }
+
+  .rank-table__head {
+    background: #f1f5f9;
+    color: #334155;
+    border-bottom-color: rgba(148, 163, 184, 0.35);
+  }
+
+  .rank-table__row {
+    border-bottom-color: rgba(148, 163, 184, 0.25);
+  }
+
+  .rank-table__row:hover {
+    background: #f8fafc;
+  }
+
+  .rank-name,
+  .rank-card__title a,
+  .news-feature__title,
+  .news-card__title,
+  .faq-item__question,
+  .faqs-hero h1,
+  .contact-info-header h2,
+  .profile-header h1,
+  .settings-section h2,
+  .auth-card h1,
+  .hero__rank-list li,
+  .about-card h3,
+  .about-list__item h3,
+  .about-roadmap__item h3 {
+    color: #0f172a;
+  }
+
+  .rank-type-badge {
+    background: rgba(37, 99, 235, 0.1);
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.28);
+  }
+
+  .rank-score,
+  .rank-card__score {
+    color: #059669;
+  }
+
+  .rank-score__track,
+  .rank-card__progress {
+    background: rgba(148, 163, 184, 0.25);
+  }
+
+  .rankings-hero__meta span:not(.skeleton) {
+    background: #f1f5f9;
+    border-color: rgba(148, 163, 184, 0.35);
+    color: #334155;
+  }
+
+  .rank-tab,
+  .rank-view__btn,
+  .news-tag,
+  .faq-category {
+    color: #475569;
+    background: #f1f5f9;
+    border-color: rgba(148, 163, 184, 0.35);
+    opacity: 1;
+  }
+
+  .rank-tab--active,
+  .rank-view__btn.active,
+  .news-tag--active,
+  .faq-category--active {
+    background: rgba(37, 99, 235, 0.14);
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+
+  .rank-tabs,
+  .rank-view {
+    background: #e2e8f0;
+    border-color: rgba(148, 163, 184, 0.45);
+  }
+
+  .bookmark-btn,
+  .vote-btn,
+  .report-btn,
+  .mobile-signin-btn,
+  .header-signin-btn,
+  .rank-clear,
+  .btn--ghost {
+    background: #ffffff;
+    border-color: rgba(148, 163, 184, 0.45);
+    color: #1e293b;
+  }
+
+  .bookmark-btn--active {
+    background: rgba(16, 185, 129, 0.14);
+    color: #065f46;
+    border-color: rgba(16, 185, 129, 0.35);
+  }
+
+  .btn--primary,
+  .contact-submit,
+  .auth-submit,
+  .btn-primary,
+  .mobile-signup-btn,
+  .header-signup-btn {
+    color: #ffffff;
+  }
+
+  .rank-filter label,
+  .news-toolbar__search label,
+  .faq-search label,
+  .field label,
+  .contact-highlight__label,
+  .news-highlight__label,
+  .news-hero__panel-label,
+  .contact-info-item .contact-info-label,
+  .profile-badge,
+  .rank-table__head,
+  .compare-panel label {
+    color: #334155;
+  }
+
+  .rank-filter input,
+  .rank-filter select,
+  .news-toolbar__search input,
+  .faq-search input,
+  .reviews__field input,
+  .reviews__field select,
+  .reviews__field textarea,
+  .compare-panel select,
+  .field input,
+  .field textarea,
+  .field select,
+  .auth-field input,
+  .settings-field input {
+    background: #ffffff;
+    color: #0f172a;
+    border-color: rgba(148, 163, 184, 0.45);
+  }
+
+  .rank-filter input::placeholder,
+  .news-toolbar__search input::placeholder,
+  .faq-search input::placeholder,
+  .reviews__field input::placeholder,
+  .reviews__field textarea::placeholder,
+  .field input::placeholder,
+  .field textarea::placeholder,
+  .auth-field input::placeholder,
+  .settings-field input::placeholder {
+    color: #64748b;
+    opacity: 1;
+  }
+
+  .field select,
+  .rank-filter select {
+    background-image:
+      linear-gradient(45deg, transparent 50%, rgba(51, 65, 85, 0.65) 50%),
+      linear-gradient(135deg, rgba(51, 65, 85, 0.65) 50%, transparent 50%);
+  }
+
+  .contact-trust,
+  .faq-card__note,
+  .reviews__notice,
+  .danger-zone {
+    background: rgba(37, 99, 235, 0.08);
+    color: #1e3a8a;
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+
+  .news-feature__source,
+  .news-card__source,
+  .contact-highlight__value,
+  .news-highlight__value,
+  .news-hero__panel-value,
+  .faq-card__value,
+  .contact-info-item .contact-info-value,
+  .profile-info-item p,
+  .settings-toggle-item .toggle-info p,
+  .danger-zone .danger-item p,
+  .stat-pill__val,
+  .summary-card__value,
+  .methodology-card ul,
+  .legal-content,
+  .bookmark-card p,
+  .bookmark-card h2,
+  .compare-card,
+  .compare-metrics strong,
+  .review-card__body {
+    color: #1e293b;
+  }
+
+  .empty-state__icon {
+    border-color: rgba(37, 99, 235, 0.4);
+    background: rgba(37, 99, 235, 0.12);
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+  }
+}

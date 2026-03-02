@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type ReviewItem = {
   id: number;
@@ -26,7 +26,7 @@ export default function ReviewSection({ institutionId, canReview }: ReviewSectio
   const [body, setBody] = useState("");
   const [message, setMessage] = useState<string | null>(null);
 
-  const fetchReviews = async () => {
+  const fetchReviews = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch(`/api/reviews?institutionId=${institutionId}`);
@@ -37,11 +37,11 @@ export default function ReviewSection({ institutionId, canReview }: ReviewSectio
     } finally {
       setLoading(false);
     }
-  };
+  }, [institutionId]);
 
   useEffect(() => {
     void fetchReviews();
-  }, [institutionId]);
+  }, [fetchReviews]);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -147,7 +147,7 @@ export default function ReviewSection({ institutionId, canReview }: ReviewSectio
         {loading ? (
           <div className="reviews__empty">Yuklanmoqda...</div>
         ) : reviews.length === 0 ? (
-          <div className="reviews__empty">Hozircha sharhlar yo'q.</div>
+          <div className="reviews__empty">Hozircha sharhlar yo&apos;q.</div>
         ) : (
           reviews.map((review) => (
             <article key={review.id} className="review-card">

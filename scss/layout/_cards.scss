@@ -196,6 +196,35 @@
     linear-gradient(180deg, #020617 0%, #030712 50%, #020617 100%);
 }
 
+html[data-theme="light"] .cards {
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.1), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.08), transparent 55%),
+    #f8fafc;
+  color: #0f172a;
+}
+
+html[data-theme="light"] .cards__item {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.4);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+}
+
+html[data-theme="light"] .cards__overlay {
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.05));
+}
+
+html[data-theme="light"] .cards__type {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(148, 163, 184, 0.5);
+  color: #0f172a;
+}
+
+html[data-theme="light"] .cards__row,
+html[data-theme="light"] .cards__disclaimer {
+  color: #475569;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cards__item {
     animation: none;

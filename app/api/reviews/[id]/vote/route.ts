@@ -13,7 +13,7 @@ const getUserId = async (email?: string | null) => {
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const session = await ensureUser();
   if (!session) {
@@ -25,7 +25,8 @@ export async function POST(
     return NextResponse.json({ error: "User not found" }, { status: 401 });
   }
 
-  const reviewId = Number(params.id);
+  const { id } = await params;
+  const reviewId = Number(id);
   if (Number.isNaN(reviewId)) {
     return NextResponse.json({ error: "Invalid review id" }, { status: 400 });
   }

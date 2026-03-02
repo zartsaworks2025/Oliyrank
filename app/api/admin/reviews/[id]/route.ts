@@ -4,14 +4,15 @@ import { ensureAdmin } from "@/app/lib/guards";
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const session = await ensureAdmin();
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const reviewId = Number(params.id);
+  const { id } = await params;
+  const reviewId = Number(id);
   if (Number.isNaN(reviewId)) {
     return NextResponse.json({ error: "Invalid review id" }, { status: 400 });
   }

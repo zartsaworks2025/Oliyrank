@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const statusOptions = ["ALL", "PENDING", "APPROVED", "REJECTED"] as const;
 
@@ -25,7 +25,7 @@ export default function AdminReviewsPage() {
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchReviews = async () => {
+  const fetchReviews = useCallback(async () => {
     setLoading(true);
     try {
       const query = statusFilter !== "ALL" ? `?status=${statusFilter}` : "";
@@ -35,11 +35,11 @@ export default function AdminReviewsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [statusFilter]);
 
   useEffect(() => {
     void fetchReviews();
-  }, [statusFilter]);
+  }, [fetchReviews]);
 
   const updateStatus = async (id: number, status: "APPROVED" | "REJECTED") => {
     await fetch(`/api/admin/reviews/${id}`, {

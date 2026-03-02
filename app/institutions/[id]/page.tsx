@@ -115,7 +115,7 @@ export default async function InstitutionPage({ params }: InstitutionPageProps) 
           </span>
         </div>
         <div className="summary-card">
-          <span className="summary-card__label">Reyting o'rni</span>
+          <span className="summary-card__label">Reyting o&apos;rni</span>
           <span className="summary-card__value">
             {rankingResult ? `#${rankingResult.rank}` : "—"}
           </span>
@@ -124,7 +124,7 @@ export default async function InstitutionPage({ params }: InstitutionPageProps) 
 
       <section className="institution-details">
         <div className="institution-details__card">
-          <h2>Ko'rsatkichlar</h2>
+          <h2>Ko&apos;rsatkichlar</h2>
           {scores.length > 0 ? (
             <ul className="indicator-list">
               {scores.map((score) => (
@@ -135,12 +135,12 @@ export default async function InstitutionPage({ params }: InstitutionPageProps) 
               ))}
             </ul>
           ) : (
-            <p className="empty-text">Ko'rsatkichlar hali yuklanmagan.</p>
+            <p className="empty-text">Ko&apos;rsatkichlar hali yuklanmagan.</p>
           )}
         </div>
 
         <div className="institution-details__card">
-          <h2>Qisqacha ma'lumot</h2>
+          <h2>Qisqacha ma&apos;lumot</h2>
           <p>
             {institution.description ??
               "Muassasa haqida qisqacha ma'lumot keyinchalik qo'shiladi."}

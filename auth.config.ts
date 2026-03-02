@@ -1,5 +1,11 @@
 import type { NextAuthConfig } from 'next-auth';
 
+const isRole = (value: unknown): value is "USER" | "ADMIN" | "ANALYST" =>
+    value === "USER" || value === "ADMIN" || value === "ANALYST";
+
+const isStatus = (value: unknown): value is "ACTIVE" | "INACTIVE" =>
+    value === "ACTIVE" || value === "INACTIVE";
+
 export const authConfig = {
     pages: {
         signIn: '/signin',
@@ -44,10 +50,10 @@ export const authConfig = {
             return token;
         },
         session({ session, token }) {
-            if (session.user && token.role) {
+            if (session.user && isRole(token.role)) {
                 session.user.role = token.role;
             }
-            if (session.user && token.status) {
+            if (session.user && isStatus(token.status)) {
                 session.user.status = token.status;
             }
             return session;
