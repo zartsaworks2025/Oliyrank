@@ -11,6 +11,7 @@ import {
     FaPhone,
     FaEnvelope,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -30,7 +31,7 @@ export default function Footer() {
                     </p>
                     <div className="footer-social">
                         <a
-                            href="https://facebook.com"
+                            href="https://facebook.com/share/17tGNvinwR/?mibextid=wwXIfr"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"
@@ -38,15 +39,15 @@ export default function Footer() {
                             <FaFacebook />
                         </a>
                         <a
-                            href="https://twitter.com"
+                            href="https://x.com/OliyRank"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Twitter"
                         >
-                            <FaTwitter />
+                            <FaXTwitter />
                         </a>
                         <a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/zartsaworks/"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
@@ -54,7 +55,7 @@ export default function Footer() {
                             <FaInstagram />
                         </a>
                         <a
-                            href="https://linkedin.com"
+                            href="https://www.linkedin.com/in/zartsa-works-0aa5273a5?utm_sourse=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app."
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"

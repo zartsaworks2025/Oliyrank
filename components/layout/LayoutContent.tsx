@@ -19,7 +19,7 @@ export default function LayoutContent({ children, user }: LayoutContentProps) {
 
     return (
         <>
-            {!isAdmin && <Header user={user ?? undefined} />}
+           {!isAdmin && <Header user={user ?? undefined} />}
             <main className="flex-grow">{children}</main>
             {!isAdmin && <Footer />}
         </>

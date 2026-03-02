@@ -234,6 +234,10 @@
   color: #93c5fd;
 }
 
+.page--compare {
+      background-image: radial-gradient(circle at 20% 0, #60a5fa14 0%, #0000 55%), radial-gradient(circle at 80% 20%, #10b98114 0%, #0000 50%);
+}
+
 .compare-hero,
 .bookmarks-hero,
 .methodology-hero,
@@ -249,6 +253,32 @@
     color: $primary-light;
     margin-bottom: 0.6rem;
     display: inline-block;
+  }
+
+  &__meta {
+    color: #94a3b8;
+    max-width: 620px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  h1 {
+    letter-spacing: -.02em;
+    -webkit-text-fill-color: #0000;
+    background: linear-gradient(#fff, #cbd5e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-size: clamp(2.6rem, 4vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  p {
+    color: #94a3b8;
+    max-width: 620px;
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
 }
 
