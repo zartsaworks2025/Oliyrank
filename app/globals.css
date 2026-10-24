@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* Dark mode follows the data-theme attribute set before paint in app/layout.tsx. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Palette drawn from Uzbek heritage:
+ *   firuza – Samarkand tile turquoise (primary)
+ *   anor   – pomegranate red (accent)
+ *   oltin  – gold (highlights)
+ *   lojuvard – lapis blue (fifth chart colour)
+ * Surfaces are warm paper tones rather than pure white/black.
+ */
+:root {
+  --paper: #f8f4ec;
+  --paper-raised: #fffdf8;
+  --paper-sunk: #efe8da;
+  --ink: #1d1a16;
+  --ink-soft: #5b544a;
+  --ink-faint: #8a8174;
+  --line: #e3dacb;
+  --line-strong: #cfc3b0;
+
+  --firuza: #0e6b6b;
+  --firuza-strong: #0a5252;
+  --firuza-soft: #d7ebe8;
+  --anor: #b4412c;
+  --anor-soft: #f6ddd5;
+  --oltin: #b8862a;
+  --oltin-soft: #f4e7c8;
+  --lojuvard: #2c4a8f;
+  --lojuvard-soft: #dde4f3;
+
+  --on-firuza: #fffdf8;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #15130f;
+  --paper-raised: #1e1b16;
+  --paper-sunk: #100e0b;
+  --ink: #f1ebe0;
+  --ink-soft: #bdb4a6;
+  --ink-faint: #8a8174;
+  --line: #2f2a23;
+  --line-strong: #463e33;
+
+  --firuza: #4fb8b0;
+  --firuza-strong: #7fd0c9;
+  --firuza-soft: #173634;
+  --anor: #e2765e;
+  --anor-soft: #3a211b;
+  --oltin: #dcb15a;
+  --oltin-soft: #3a2f17;
+  --lojuvard: #8ea8e6;
+  --lojuvard-soft: #1c2440;
+
+  --on-firuza: #0d1716;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-firuza: var(--firuza);
+  --color-firuza-strong: var(--firuza-strong);
+  --color-firuza-soft: var(--firuza-soft);
+  --color-anor: var(--anor);
+  --color-anor-soft: var(--anor-soft);
+  --color-oltin: var(--oltin);
+  --color-oltin-soft: var(--oltin-soft);
+  --color-lojuvard: var(--lojuvard);
+  --color-lojuvard-soft: var(--lojuvard-soft);
+  --color-on-firuza: var(--on-firuza);
+
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-literata), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: var(--oltin-soft);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--firuza);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @variant sm {
+    padding-inline: 1.5rem;
+  }
+
+  @variant lg {
+    padding-inline: 2rem;
+  }
+}

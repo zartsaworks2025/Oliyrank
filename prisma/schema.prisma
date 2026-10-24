@@ -1,0 +1,269 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Users ──────────────────────────────────────────────────────────────────
+
+enum UserRole {
+  USER
+  ANALYST
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+model User {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  name         String?
+  passwordHash String?
+  image        String?
+  role         UserRole   @default(USER)
+  status       UserStatus @default(ACTIVE)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  reviews       Review[]
+  reviewVotes   ReviewVote[]
+  reviewReports ReviewReport[]
+  bookmarks     Bookmark[]
+}
+
+// ─── Universities ───────────────────────────────────────────────────────────
+
+enum Ownership {
+  STATE
+  PRIVATE
+  INTERNATIONAL_BRANCH
+}
+
+/// Main academic profile; lets the ranking be filtered like-for-like.
+enum UniversityProfile {
+  MULTIDISCIPLINARY
+  TECHNICAL
+  MEDICAL
+  PEDAGOGICAL
+  ECONOMICS_LAW
+  LANGUAGES
+  AGRICULTURE
+  ARTS_SPORT
+}
+
+enum UniversityStatus {
+  ACTIVE
+  HIDDEN
+}
+
+model University {
+  id          Int               @id @default(autoincrement())
+  slug        String            @unique
+  name        String
+  shortName   String?
+  ownership   Ownership?
+  profile     UniversityProfile @default(MULTIDISCIPLINARY)
+  status      UniversityStatus  @default(ACTIVE)
+  region      String?
+  city        String?
+  website     String?
+  foundedYear Int?
+  logoUrl     String?
+  description String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  scores         Score[]
+  rankingResults RankingResult[]
+  reviews        Review[]
+  bookmarks      Bookmark[]
+
+  @@index([status])
+  @@index([city])
+}
+
+// ─── Rankings ───────────────────────────────────────────────────────────────
+
+enum PeriodStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum SourceType {
+  OFFICIAL_REPORT
+  ACCREDITATION
+  STUDENT_SURVEY
+  EMPLOYER_SURVEY
+  FIELD_VERIFICATION
+  ADMISSIONS_DATA
+  OPEN_RESEARCH_DATA
+  OTHER
+}
+
+model RankingPeriod {
+  id                 Int          @id @default(autoincrement())
+  name               String
+  year               Int
+  methodologyVersion String
+  status             PeriodStatus @default(DRAFT)
+  publishedAt        DateTime?
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
+  scores         Score[]
+  rankingResults RankingResult[]
+
+  @@index([status, year])
+}
+
+model Indicator {
+  id          Int      @id @default(autoincrement())
+  key         String   @unique
+  name        String
+  description String?
+  /// Pillar key from lib/methodology.ts (e.g. "research").
+  pillar      String
+  unit        String?
+  source      String?
+  weight      Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  scores Score[]
+}
+
+model Source {
+  id          Int        @id @default(autoincrement())
+  name        String
+  type        SourceType
+  url         String?
+  publishedAt DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  scores Score[]
+}
+
+/// Raw indicator value (in the indicator's own unit) for one university in one
+/// ranking period. Scaling to 0–100 happens in the ranking engine.
+model Score {
+  id           Int      @id @default(autoincrement())
+  value        Float
+  note         String?
+  universityId Int
+  indicatorId  Int
+  periodId     Int
+  sourceId     Int?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  university University    @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  indicator  Indicator     @relation(fields: [indicatorId], references: [id], onDelete: Cascade)
+  period     RankingPeriod @relation(fields: [periodId], references: [id], onDelete: Cascade)
+  source     Source?       @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+
+  @@unique([universityId, indicatorId, periodId])
+  @@index([periodId])
+}
+
+/// Computed output of the ranking engine; rebuilt whenever a period is recomputed.
+/// Frozen output of the ranking engine for a published edition.
+model RankingResult {
+  id           Int      @id @default(autoincrement())
+  periodId     Int
+  universityId Int
+  /// "ranked", "insufficient_data" or "not_eligible".
+  status       String
+  rank         Int?
+  tied         Boolean  @default(false)
+  totalScore   Float?
+  /// Share of total weight backed by data, 0–1.
+  coverage     Float
+  /// Pillar and indicator scores (0–100) as computed: { pillars: {...}, indicators: {...} }.
+  breakdown    Json
+  calculatedAt DateTime @default(now())
+
+  university University    @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  period     RankingPeriod @relation(fields: [periodId], references: [id], onDelete: Cascade)
+
+  @@unique([periodId, universityId])
+  @@index([periodId, rank])
+}
+
+// ─── Community ──────────────────────────────────────────────────────────────
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Review {
+  id           Int          @id @default(autoincrement())
+  rating       Int
+  title        String
+  body         String
+  status       ReviewStatus @default(PENDING)
+  flagReason   String?
+  universityId Int
+  userId       String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  university University     @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  user       User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  votes      ReviewVote[]
+  reports    ReviewReport[]
+
+  @@unique([userId, universityId])
+  @@index([universityId, status])
+}
+
+model ReviewVote {
+  id        Int      @id @default(autoincrement())
+  value     Int
+  userId    String
+  reviewId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  review Review @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, reviewId])
+}
+
+model ReviewReport {
+  id        Int      @id @default(autoincrement())
+  reason    String
+  note      String?
+  resolved  Boolean  @default(false)
+  userId    String
+  reviewId  Int
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  review Review @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+
+  @@index([reviewId, resolved])
+}
+
+model Bookmark {
+  id           Int      @id @default(autoincrement())
+  userId       String
+  universityId Int
+  createdAt    DateTime @default(now())
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  university University @relation(fields: [universityId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, universityId])
+  @@index([userId])
+}
