@@ -31,10 +31,19 @@ export type RankingRow = {
 
 export type PeriodInfo = { id: number; name: string; year: number; methodologyVersion: string; publishedAt: string | null };
 
+/** What an edition covers: a preview edition ranks on a subset of the indicators. */
+export type EditionScope = {
+  isPreview: boolean;
+  indicatorKeys: string[];
+  /** Pillars with at least one indicator in this edition, in methodology order. */
+  pillarKeys: PillarKey[];
+};
+
 export type PublishedRanking = {
   period: PeriodInfo;
   /** Demo periods hold generated values and must be labelled as such everywhere. */
   isDemo: boolean;
+  scope: EditionScope;
   rows: RankingRow[];
 };
 
@@ -46,6 +55,10 @@ export type IndicatorDetail = {
   weight: number;
   raw: number | null;
   score: number | null;
+  /** False when this edition does not measure the indicator at all. */
+  inEdition: boolean;
+  /** Source note recorded with the value, e.g. sample size. */
+  note: string | null;
 };
 
 type Snapshot = PublishedRanking & {
@@ -74,18 +87,29 @@ async function getSnapshot(): Promise<Snapshot | null> {
   const universities = await db.university.findMany({ where: { status: "ACTIVE" } });
   const scores = await db.score.findMany({
     where: { periodId: period.id },
-    select: { universityId: true, value: true, indicator: { select: { key: true } } },
+    select: { universityId: true, value: true, note: true, indicator: { select: { key: true } } },
   });
 
   const values: RawValues = new Map();
+  const notes = new Map<string, string | null>();
   for (const score of scores) {
     if (!values.has(score.universityId)) values.set(score.universityId, new Map());
     values.get(score.universityId)!.set(score.indicator.key, score.value);
+    notes.set(`${score.universityId}:${score.indicator.key}`, score.note);
   }
+
+  const editionIndicators = period.indicatorKeys.length
+    ? ALL_INDICATORS.filter((indicator) => period.indicatorKeys.includes(indicator.key))
+    : ALL_INDICATORS;
+  const scope: EditionScope = {
+    isPreview: period.indicatorKeys.length > 0,
+    indicatorKeys: editionIndicators.map((indicator) => indicator.key),
+    pillarKeys: PILLARS.map((p) => p.key).filter((key) => editionIndicators.some((i) => i.pillar === key)),
+  };
 
   const results = computeRanking(
     universities.map((university) => ({ id: university.id, eligible: isEligible(university.profile) })),
-    ALL_INDICATORS,
+    editionIndicators,
     values,
     SCORING,
   );
@@ -124,6 +148,8 @@ async function getSnapshot(): Promise<Snapshot | null> {
         weight: indicator.weight,
         raw: values.get(university.id)?.get(indicator.key) ?? null,
         score: result.indicators[indicator.key] ?? null,
+        inEdition: scope.indicatorKeys.includes(indicator.key),
+        note: notes.get(`${university.id}:${indicator.key}`) ?? null,
       })),
     };
   }
@@ -137,6 +163,7 @@ async function getSnapshot(): Promise<Snapshot | null> {
       publishedAt: period.publishedAt?.toISOString() ?? null,
     },
     isDemo: period.name.startsWith("DEMO"),
+    scope,
     rows,
     details,
   };
@@ -146,14 +173,14 @@ async function getSnapshot(): Promise<Snapshot | null> {
 export async function getLatestRanking(): Promise<PublishedRanking | null> {
   const snapshot = await getSnapshot();
   if (!snapshot) return null;
-  return { period: snapshot.period, isDemo: snapshot.isDemo, rows: snapshot.rows };
+  return { period: snapshot.period, isDemo: snapshot.isDemo, scope: snapshot.scope, rows: snapshot.rows };
 }
 
 export type UniversityProfileData = {
   university: UniversitySummary & { description: string | null };
   row: RankingRow;
   rankedCount: number;
-  ranking: { period: PeriodInfo; isDemo: boolean };
+  ranking: { period: PeriodInfo; isDemo: boolean; scope: EditionScope };
   indicators: IndicatorDetail[];
   neighbours: RankingRow[];
 };
@@ -171,7 +198,7 @@ export async function getUniversityProfile(slug: string): Promise<UniversityProf
     university: { ...row.university, description: detail.description },
     row,
     rankedCount: ranked.length,
-    ranking: { period: snapshot.period, isDemo: snapshot.isDemo },
+    ranking: { period: snapshot.period, isDemo: snapshot.isDemo, scope: snapshot.scope },
     indicators: detail.indicators,
     neighbours: index >= 0 ? ranked.slice(Math.max(0, index - 2), index + 3) : [],
   };

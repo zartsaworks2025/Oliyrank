@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { DemoNotice } from "@/components/ranking/demo-notice";
+import { EditionNotice } from "@/components/ranking/edition-notice";
 import { ScoreBar } from "@/components/ranking/score-bar";
 import { OWNERSHIP_LABELS, PILLAR_BG, PROFILE_LABELS, STATUS_LABELS } from "@/lib/labels";
 import { PILLARS, pillarWeight } from "@/lib/methodology";
@@ -149,6 +150,7 @@ async function UniversityProfile({ params }: Pick<PageProps<"/universities/[slug
       </header>
 
       {ranking?.isDemo && <DemoNotice className="mt-8" />}
+      {ranking && <EditionNotice scope={ranking.scope} className="mt-8" />}
 
       {/* Breakdown */}
       <section className="mt-14" aria-labelledby="breakdown-heading">
@@ -164,8 +166,12 @@ async function UniversityProfile({ params }: Pick<PageProps<"/universities/[slug
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
           {PILLARS.map((pillar) => {
             const score = row?.pillars[pillar.key] ?? null;
+            const measured = ranking?.scope.pillarKeys.includes(pillar.key) ?? false;
             return (
-              <article key={pillar.key} className="rounded-2xl border border-line bg-paper-raised p-6">
+              <article
+                key={pillar.key}
+                className={`rounded-2xl border p-6 ${measured ? "border-line bg-paper-raised" : "border-dashed border-line-strong bg-transparent"}`}
+              >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="flex items-center gap-2 font-serif text-xl font-medium">
@@ -178,6 +184,7 @@ async function UniversityProfile({ params }: Pick<PageProps<"/universities/[slug
                     {score === null ? "—" : score.toFixed(1)}
                   </span>
                 </div>
+                {!measured && <p className="mt-3 text-sm text-ink-soft">Bu nashrda hali oʻlchanmagan.</p>}
                 {score !== null && (
                   <div className="mt-4">
                     <ScoreBar value={score} className={PILLAR_BG[pillar.key]} />
@@ -194,11 +201,14 @@ async function UniversityProfile({ params }: Pick<PageProps<"/universities/[slug
                           <span className="ml-1.5 text-xs text-ink-faint">{indicator.weight}%</span>
                         </span>
                         <span className={`text-right text-sm tabular-nums ${indicator.score === null ? "text-ink-faint" : "font-medium"}`}>
-                          {indicator.score === null ? "Maʼlumot yoʻq" : indicator.score.toFixed(0)}
+                          {indicator.score !== null ? indicator.score.toFixed(0) : indicator.inEdition ? "Maʼlumot yoʻq" : "—"}
                         </span>
                         {indicator.score !== null && (
                           <>
-                            <span className="text-xs text-ink-faint">{formatRaw(indicator)}</span>
+                            <span className="text-xs text-ink-faint">
+                              {formatRaw(indicator)}
+                              {indicator.note && <span className="block">{indicator.note}</span>}
+                            </span>
                             <span className="w-24">
                               <ScoreBar value={indicator.score} className={PILLAR_BG[pillar.key]} size="sm" />
                             </span>

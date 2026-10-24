@@ -14,8 +14,11 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev && prisma generate",
     "db:seed": "prisma db seed",
-    "db:seed:demo": "prisma db seed -- --demo",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "data:fetch": "node scripts/fetch-uzbmb.mjs && node scripts/fetch-registries.mjs && node scripts/fetch-openalex-research.mjs",
+    "data:build": "node scripts/build-universities.mjs",
+    "data:import": "tsx scripts/import-edition.ts",
+    "data:export": "tsx scripts/export-excel.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
@@ -34,6 +37,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9.39.5",
     "eslint-config-next": "16.4.3",
+    "exceljs": "^4.4.0",
     "prisma": "7.10.1",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",

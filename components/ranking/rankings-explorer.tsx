@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Fragment, useMemo, useState } from "react";
 import { OWNERSHIP_LABELS, PILLAR_BG, PROFILE_LABELS, STATUS_LABELS, type OwnershipKey, type ProfileKey } from "@/lib/labels";
-import { INDICATOR_COUNT, PILLARS, pillarWeight, type PillarKey } from "@/lib/methodology";
+import { INDICATOR_COUNT, PILLARS, pillarWeight, type PillarDef, type PillarKey } from "@/lib/methodology";
 import { formatRank } from "@/lib/ranking/compute";
 import type { RankingRow } from "@/lib/ranking/data";
 import { ScoreBar } from "./score-bar";
@@ -21,7 +21,9 @@ const OWNERSHIP_FILTERS: { value: "all" | OwnershipKey; label: string }[] = [
 const normalize = (text: string) => text.toLocaleLowerCase("uz").replace(/[ʻʼ'`‘’]/g, "");
 const fmt = (value: number | null) => (value === null ? "—" : value.toFixed(1));
 
-export function RankingsExplorer({ rows }: { rows: RankingRow[] }) {
+export function RankingsExplorer({ rows, pillarKeys }: { rows: RankingRow[]; pillarKeys: PillarKey[] }) {
+  // Only the pillars this edition measures get columns.
+  const pillars = PILLARS.filter((pillar) => pillarKeys.includes(pillar.key));
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
   const [city, setCity] = useState("all");
@@ -31,7 +33,9 @@ export function RankingsExplorer({ rows }: { rows: RankingRow[] }) {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   const cities = useMemo(
-    () => [...new Set(rows.map((row) => row.university.city).filter((c): c is string => Boolean(c)))].sort((a, b) => a.localeCompare(b, "uz")),
+    // Plain code-point sort: locale collation differs between Node and browsers, which
+    // would make the server and client render the options in different orders.
+    () => [...new Set(rows.map((row) => row.university.city).filter((c): c is string => Boolean(c)))].sort(),
     [rows],
   );
   const profiles = useMemo(() => [...new Set(rows.map((row) => row.university.profile))], [rows]);
@@ -168,7 +172,7 @@ export function RankingsExplorer({ rows }: { rows: RankingRow[] }) {
                   <SortHeader label="Oʻrin" sortKey="rank" sort={sort} onSort={toggleSort} className="w-20 pl-6" />
                   <SortHeader label="Universitet" sortKey="name" sort={sort} onSort={toggleSort} />
                   <SortHeader label="Umumiy" sortKey="rank" sort={sort} onSort={toggleSort} className="w-40" />
-                  {PILLARS.map((pillar) => (
+                  {pillars.map((pillar) => (
                     <SortHeader
                       key={pillar.key}
                       label={pillar.short}
@@ -191,7 +195,7 @@ export function RankingsExplorer({ rows }: { rows: RankingRow[] }) {
                   const muted = row.status !== "ranked";
                   return (
                     <Fragment key={row.university.slug}>
-                      {index === firstUnranked && <UnrankedDivider colSpan={PILLARS.length + 4} />}
+                      {index === firstUnranked && <UnrankedDivider colSpan={pillars.length + 4} />}
                       <tr className={`border-b border-line transition-colors last:border-b-0 ${isOpen ? "bg-paper-sunk/50" : "hover:bg-paper-sunk/40"}`}>
                         <td className="py-5 pl-6 align-middle font-serif text-2xl font-medium tabular-nums">
                           {muted ? <span className="text-ink-faint">—</span> : formatRank(row)}
@@ -212,7 +216,7 @@ export function RankingsExplorer({ rows }: { rows: RankingRow[] }) {
                             </div>
                           )}
                         </td>
-                        {PILLARS.map((pillar) => (
+                        {pillars.map((pillar) => (
                           <td
                             key={pillar.key}
                             className={`py-5 pr-4 tabular-nums ${row.pillars[pillar.key] === null ? "text-ink-faint" : sort.key === pillar.key ? "font-semibold text-ink" : "text-ink-soft"}`}
@@ -237,8 +241,8 @@ export function RankingsExplorer({ rows }: { rows: RankingRow[] }) {
                       {isOpen && (
                         <tr className="border-b border-line bg-paper-sunk/50">
                           <td />
-                          <td colSpan={PILLARS.length + 3} className="pr-6 pb-6">
-                            <Breakdown row={row} />
+                          <td colSpan={pillars.length + 3} className="pr-6 pb-6">
+                            <Breakdown row={row} pillars={pillars} />
                           </td>
                         </tr>
                       )}
@@ -276,7 +280,7 @@ export function RankingsExplorer({ rows }: { rows: RankingRow[] }) {
                   </div>
                   {row.status !== "ranked" && <p className="mt-3 text-sm text-ink-faint">{STATUS_LABELS[row.status]}</p>}
                   <div className="mt-5">
-                    <Breakdown row={row} compact />
+                    <Breakdown row={row} pillars={pillars} compact />
                   </div>
                 </li>
               </Fragment>
@@ -345,10 +349,13 @@ function UniversityMeta({ row }: { row: RankingRow }) {
   );
 }
 
-function Breakdown({ row, compact = false }: { row: RankingRow; compact?: boolean }) {
+function Breakdown({ row, pillars, compact = false }: { row: RankingRow; pillars: PillarDef[]; compact?: boolean }) {
   return (
-    <div className={compact ? "grid grid-cols-2 gap-x-5 gap-y-3" : "grid grid-cols-5 gap-6 pt-1"}>
-      {PILLARS.map((pillar) => {
+    <div
+      className={compact ? "grid grid-cols-2 gap-x-5 gap-y-3" : "grid gap-6 pt-1"}
+      style={compact ? undefined : { gridTemplateColumns: `repeat(${Math.max(pillars.length, 2)}, minmax(0, 1fr))` }}
+    >
+      {pillars.map((pillar) => {
         const value = row.pillars[pillar.key];
         return (
           <div key={pillar.key}>
@@ -365,7 +372,7 @@ function Breakdown({ row, compact = false }: { row: RankingRow; compact?: boolea
         );
       })}
       {!compact && (
-        <Link href={`/universities/${row.university.slug}`} className="col-span-5 inline-flex items-center gap-1.5 text-sm font-medium text-firuza hover:underline">
+        <Link href={`/universities/${row.university.slug}`} className="col-span-full inline-flex items-center gap-1.5 text-sm font-medium text-firuza hover:underline">
           Toʻliq profil va barcha {INDICATOR_COUNT} koʻrsatkich <span aria-hidden="true">→</span>
         </Link>
       )}

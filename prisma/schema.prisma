@@ -76,6 +76,10 @@ model University {
   foundedYear Int?
   logoUrl     String?
   description String?
+  /// Identifiers in the source registries, for traceability.
+  uzbmbId     Int?              @unique
+  rorId       String?           @unique
+  openalexId  String?           @unique
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
 
@@ -112,6 +116,8 @@ model RankingPeriod {
   name               String
   year               Int
   methodologyVersion String
+  /// Indicators this edition covers; empty means the full methodology.
+  indicatorKeys      String[]     @default([])
   status             PeriodStatus @default(DRAFT)
   publishedAt        DateTime?
   createdAt          DateTime     @default(now())

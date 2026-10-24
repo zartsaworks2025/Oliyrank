@@ -229,6 +229,55 @@ export default function MethodologyPage() {
           </dl>
         </section>
 
+        {/* Data availability and the preview edition */}
+        <section id="availability" aria-labelledby="availability-heading" className="scroll-mt-24 border-t border-line py-16">
+          <h2 id="availability-heading" className="font-serif text-3xl font-medium">
+            Maʼlumotlar va dastlabki nashr
+          </h2>
+          <div className="mt-6 grid gap-8 lg:grid-cols-2">
+            <div className="space-y-4 leading-relaxed text-ink-soft">
+              <p>
+                Hozircha ochiq va ishonchli maʼlumot faqat ikki ustun uchun bor: <strong className="text-ink">qabul</strong>{" "}
+                (Bilim va malakalarni baholash agentligining rasmiy 2025-yil kontrakt oʻtish ballari) va{" "}
+                <strong className="text-ink">ilmiy faoliyat</strong> (OpenAlex ochiq ilmiy bazasi). Shuning uchun 2026-yil
+                reytingi <em>dastlabki nashr</em> sifatida faqat shu koʻrsatkichlar boʻyicha tuzilgan.
+              </p>
+              <p>
+                Bitiruvchilar natijasi, talabalar fikri va xalqaro aloqalar milliy reyting maʼlumotlari (1-noyabrdan) va
+                tasdiqlangan soʻrovnomalar paydo boʻlgach qoʻshiladi.
+              </p>
+              <p>
+                Universitetlar roʻyxati: 2025-yilda davlat test sinovlari orqali talaba qabul qilgan barcha OTMlar hamda oʻz
+                imtihonlari bilan qabul qiladigan xususiy universitetlar va xorijiy filiallar (ROR reyestri).
+              </p>
+            </div>
+            <ul className="space-y-4">
+              <li className="rounded-2xl border border-line bg-paper-raised p-5">
+                <p className="font-medium">Fraksion hisob</p>
+                <p className="mt-1 leading-relaxed text-ink-soft">
+                  Maqola universitetga mualliflar ulushiga qarab hisoblanadi: 20 muallifdan biri boʻlsa — 1/20. Bu xorijiy
+                  maqolalardagi “mehmon” affiliatsiyalar reytingni sunʼiy oshirishining oldini oladi (CWTS Leiden Ranking
+                  usuli).
+                </p>
+              </li>
+              <li className="rounded-2xl border border-line bg-paper-raised p-5">
+                <p className="font-medium">Oʻrtacha emas, median</p>
+                <p className="mt-1 leading-relaxed text-ink-soft">
+                  Bir nechta haddan tashqari koʻp iqtibos olgan maqola butun universitet balini koʻtarib yubormasligi uchun
+                  iqtibos taʼsiri median boʻyicha olinadi.
+                </p>
+              </li>
+              <li className="rounded-2xl border border-line bg-paper-raised p-5">
+                <p className="font-medium">Kamida {SCORING.minCoreWorks} ta maqola</p>
+                <p className="mt-1 leading-relaxed text-ink-soft">
+                  Soʻnggi 5 yilda {SCORING.minCoreWorks} tadan kam (fraksion) maqola boʻlsa, ilmiy koʻrsatkichlar hisoblanmaydi —
+                  bunday kichik namuna ishonchli emas.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
         {/* Publication */}
         <section aria-labelledby="publication" className="border-t border-line pt-16">
           <h2 id="publication" className="font-serif text-3xl font-medium">
@@ -241,7 +290,7 @@ export default function MethodologyPage() {
             <li>Metodologiya oʻzgarsa, yangi versiya raqami beriladi.</li>
           </ul>
           <p className="mt-8 text-sm text-ink-faint">
-            v{METHODOLOGY_VERSION} — 2026-yil 24-oktabr: birinchi metodologiya.{" "}
+            v1.0 — birinchi metodologiya. v{METHODOLOGY_VERSION} — 2026-yil 24-oktabr: haqiqiy maʼlumotlar asosida aniqlashtirildi (kontrakt ballari, fraksion hisob, median iqtibos, dastlabki nashr).{" "}
             <Link href="/contact" className="text-firuza hover:underline">
               Xato topdingizmi? Bizga yozing.
             </Link>

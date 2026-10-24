@@ -5,7 +5,7 @@
  * Indicator weights add up to 100.
  */
 
-export const METHODOLOGY_VERSION = "1.0";
+export const METHODOLOGY_VERSION = "1.1";
 
 export type PillarKey = "teaching" | "research" | "outcomes" | "voice" | "international";
 
@@ -43,7 +43,8 @@ export const PILLARS: PillarDef[] = [
         name: "Qabul raqobati",
         weight: 10,
         unit: "ball (189 dan)",
-        description: "Kunduzgi bakalavriat yoʻnalishlari boʻyicha grantga oʻtish ballarining medianasi.",
+        description:
+          "Kunduzgi bakalavriat yoʻnalishlari boʻyicha toʻlov-kontraktga oʻtish ballarining medianasi (ijodiy imtihonli yoʻnalishlarsiz). Agentlik grant ballarini sahifalarida eʼlon qilmaydi.",
         source: "Bilim va malakalarni baholash agentligi (uzbmb.uz)",
       },
       {
@@ -76,7 +77,8 @@ export const PILLARS: PillarDef[] = [
         name: "Iqtibos taʼsiri (FWCI)",
         weight: 10,
         unit: "1.0 = dunyo oʻrtachasi",
-        description: "Soha va yil boʻyicha meʼyorlangan oʻrtacha iqtibos koʻrsatkichi, soʻnggi 5 yil.",
+        description:
+          "Maqolalarning soha va yil boʻyicha meʼyorlangan iqtibos koʻrsatkichi (FWCI) medianasi, mualliflik ulushi boʻyicha tortilgan, soʻnggi 5 yil. Median bir nechta haddan tashqari koʻp iqtibos olgan maqolaning taʼsirini cheklaydi.",
         source: "OpenAlex",
       },
       {
@@ -206,7 +208,19 @@ export const SCORING = {
   minRankCoverage: 0.7,
   /** Pillar used to order universities that share a rank. */
   tiebreakPillar: "outcomes" as PillarKey,
+  /**
+   * Research indicators are computed only from at least this many core-journal
+   * articles in the 5-year window; fewer is too small a sample to measure.
+   */
+  minCoreWorks: 30,
 };
+
+/**
+ * Indicators in the 2026 preview edition: those with credible public data today
+ * (docs/methodology.md §7). `output_per_staff` is left out because staff counts
+ * are not published.
+ */
+export const PREVIEW_INDICATORS = ["admission_score", "citation_impact", "top10_share", "intl_coauthorship"];
 
 export const pillarWeight = (pillar: PillarDef) =>
   pillar.indicators.reduce((sum, indicator) => sum + indicator.weight, 0);

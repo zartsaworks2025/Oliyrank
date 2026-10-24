@@ -46,3 +46,7 @@ next-env.d.ts
 
 # prisma generated client
 /generated
+
+# raw source downloads (re-create with npm run data:fetch) and generated exports
+/data/raw
+/exports

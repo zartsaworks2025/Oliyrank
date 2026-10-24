@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { DemoNotice } from "@/components/ranking/demo-notice";
+import { EditionNotice } from "@/components/ranking/edition-notice";
 import { RankingsExplorer } from "@/components/ranking/rankings-explorer";
 import { PILLAR_BG } from "@/lib/labels";
-import { METHODOLOGY_VERSION, PILLARS, pillarWeight } from "@/lib/methodology";
+import { METHODOLOGY_VERSION, PILLARS } from "@/lib/methodology";
 import { getLatestRanking } from "@/lib/ranking/data";
 
 export const metadata: Metadata = {
@@ -31,7 +32,12 @@ export default async function RankingsPage() {
 
   const ranked = ranking.rows.filter((row) => row.status === "ranked");
   const leader = ranked[0];
-  const cities = new Set(ranked.map((row) => row.university.city).filter(Boolean)).size;
+  const regions = new Set(ranking.rows.map((row) => row.university.region).filter(Boolean)).size;
+  const pillars = PILLARS.filter((pillar) => ranking.scope.pillarKeys.includes(pillar.key));
+  // Weight each pillar actually carries in this edition, as a share of the edition's total.
+  const editionWeight = (pillar: (typeof PILLARS)[number]) =>
+    pillar.indicators.filter((i) => ranking.scope.indicatorKeys.includes(i.key)).reduce((sum, i) => sum + i.weight, 0);
+  const editionTotal = pillars.reduce((sum, pillar) => sum + editionWeight(pillar), 0);
 
   return (
     <div className="container-page pt-10 pb-24 lg:pt-14">
@@ -42,27 +48,28 @@ export default async function RankingsPage() {
             Oʻzbekiston universitetlari reytingi
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft text-pretty">
-            {ranked.length} ta universitet beshta ustun boʻyicha baholandi. Ustun nomini bosib saralang, qatorni
-            ochib ball tarkibini koʻring.
+            {ranking.rows.length} ta universitet roʻyxatda, {ranked.length} tasi baholandi. Ustun nomini bosib
+            saralang, qatorni ochib ball tarkibini koʻring.
           </p>
         </div>
 
         <dl className="grid grid-cols-3 divide-x divide-line rounded-2xl border border-line bg-paper-raised">
           <Stat label="Baholandi" value={`${ranked.length}`} />
-          <Stat label="Shahar" value={`${cities}`} />
+          <Stat label="Hudud" value={`${regions}`} />
           <Stat label="Metodologiya" value={`v${METHODOLOGY_VERSION}`} href="/methodology" />
         </dl>
       </header>
 
       {ranking.isDemo && <DemoNotice className="mt-8" />}
+      <EditionNotice scope={ranking.scope} className="mt-8" />
 
       {/* Pillar legend: what each column means and how much it weighs */}
       <section aria-label="Ustunlar" className="mt-8 flex flex-wrap gap-x-6 gap-y-3 border-y border-line py-4 text-sm">
-        {PILLARS.map((pillar) => (
+        {pillars.map((pillar) => (
           <span key={pillar.key} className="inline-flex items-center gap-2" title={pillar.summary}>
             <span className={`size-2.5 rounded-full ${PILLAR_BG[pillar.key]}`} aria-hidden="true" />
             <span>{pillar.name}</span>
-            <span className="font-medium tabular-nums text-ink-faint">{pillarWeight(pillar)}%</span>
+            <span className="font-medium tabular-nums text-ink-faint">{Math.round((100 * editionWeight(pillar)) / editionTotal)}%</span>
           </span>
         ))}
         {leader && (
@@ -77,7 +84,7 @@ export default async function RankingsPage() {
 
       <div className="mt-8">
         <Suspense fallback={<ExplorerFallback />}>
-          <RankingsExplorer rows={ranking.rows} />
+          <RankingsExplorer rows={ranking.rows} pillarKeys={ranking.scope.pillarKeys} />
         </Suspense>
       </div>
 

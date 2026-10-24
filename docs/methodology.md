@@ -1,4 +1,4 @@
-# OliyRank Methodology v1.0
+# OliyRank Methodology v1.1
 
 How OliyRank ranks universities in Uzbekistan, and why. The weights in this document
 are implemented in [`lib/methodology.ts`](../lib/methodology.ts); if the two disagree,
@@ -107,7 +107,7 @@ Source: [IREG Observatory](https://ireg-observatory.org/en/initiatives/ranking-s
 
 ---
 
-## 3. Indicators and weights (v1.0)
+## 3. Indicators and weights (v1.1)
 
 Total: 100 points across 5 pillars and 15 indicators.
 
@@ -115,7 +115,7 @@ Total: 100 points across 5 pillars and 15 indicators.
 
 | Key | Indicator | Weight | Measured as | Source |
 |---|---|---|---|---|
-| `admission_score` | Admission selectivity | 10 | Median grant passing score across full-time bachelor programs (0–189 scale) | Knowledge and Skills Assessment Agency (uzbmb.uz), annual |
+| `admission_score` | Admission selectivity | 10 | Median 2025 **contract** passing score across full-time bachelor programs with a standard test (0–189 scale; creative-exam programs excluded) | Knowledge and Skills Assessment Agency (my.uzbmb.uz), annual |
 | `staff_degree_share` | Staff with a doctorate | 8 | % of academic staff holding PhD/DSc (or candidate/doctor of science) | National rating data; university disclosures |
 | `student_staff_ratio` | Students per academic staff member | 7 | Full-time-equivalent students ÷ academic staff (**lower is better**) | National rating data; university disclosures |
 
@@ -129,10 +129,24 @@ All research indicators cover the last 5 complete calendar years.
 
 | Key | Indicator | Weight | Measured as | Source |
 |---|---|---|---|---|
-| `citation_impact` | Field-weighted citation impact | 10 | Mean field-weighted citation impact (FWCI) of articles and reviews; 1.0 = world average | OpenAlex |
+| `citation_impact` | Field-weighted citation impact | 10 | **Median** field-weighted citation impact (FWCI) of articles and reviews, weighted by authorship share; 1.0 = world average | OpenAlex |
 | `output_per_staff` | Research output per staff member | 7 | Articles and reviews in indexed journals ÷ academic staff | OpenAlex; staff count as above |
 | `top10_share` | Research excellence | 4 | % of output in the world's top 10% most-cited for its field and year | OpenAlex (citation-normalized percentile) |
 | `intl_coauthorship` | International collaboration | 4 | % of output with at least one co-author abroad | OpenAlex |
+
+**Counting rules (v1.1):**
+- **Core journals only.** Articles and reviews in CWTS core sources (OpenAlex `is_core`), which filters out
+  repositories and journals without rigorous indexing.
+- **Fractional counting** (the CWTS Leiden Ranking method). A paper counts towards a university by that
+  university's share of its authors: each author counts 1/n, split equally across their affiliations. In
+  testing, whole counting credited universities with foreign-led papers that had a single local co-author,
+  often one listing a second affiliation. That pushed one university's average citation impact to 6.9 and
+  another's international share to 97%.
+- **Median, not mean, citation impact.** With a few dozen papers, a handful of extremely cited ones can
+  carry a whole university. In testing, five papers in a single journal produced 56% of one university's
+  citation impact, for an average FWCI of 11.2 against a median of 2.8.
+- **Minimum sample.** Research indicators are computed only from at least 30 fractionally counted papers in
+  the five years. Below that, research shows as "too few publications".
 
 *Why:* quality (impact, excellence) outweighs quantity, and every indicator is per capita or a share.
 OpenAlex is open and free, so anyone can reproduce these numbers. It already covers 126 Uzbek higher
@@ -225,16 +239,29 @@ are excluded, as in the national rating.
 
 | Status | Indicators | Note |
 |---|---|---|
-| ✅ Available now, public | `citation_impact`, `output_per_staff`, `top10_share`, `intl_coauthorship` | OpenAlex API, free; tested 24 Oct 2026 |
-| ✅ Available now, public | `admission_score` | uzbmb.uz shows 2025 grant and contract passing scores per program; must be collected per university |
+| ✅ In use | `citation_impact`, `top10_share`, `intl_coauthorship` | OpenAlex API, free. 107 universities linked; 28 meet the 30-paper minimum |
+| ✅ In use | `admission_score` | my.uzbmb.uz publishes 2025 **contract** cutoffs per program; grant cutoffs show as 0 and are not used. 95 universities have a value |
+| ⛔ Not available | `output_per_staff` | Needs academic staff counts, which are not published |
 | ⏳ Expected from 1 Nov 2026 | `employment_rate`, `graduate_salary`, `staff_degree_share`, `student_staff_ratio`, `intl_*`, `mobility` | Depends on how much indicator-level data the Agency publishes. Fallback: request it from universities directly, or use their public reports |
 | 🛠 OliyRank must build | `student_satisfaction`, `student_support`, `employer_rating` | Verified surveys on the site; needs accounts and a survey flow |
 
-**Realistic first edition:** research and admission indicators are available today, worth 35 points
-in total. Under the 70% rule, a full ranking needs at least some of the national rating's data. If the
-Agency publishes only ranks and not underlying values, OliyRank v1.0 should launch as a
-**"Research & admission" preview ranking**, clearly labelled, while the surveys build up.
+**2026 preview edition** (`PREVIEW_INDICATORS` in `lib/methodology.ts`): ranks on the four indicators
+in use. They are worth 28 points, rescaled to 100, with the same 70% coverage rule applied within the
+edition. A university therefore needs both admission data and research data to be ranked. The
+first build ranked 21 of 166 universities.
+
+**University list.** All institutions that admitted students through the national test in 2025
+(my.uzbmb.uz: 138 with 2025 programs), plus private universities and foreign branches that run their own
+admissions, taken from ROR (28, hand-reviewed in `data/curation/extra-ror.json`). State institutions
+missing from the 2025 admission list were merged in the 2025 consolidation and are excluded. Matches
+between the admission list and ROR/OpenAlex are reviewed in `data/curation/`. A branch is never credited
+with its parent's research.
 
 ## 8. Changelog
 
 - **v1.0** (24 Oct 2026): first methodology, replacing the placeholder demo methodology.
+- **v1.1** (24 Oct 2026), changes from testing on real data:
+  - admission uses contract cutoffs, because grant cutoffs are not published;
+  - research uses fractional counting and the median citation impact;
+  - research requires at least 30 fractionally counted papers;
+  - added the preview edition.

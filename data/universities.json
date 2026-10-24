@@ -1,0 +1,3630 @@
+[
+ {
+  "slug": "adu",
+  "name": "Andijon davlat universiteti",
+  "shortName": "ADU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Andijon viloyati",
+  "city": "Andijon",
+  "website": "https://www.adu.uz/",
+  "foundedYear": 1939,
+  "uzbmbId": 301,
+  "rorId": "https://ror.org/00bad4666",
+  "openalexId": "I1300976906",
+  "admission": {
+   "value": 66.5,
+   "programs": 39,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "andijon-davlat-pedagogika-instituti",
+  "name": "Andijon davlat pedagogika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Andijon viloyati",
+  "city": "Andijon",
+  "website": "https://adpi.uz",
+  "foundedYear": 2021,
+  "uzbmbId": 403,
+  "rorId": "https://ror.org/00wd0xj77",
+  "openalexId": null,
+  "admission": {
+   "value": 78.7,
+   "programs": 25,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "adti",
+  "name": "Andijon davlat tibbiyot instituti",
+  "shortName": "ADTI",
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Andijon viloyati",
+  "city": "Andijon",
+  "website": "https://adti.uz",
+  "foundedYear": 1955,
+  "uzbmbId": 361,
+  "rorId": "https://ror.org/01ga8zd22",
+  "openalexId": "I4210161197",
+  "admission": {
+   "value": 130.7,
+   "programs": 13,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "turon-universitet-andijon-filliali",
+  "name": "Turon universitet Andijon filliali",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Andijon viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 679,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "andijon-davlat-chet-tillari-instituti",
+  "name": "Andijon davlat chet tillari instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Andijon viloyati",
+  "city": "Andijon",
+  "website": "https://adchti.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 420,
+  "rorId": "https://ror.org/05fnf2f71",
+  "openalexId": "I4405261547",
+  "admission": {
+   "value": 164.9,
+   "programs": 13,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "andijon-qishloq-xojaligi-va-agrotexnologiyalar-instituti",
+  "name": "Andijon qishloq xo‘jaligi va agrotexnologiyalar instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "AGRICULTURE",
+  "region": "Andijon viloyati",
+  "city": "Andijon",
+  "website": "http://www.andqxi.uz/",
+  "foundedYear": 1964,
+  "uzbmbId": 371,
+  "rorId": "https://ror.org/03tqe1x88",
+  "openalexId": "I4210142509",
+  "admission": {
+   "value": 77.69999999999999,
+   "programs": 22,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "astiedu",
+  "name": "Andijon davlat texnika instituti",
+  "shortName": "ASTIEDU",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Andijon viloyati",
+  "city": "Andijon",
+  "website": "https://web.astiedu.uz",
+  "foundedYear": 2025,
+  "uzbmbId": 432,
+  "rorId": "https://ror.org/01p08rg37",
+  "openalexId": "I4405254316",
+  "admission": {
+   "value": 57,
+   "programs": 45,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "bsu",
+  "name": "Buxoro davlat universiteti",
+  "shortName": "BSU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://buxdu.uz",
+  "foundedYear": 1992,
+  "uzbmbId": 304,
+  "rorId": "https://ror.org/05k4xnj24",
+  "openalexId": "I3131790217",
+  "admission": {
+   "value": 92.69999999999999,
+   "programs": 48,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "buxoro-davlat-pedagogika-instituti",
+  "name": "Buxoro davlat pedagogika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://buxdpi.uz",
+  "foundedYear": 2021,
+  "uzbmbId": 404,
+  "rorId": "https://ror.org/01hh59206",
+  "openalexId": "I4405263034",
+  "admission": {
+   "value": 97.2,
+   "programs": 21,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "bdti",
+  "name": "Buxoro tibbiyot instituti",
+  "shortName": "BDTI",
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://bsmi.uz",
+  "foundedYear": 1990,
+  "uzbmbId": 362,
+  "rorId": "https://ror.org/00swkht58",
+  "openalexId": "I4210098011",
+  "admission": {
+   "value": 130.95,
+   "programs": 16,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "buxoro-davlat-texnika-universiteti",
+  "name": "Buxoro davlat texnika universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://bstu.uz",
+  "foundedYear": null,
+  "uzbmbId": 434,
+  "rorId": "https://ror.org/005ag3869",
+  "openalexId": "I4405258125",
+  "admission": {
+   "value": 57.7,
+   "programs": 51,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "oxu",
+  "name": "Osiyo xalqaro universiteti",
+  "shortName": "OXU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://www.oxu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 547,
+  "rorId": "https://ror.org/05gb5xf93",
+  "openalexId": "I4405257638",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "buxoro-innovatsiyalar-universiteti",
+  "name": "Buxoro innovatsiyalar universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://bui.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 546,
+  "rorId": "https://ror.org/02ck0q070",
+  "openalexId": "I4405271395",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "zarmed-universiteti-buxoro-kampusi",
+  "name": "Zarmed Universiteti Buxoro kampusi",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Buxoro viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 535,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "bitu",
+  "name": "Buxoro Innovatsion Ta'lim va Tibbiyot Universiteti",
+  "shortName": "BITU",
+  "ownership": "PRIVATE",
+  "profile": "MEDICAL",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://bitu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 533,
+  "rorId": "https://ror.org/02swmf760",
+  "openalexId": "I4405271656",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "jdpi",
+  "name": "Jizzax davlat pedagogika universiteti",
+  "shortName": "JDPI",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Jizzax viloyati",
+  "city": "Jizzax",
+  "website": "https://jdpu.uz",
+  "foundedYear": 1974,
+  "uzbmbId": 351,
+  "rorId": "https://ror.org/05ap1tw43",
+  "openalexId": "I4210154340",
+  "admission": {
+   "value": 79.8,
+   "programs": 31,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ozbekiston-milliy-universiteti-jizzax-filiali",
+  "name": "O‘zbekiston Milliy universiteti Jizzax filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Jizzax viloyati",
+  "city": "Jizzax",
+  "website": "https://jbnuu.uz",
+  "foundedYear": 2019,
+  "uzbmbId": 401,
+  "rorId": "https://ror.org/01mk88r89",
+  "openalexId": null,
+  "admission": {
+   "value": 70.3,
+   "programs": 11,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "jizzax-politexnika-instituti",
+  "name": "Jizzax politexnika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Jizzax viloyati",
+  "city": "Jizzax",
+  "website": "https://www.jizpi.uz/",
+  "foundedYear": 1977,
+  "uzbmbId": 308,
+  "rorId": "https://ror.org/03zjy9626",
+  "openalexId": "I4210138851",
+  "admission": {
+   "value": 60.3,
+   "programs": 48,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "qarshi-davlat-universiteti",
+  "name": "Qarshi davlat universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Qashqadaryo viloyati",
+  "city": "Qarshi",
+  "website": "https://www.qarshidu.uz/",
+  "foundedYear": 1945,
+  "uzbmbId": 345,
+  "rorId": "https://ror.org/0350qvj56",
+  "openalexId": "I4210128068",
+  "admission": {
+   "value": 86.4,
+   "programs": 48,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "sspi",
+  "name": "Shahrisabz davlat pedagogika instituti",
+  "shortName": "SSPI",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Qashqadaryo viloyati",
+  "city": "Shahrisabz",
+  "website": "https://shdpi.uz",
+  "foundedYear": 2019,
+  "uzbmbId": 405,
+  "rorId": "https://ror.org/03kb66j27",
+  "openalexId": "I4405255934",
+  "admission": {
+   "value": 101.7,
+   "programs": 15,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "keei",
+  "name": "Qarshi davlat texnika universiteti",
+  "shortName": "KEEI",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Qashqadaryo viloyati",
+  "city": "Qarshi",
+  "website": "https://kstu.uz",
+  "foundedYear": 1995,
+  "uzbmbId": 435,
+  "rorId": "https://ror.org/04xs15c78",
+  "openalexId": "I4396570483",
+  "admission": {
+   "value": 58.45,
+   "programs": 52,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "turon-universitet",
+  "name": "Turon universitet",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Qashqadaryo viloyati",
+  "city": "Qarshi",
+  "website": "https://turonuniversity.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 558,
+  "rorId": "https://ror.org/00b16m748",
+  "openalexId": "I4405285807",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "qarshi-davlat-texnika-universiteti-shaxrisabz-oziq-ovqat-muh",
+  "name": "Qarshi davlat texnika universiteti Shaxrisabz oziq-ovqat muhandisligi fakulʼtet",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Qashqadaryo viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 446,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 78.9,
+   "programs": 3,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "navoiy-davlat-univeristeti",
+  "name": "Navoiy davlat univeristeti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Navoiy viloyati",
+  "city": "Navoiy",
+  "website": "https://nspi.uz",
+  "foundedYear": 1992,
+  "uzbmbId": 437,
+  "rorId": "https://ror.org/04q8yne12",
+  "openalexId": "I4210139342",
+  "admission": {
+   "value": 67.4,
+   "programs": 57,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "nsumt",
+  "name": "Navoiy davlat konchilik va texnologiyalar universiteti",
+  "shortName": "NSUMT",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Navoiy viloyati",
+  "city": "Navoiy",
+  "website": "https://nsumt.uz",
+  "foundedYear": null,
+  "uzbmbId": 319,
+  "rorId": "https://ror.org/04xc7z697",
+  "openalexId": "I4210152839",
+  "admission": {
+   "value": 66.7,
+   "programs": 36,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "namsu",
+  "name": "Namangan davlat universiteti",
+  "shortName": "NamSU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Namangan viloyati",
+  "city": "Namangan",
+  "website": "https://namdu.uz",
+  "foundedYear": 1942,
+  "uzbmbId": 309,
+  "rorId": "https://ror.org/00k8k8t47",
+  "openalexId": "I160547875",
+  "admission": {
+   "value": 102.05000000000001,
+   "programs": 32,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "namangan-davlat-pedagogika-instituti",
+  "name": "Namangan davlat pedagogika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Namangan viloyati",
+  "city": "Namangan",
+  "website": "https://www.namspi.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 426,
+  "rorId": "https://ror.org/037z3rx48",
+  "openalexId": "I4405255631",
+  "admission": {
+   "value": 76.15,
+   "programs": 22,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "namdtu",
+  "name": "Namangan davlat texnika universiteti",
+  "shortName": "NamDTU",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Namangan viloyati",
+  "city": "Namangan",
+  "website": "https://namdtu.uz",
+  "foundedYear": 2025,
+  "uzbmbId": 438,
+  "rorId": "https://ror.org/03j90c872",
+  "openalexId": "I4405260308",
+  "admission": {
+   "value": 57.8,
+   "programs": 51,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "namdchti",
+  "name": "Namangan davlat chet tillari instituti",
+  "shortName": "NamDChTI",
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Namangan viloyati",
+  "city": "Namangan",
+  "website": "https://www.namsifl.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 419,
+  "rorId": "https://ror.org/0191rzs41",
+  "openalexId": "I4405264212",
+  "admission": {
+   "value": 151.25,
+   "programs": 10,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ubs",
+  "name": "University of Business and Science",
+  "shortName": "UBS",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Namangan viloyati",
+  "city": "Namangan",
+  "website": "https://ubsu.uz/uz",
+  "foundedYear": 2022,
+  "uzbmbId": 549,
+  "rorId": "https://ror.org/05k81nw90",
+  "openalexId": "I4405266792",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "turan-international-university",
+  "name": "Turan International University",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Namangan viloyati",
+  "city": "Namangan",
+  "website": "https://tiu-edu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 677,
+  "rorId": "https://ror.org/00kfc2x89",
+  "openalexId": "I4405253370",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "toshkent-iqtisodiyot-va-texnologiyalar-universiteti-namangan",
+  "name": "Toshkent iqtisodiyot va texnologiyalar universiteti Namangan manzili",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Namangan viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 675,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ssu",
+  "name": "Samarqand davlat universiteti",
+  "shortName": "SSU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://www.samdu.uz",
+  "foundedYear": 1927,
+  "uzbmbId": 312,
+  "rorId": "https://ror.org/02b6gy972",
+  "openalexId": "I1299170990",
+  "admission": {
+   "value": 71.4,
+   "programs": 55,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-tibbiyot-universiteti",
+  "name": "Samarqand davlat tibbiyot universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://www.sammu.uz",
+  "foundedYear": 1930,
+  "uzbmbId": 363,
+  "rorId": "https://ror.org/03c824k52",
+  "openalexId": "I4210129487",
+  "admission": {
+   "value": 129.45,
+   "programs": 20,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samsifl",
+  "name": "Samarqand davlat chet tillar instituti",
+  "shortName": "SamSIFL",
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://samdchti.uz/",
+  "foundedYear": 1994,
+  "uzbmbId": 347,
+  "rorId": "https://ror.org/0483fxt86",
+  "openalexId": "I4210146373",
+  "admission": {
+   "value": 147.10000000000002,
+   "programs": 24,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samarqand-iqtisodiyot-va-servis-instituti",
+  "name": "Samarqand iqtisodiyot va servis instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "http://sies.uz/",
+  "foundedYear": 1931,
+  "uzbmbId": 385,
+  "rorId": "https://ror.org/00ae65a65",
+  "openalexId": "I4210090568",
+  "admission": {
+   "value": 104.2,
+   "programs": 20,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "siutch",
+  "name": "\"Ipak yo‘li\" turizm va madaniy meros xalqaro universiteti",
+  "shortName": "SIUTCH",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://www.univ-silkroad.uz",
+  "foundedYear": 2018,
+  "uzbmbId": 396,
+  "rorId": "https://ror.org/01r159865",
+  "openalexId": "I4401041581",
+  "admission": {
+   "value": 108.85,
+   "programs": 22,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "zarmed-universiteti-samarqand-kampusi",
+  "name": "Zarmed Universiteti Samarqand kampusi",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 534,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ozbekiston-finlyandiya-pedagogika-instituti",
+  "name": "O‘zbekiston-Finlyandiya pedagogika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 415,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 87.69999999999999,
+   "programs": 22,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "sbtsue",
+  "name": "Toshkent davlat iqtisodiyot universiteti Samarqand filiali",
+  "shortName": "SBTSUE",
+  "ownership": "STATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://www.sbtsue.uz",
+  "foundedYear": null,
+  "uzbmbId": 360,
+  "rorId": "https://ror.org/00kb8e717",
+  "openalexId": null,
+  "admission": {
+   "value": 111.6,
+   "programs": 11,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-arxitektura-qurilish-universiteti",
+  "name": "Samarqand davlat arxitektura-qurilish universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://samgasi.uz/",
+  "foundedYear": 1966,
+  "uzbmbId": 313,
+  "rorId": "https://ror.org/01y7t5s25",
+  "openalexId": "I4210114747",
+  "admission": {
+   "value": 60.9,
+   "programs": 26,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-universiteti-kattaqorgon-filiali",
+  "name": "Samarqand davlat universiteti Kattaqo‘rg‘on filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 406,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 76.9,
+   "programs": 13,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "toshkent-axborot-texnologiyalari-universiteti-samarqand-fili",
+  "name": "Toshkent axborot texnologiyalari universiteti Samarqand filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://samtuit.uz",
+  "foundedYear": 2005,
+  "uzbmbId": 388,
+  "rorId": "https://ror.org/02yxx9y43",
+  "openalexId": "I4405263572",
+  "admission": {
+   "value": 63.15,
+   "programs": 14,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-universiteti-urgut-filiali",
+  "name": "Samarqand davlat universiteti Urgut filiali.",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 358,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 92,
+   "programs": 11,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "isft-instituti-samarqand-filiali",
+  "name": "\"ISFT\" instituti Samarqand filiali",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 680,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-veterinariya-meditsinasi-chorvachilik-va-bi",
+  "name": "Samarqand davlat veterinariya meditsinasi, chorvachilik va biotexnologiyalar universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Samarqand viloyati",
+  "city": "Samarqand",
+  "website": "https://samvmi.ssuv.uz",
+  "foundedYear": 1929,
+  "uzbmbId": 372,
+  "rorId": "https://ror.org/026wyz662",
+  "openalexId": "I4210118017",
+  "admission": {
+   "value": 74.5,
+   "programs": 20,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-chet-tillar-instituti-payariq-xorijiy-tilla",
+  "name": "Samarqand davlat chet tillar instituti Payariq \"Xorijiy tillar\" fakulʼteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 414,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 155.7,
+   "programs": 3,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "samarqand-agroinnovatsiyalar-va-tadqiqotlar-instituti",
+  "name": "Samarqand agroinnovatsiyalar va tadqiqotlar instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "AGRICULTURE",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 440,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 73.75,
+   "programs": 14,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-chet-tillar-instituti-narpay-xorijiy-tillar",
+  "name": "Samarqand davlat chet tillar instituti Narpay \"Xorijiy tillar\" fakulʼteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Samarqand viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 413,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 158,
+   "programs": 3,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "termiz-davlat-universiteti",
+  "name": "Termiz davlat universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Surxondaryo viloyati",
+  "city": "Termiz",
+  "website": "https://tersu.uz",
+  "foundedYear": 1954,
+  "uzbmbId": 340,
+  "rorId": "https://ror.org/05416zy49",
+  "openalexId": "I4210159709",
+  "admission": {
+   "value": 84,
+   "programs": 39,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tdtutf",
+  "name": "Toshkent tibbiyot akademiyasi Termiz filiali",
+  "shortName": "TDTUTF",
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Surxondaryo viloyati",
+  "city": "Termiz",
+  "website": "https://tashmedunitf.uz",
+  "foundedYear": 2018,
+  "uzbmbId": 368,
+  "rorId": "https://ror.org/03ga2gz64",
+  "openalexId": "I4405272056",
+  "admission": {
+   "value": 137.3,
+   "programs": 6,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tspi",
+  "name": "Termiz davlat pedagogika instituti",
+  "shortName": "TSPI",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Surxondaryo viloyati",
+  "city": "Termiz",
+  "website": "https://terdpi.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 357,
+  "rorId": "https://ror.org/0446f0x88",
+  "openalexId": "I4405263222",
+  "admission": {
+   "value": 74.6,
+   "programs": 17,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "dtpi",
+  "name": "Samarqand davlat unversitetining Denov tadbirkorlik va pedagogika instituti",
+  "shortName": "DTPI",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Surxondaryo viloyati",
+  "city": "Denov",
+  "website": "https://dtpi.uz",
+  "foundedYear": 2020,
+  "uzbmbId": 348,
+  "rorId": "https://ror.org/050trge43",
+  "openalexId": "I4405257205",
+  "admission": {
+   "value": 67.4,
+   "programs": 34,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "termiz-davlat-muhandislik-va-agrotexnologiyalar-universiteti",
+  "name": "Termiz davlat muhandislik va agrotexnologiyalar universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "AGRICULTURE",
+  "region": "Surxondaryo viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 442,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 59.45,
+   "programs": 50,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "guldu",
+  "name": "Guliston davlat universiteti",
+  "shortName": "GulDU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Sirdaryo viloyati",
+  "city": null,
+  "website": "https://guldu.uz/uz/",
+  "foundedYear": 1966,
+  "uzbmbId": 307,
+  "rorId": "https://ror.org/0404f9j94",
+  "openalexId": "I4210134088",
+  "admission": {
+   "value": 73.6,
+   "programs": 42,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "guliston-davlat-pedagogika-instituti",
+  "name": "Guliston davlat pedagogika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Sirdaryo viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 425,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 78.7,
+   "programs": 19,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "toshkent-kimyo-texnologiya-instituti-yangiyer-filiali",
+  "name": "Toshkent kimyo-texnologiya instituti Yangiyer filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Sirdaryo viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 402,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 57.9,
+   "programs": 17,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "tdiu",
+  "name": "Toshkent davlat iqtisodiyot universiteti",
+  "shortName": "TDIU",
+  "ownership": "STATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tsue.uz",
+  "foundedYear": 1931,
+  "uzbmbId": 324,
+  "rorId": "https://ror.org/029t9db68",
+  "openalexId": "I55383850",
+  "admission": {
+   "value": 128.8,
+   "programs": 31,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "nuu",
+  "name": "O‘zbekiston Milliy universiteti",
+  "shortName": "NUU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://nuu.uz/",
+  "foundedYear": 1918,
+  "uzbmbId": 314,
+  "rorId": "https://ror.org/011647w73",
+  "openalexId": "I47151758",
+  "admission": {
+   "value": 92.5,
+   "programs": 65,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "profi-university",
+  "name": "Profi University",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 524,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "uwed",
+  "name": "Jahon iqtisodiyoti va diplomatiya universiteti",
+  "shortName": "UWED",
+  "ownership": "STATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.uwed.uz",
+  "foundedYear": 1992,
+  "uzbmbId": 350,
+  "rorId": "https://ror.org/043dtk166",
+  "openalexId": "I80338172",
+  "admission": {
+   "value": 172.85,
+   "programs": 8,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tstmi",
+  "name": "Toshkent davlat transport universiteti",
+  "shortName": "TSTMI",
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tstu.uz",
+  "foundedYear": 1931,
+  "uzbmbId": 334,
+  "rorId": "https://ror.org/00jxr5c40",
+  "openalexId": "I126419327",
+  "admission": {
+   "value": 65.2,
+   "programs": 59,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "utas",
+  "name": "Toshkent amaliy fanlar universiteti",
+  "shortName": "UTAS",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.utas.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 523,
+  "rorId": "https://ror.org/02erf0j28",
+  "openalexId": "I4405254966",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-jahon-tillari-universiteti",
+  "name": "O‘zbekiston davlat jahon tillari universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.uzswlu.uz",
+  "foundedYear": 1992,
+  "uzbmbId": 326,
+  "rorId": "https://ror.org/017x26m02",
+  "openalexId": "I4210102006",
+  "admission": {
+   "value": 164.8,
+   "programs": 43,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tsul",
+  "name": "Toshkent davlat yuridik universiteti",
+  "shortName": "TSUL",
+  "ownership": "STATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.tsul.uz",
+  "foundedYear": 2013,
+  "uzbmbId": 384,
+  "rorId": "https://ror.org/01x2s7885",
+  "openalexId": "I4210109177",
+  "admission": {
+   "value": 172.05,
+   "programs": 4,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "university-of-business-and-science-toshkent-shahar-filiali",
+  "name": "University of Business and Science Toshkent shahar filiali",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 678,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "tdshu",
+  "name": "Toshkent davlat sharqshunoslik universiteti",
+  "shortName": "TDSHU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tsuos.uz",
+  "foundedYear": 1918,
+  "uzbmbId": 327,
+  "rorId": "https://ror.org/03d53xe41",
+  "openalexId": "I3133440902",
+  "admission": {
+   "value": 168.1,
+   "programs": 30,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tuit",
+  "name": "Toshkent axborot texnologiyalari universiteti",
+  "shortName": "TUIT",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tuit.uz",
+  "foundedYear": 1955,
+  "uzbmbId": 380,
+  "rorId": "https://ror.org/05987a729",
+  "openalexId": "I21256249",
+  "admission": {
+   "value": 90.6,
+   "programs": 37,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tsmu",
+  "name": "Toshkent davlat tibbiyot universiteti",
+  "shortName": "TSMU",
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tashmeduni.uz",
+  "foundedYear": 2025,
+  "uzbmbId": 444,
+  "rorId": "https://ror.org/035cgyb19",
+  "openalexId": "I4405267534",
+  "admission": {
+   "value": 120.6,
+   "programs": 22,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "iiau",
+  "name": "O‘zbekiston xalqaro islom akademiyasi",
+  "shortName": "IIAU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "http://www.iiau.uz/",
+  "foundedYear": 1999,
+  "uzbmbId": 306,
+  "rorId": "https://ror.org/00xkg1h94",
+  "openalexId": "I4210097036",
+  "admission": {
+   "value": 133.1,
+   "programs": 7,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tdtu",
+  "name": "Toshkent davlat texnika universiteti",
+  "shortName": "TDTU",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tdtu.uz/",
+  "foundedYear": 1918,
+  "uzbmbId": 315,
+  "rorId": "https://ror.org/01bmg2a15",
+  "openalexId": "I3020809043",
+  "admission": {
+   "value": 59.9,
+   "programs": 62,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "npuu",
+  "name": "O'zbekiston milliy pedagogika universiteti",
+  "shortName": "NPUU",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://npuu.uz/",
+  "foundedYear": 1935,
+  "uzbmbId": 443,
+  "rorId": "https://ror.org/051g1n833",
+  "openalexId": "I4210159566",
+  "admission": {
+   "value": 81.6,
+   "programs": 40,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "jamoat-xavfsizligi-universiteti",
+  "name": "Jamoat xavfsizligi universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 322,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 148.2,
+   "programs": 3,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "taqi",
+  "name": "Toshkent arxitektura-qurilish universiteti",
+  "shortName": "TAQI",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "http://taqu.uz",
+  "foundedYear": 1991,
+  "uzbmbId": 328,
+  "rorId": "https://ror.org/00phht511",
+  "openalexId": "I4210097274",
+  "admission": {
+   "value": 63.8,
+   "programs": 24,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ozbekiston-jurnalistika-va-ommaviy-kommunikatsiyalar-univers",
+  "name": "O‘zbekiston jurnalistika va ommaviy kommunikatsiyalar universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 395,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 159,
+   "programs": 19,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "learu",
+  "name": "O‘zbekiston Respublikasi Huquqni muhofaza qilish akademiyasi",
+  "shortName": "LEARU",
+  "ownership": "STATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://proacademy.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 430,
+  "rorId": "https://ror.org/05sg6gr96",
+  "openalexId": "I4405257889",
+  "admission": {
+   "value": 171,
+   "programs": 2,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tkti",
+  "name": "Toshkent kimyo-texnologiya instituti",
+  "shortName": "TKTI",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tkti.uz",
+  "foundedYear": 1991,
+  "uzbmbId": 337,
+  "rorId": "https://ror.org/045qcpw44",
+  "openalexId": "I4210136103",
+  "admission": {
+   "value": 61,
+   "programs": 37,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tsuull",
+  "name": "Toshkent davlat o‘zbek tili va adabiyoti universiteti",
+  "shortName": "TSUULL",
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tsuull.uz",
+  "foundedYear": 2016,
+  "uzbmbId": 302,
+  "rorId": "https://ror.org/03870dx82",
+  "openalexId": "I4405255639",
+  "admission": {
+   "value": 128,
+   "programs": 8,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tiiame",
+  "name": "\"Toshkent irrigatsiya va qishloq xo‘jaligini mexanizatsiyalash muhandislari instituti\" milliy tadqiqotlar universiteti",
+  "shortName": "TIIAME",
+  "ownership": "STATE",
+  "profile": "AGRICULTURE",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.tiiame.uz",
+  "foundedYear": 1923,
+  "uzbmbId": 376,
+  "rorId": "https://ror.org/01s4mx151",
+  "openalexId": "I4210109462",
+  "admission": {
+   "value": 61.05,
+   "programs": 44,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "diplomat-university",
+  "name": "Diplomat university",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 522,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "afu",
+  "name": "Alfraganus universiteti",
+  "shortName": "AFU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://afu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 538,
+  "rorId": "https://ror.org/01s7pfd33",
+  "openalexId": "I4405254406",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "toshkent-farmatsevtika-instituti",
+  "name": "Toshkent farmatsevtika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://pharmi.uz",
+  "foundedYear": 1937,
+  "uzbmbId": 369,
+  "rorId": "https://ror.org/00ste1919",
+  "openalexId": "I4210096127",
+  "admission": {
+   "value": 123.85,
+   "programs": 8,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ttyesi",
+  "name": "Toshkent to‘qimachilik va yengil sanoat instituti",
+  "shortName": "TTYeSI",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "http://titli.uz/index.php/en/home.html?start=330",
+  "foundedYear": 1932,
+  "uzbmbId": 331,
+  "rorId": "https://ror.org/01kt71615",
+  "openalexId": "I4210112770",
+  "admission": {
+   "value": 64.4,
+   "programs": 27,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "tmc-instituti-singapur",
+  "name": "TMC instituti (Singapur)",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 516,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "toshtech-texnika-universiteti",
+  "name": "«ToshTech» texnika universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 686,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "cau",
+  "name": "Central Asian University (CAU)",
+  "shortName": "CAU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://centralasian.uz",
+  "foundedYear": 2019,
+  "uzbmbId": 674,
+  "rorId": "https://ror.org/00x6wnm78",
+  "openalexId": "I4210096951",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "reu",
+  "name": "Renessans ta'lim universiteti",
+  "shortName": "REU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.renessans-edu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 562,
+  "rorId": "https://ror.org/035ahym13",
+  "openalexId": "I4405255564",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "titu",
+  "name": "Toshkent iqtisodiyot va texnologiyalari universiteti",
+  "shortName": "TITU",
+  "ownership": "PRIVATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://uztitu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 563,
+  "rorId": "https://ror.org/0441m8f28",
+  "openalexId": "I4405284725",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "milliy-rassomlik-va-dizayn-instituti",
+  "name": "Milliy rassomlik va dizayn instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 329,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 76.8,
+   "programs": 9,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "geologiya-fanlari-universiteti",
+  "name": "Geologiya fanlari universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 318,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 60,
+   "programs": 11,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "uzsiac",
+  "name": "O‘zbekiston davlat sanʼat va madaniyat instituti",
+  "shortName": "UzSIAC",
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "http://www.dsmi.uz",
+  "foundedYear": 1945,
+  "uzbmbId": 377,
+  "rorId": "https://ror.org/037gxjh03",
+  "openalexId": "I4405271887",
+  "admission": {
+   "value": 81.05,
+   "programs": 6,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "toshkent-xalqaro-moliyaviy-boshqaruv-va-texnologiyalar-unive",
+  "name": "Toshkent xalqaro moliyaviy boshqaruv va texnologiyalar universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 556,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-veterinariya-meditsinasi-chorvachilik-va-bi-2",
+  "name": "Samarqand davlat veterinariya meditsinasi, chorvachilik va biotexnologiyalar universiteti Toshkent filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 387,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 79.6,
+   "programs": 10,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-konservatoriyasi",
+  "name": "O‘zbekiston davlat konservatoriyasi",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://konservatoriya.uz/",
+  "foundedYear": 1936,
+  "uzbmbId": 378,
+  "rorId": "https://ror.org/055688f96",
+  "openalexId": "I4210164153",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "usat",
+  "name": "Fan va texnologiyalar universiteti",
+  "shortName": "USAT",
+  "ownership": "PRIVATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://usat.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 529,
+  "rorId": "https://ror.org/00a9eka65",
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "oxus-universiteti",
+  "name": "OXUS Universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 683,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "aifu",
+  "name": "Aniq va ijtimoiy fanlar universiteti",
+  "shortName": "AIFU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://aifu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": 566,
+  "rorId": "https://ror.org/03be12t48",
+  "openalexId": "I4405264914",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ijtimoiy-va-siyosiy-fanlar-instituti",
+  "name": "Ijtimoiy va siyosiy fanlar instituti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 561,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "iper",
+  "name": "Farmatsevtika ta'lim va tadqiqot instituti",
+  "shortName": "IPER",
+  "ownership": "PRIVATE",
+  "profile": "MEDICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.ftti.uz",
+  "foundedYear": 2021,
+  "uzbmbId": 518,
+  "rorId": "https://ror.org/00msh6959",
+  "openalexId": "I4405253408",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "japan-digital-university",
+  "name": "JAPAN DIGITAL UNIVERSITY",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 685,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "raqamli-iqtisodiyot-va-agrotexnologiyalar-universiteti",
+  "name": "Raqamli iqtisodiyot va agrotexnologiyalar universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "AGRICULTURE",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 530,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-konservatoriyasi-huzuridagi-milliy-estrada",
+  "name": "O'zbekiston davlat konservatoriyasi huzuridagi Milliy estrada san‘ati instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 421,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ozmmsi",
+  "name": "O‘zbek milliy musiqa sanʼati instituti",
+  "shortName": "OʻzMMSI",
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://uzmmsi.uz",
+  "foundedYear": 2020,
+  "uzbmbId": 407,
+  "rorId": "https://ror.org/0097d3a24",
+  "openalexId": "I4405266902",
+  "admission": {
+   "value": 77.6,
+   "programs": 2,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-xoreografiya-akademiyasi",
+  "name": "O‘zbekiston davlat xoreografiya akademiyasi",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 325,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "cspu",
+  "name": "Chirchiq davlat pedagogika universiteti",
+  "shortName": "CSPU",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Toshkent viloyati",
+  "city": "Chirchiq",
+  "website": "https://www.cspu.uz",
+  "foundedYear": 2017,
+  "uzbmbId": 354,
+  "rorId": "https://ror.org/01nzrgp81",
+  "openalexId": "I4405254315",
+  "admission": {
+   "value": 71.5,
+   "programs": 45,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "cyber-university",
+  "name": "Cyber University",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 555,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "tsau",
+  "name": "Toshkent davlat agrar universiteti",
+  "shortName": "TSAU",
+  "ownership": "STATE",
+  "profile": "AGRICULTURE",
+  "region": "Toshkent viloyati",
+  "city": "Toshkent",
+  "website": "https://tdau.uz",
+  "foundedYear": 1930,
+  "uzbmbId": 373,
+  "rorId": "https://ror.org/05gr4mx33",
+  "openalexId": "I1330688353",
+  "admission": {
+   "value": 74.3,
+   "programs": 38,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "jtsu",
+  "name": "O‘zbekiston davlat jismoniy tarbiya va sport universiteti",
+  "shortName": "JTSU",
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Toshkent viloyati",
+  "city": "Chirchiq",
+  "website": "https://jtsu.uz",
+  "foundedYear": 1955,
+  "uzbmbId": 382,
+  "rorId": "https://ror.org/01edayx41",
+  "openalexId": "I4405258933",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "toshkent-tibbiyot-akademiyasi-chirchiq-filiali",
+  "name": "Toshkent tibbiyot akademiyasi Chirchiq filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 418,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 137.7,
+   "programs": 6,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "olmaliq-davlat-texnika-instituti",
+  "name": "Olmaliq davlat texnika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 365,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 57.1,
+   "programs": 18,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "tipu",
+  "name": "Toshkent iqtisodiyot va pedagogika universiteti",
+  "shortName": "TIPU",
+  "ownership": "PRIVATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Toshkent viloyati",
+  "city": "Chirchiq",
+  "website": "https://tipu.uz",
+  "foundedYear": null,
+  "uzbmbId": 542,
+  "rorId": "https://ror.org/03fmryg27",
+  "openalexId": "I4405272044",
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-jahon-tillari-universiteti-qoshidagi-angre",
+  "name": "O‘zbekiston davlat jahon tillari universiteti qoshidagi Angren xorijiy tillar fakulteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "LANGUAGES",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 433,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 130.3,
+   "programs": 5,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "isft-instituti",
+  "name": "ISFT instituti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 519,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "toshkent-axborot-texnologiyalari-universiteti-zarafshon-faku",
+  "name": "Toshkent axborot texnologiyalari universiteti Zarafshon fakulteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 441,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "xalqaro-qishloq-xojaligi-universiteti",
+  "name": "Xalqaro qishloq xoʼjaligi universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "AGRICULTURE",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 682,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "pharmaceutical-technical-university",
+  "name": "Pharmaceutical Technical University",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 684,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ipak-yoli-innovatsiyalar-universiteti",
+  "name": "Ipak yo'li innovatsiyalar universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 565,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "fdu",
+  "name": "Farg‘ona davlat universiteti",
+  "shortName": "FDU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Farg‘ona viloyati",
+  "city": "Fargʻona",
+  "website": "https://fdu.uz/",
+  "foundedYear": 1930,
+  "uzbmbId": 342,
+  "rorId": "https://ror.org/0190ze463",
+  "openalexId": "I4210104713",
+  "admission": {
+   "value": 90.7,
+   "programs": 44,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "qdpi",
+  "name": "Qo‘qon davlat pedagogika instituti",
+  "shortName": "QDPI",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Farg‘ona viloyati",
+  "city": "Qoʻqon",
+  "website": "http://www.kspi.uz/",
+  "foundedYear": 1931,
+  "uzbmbId": 356,
+  "rorId": "https://ror.org/0362r6n51",
+  "openalexId": "I4210124473",
+  "admission": {
+   "value": 67.6,
+   "programs": 49,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "fmioph",
+  "name": "Farg‘ona jamoat salomatligi tibbiyot instituti",
+  "shortName": "FMIOPH",
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Farg‘ona viloyati",
+  "city": "Fargʻona",
+  "website": "https://fjsti.uz/",
+  "foundedYear": 2020,
+  "uzbmbId": 344,
+  "rorId": "https://ror.org/050ycf013",
+  "openalexId": "I4405287382",
+  "admission": {
+   "value": 129.6,
+   "programs": 13,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "fstu",
+  "name": "Farg‘ona davlat texnika universiteti",
+  "shortName": "FSTU",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Farg‘ona viloyati",
+  "city": "Fargʻona",
+  "website": "https://fstu.uz",
+  "foundedYear": 2025,
+  "uzbmbId": 445,
+  "rorId": "https://ror.org/04vvwcn96",
+  "openalexId": "I4405261140",
+  "admission": {
+   "value": 58.05,
+   "programs": 52,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "iifte",
+  "name": "Oziq-ovqat texnologiyasi va muhandisligi xalqaro instituti",
+  "shortName": "IIFTE",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Farg‘ona viloyati",
+  "city": "Fargʻona",
+  "website": "https://iifte.uz",
+  "foundedYear": 2023,
+  "uzbmbId": 424,
+  "rorId": "https://ror.org/013yaf259",
+  "openalexId": "I4405253811",
+  "admission": {
+   "value": 63.65,
+   "programs": 16,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "urganch-davlat-universiteti",
+  "name": "Urganch davlat universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Xorazm viloyati",
+  "city": "Urganch",
+  "website": "http://www.urdu.uz/",
+  "foundedYear": 1992,
+  "uzbmbId": 341,
+  "rorId": "https://ror.org/0593kfr97",
+  "openalexId": "I14916453",
+  "admission": {
+   "value": 70.7,
+   "programs": 58,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "urganch-davlat-pedagogika-instituti",
+  "name": "Urganch davlat pedagogika instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Xorazm viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 428,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 94.3,
+   "programs": 19,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "toshkent-tibbiyot-akademiyasi-urganch-filiali",
+  "name": "Toshkent tibbiyot akademiyasi Urganch filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Xorazm viloyati",
+  "city": "Urganch",
+  "website": "https://www.urgfiltma.uz",
+  "foundedYear": 1992,
+  "uzbmbId": 338,
+  "rorId": "https://ror.org/01bnkr993",
+  "openalexId": "I4387930244",
+  "admission": {
+   "value": 134,
+   "programs": 12,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-xoreografiya-akademiyasi-urganch-filiali",
+  "name": "O‘zbekiston davlat xoreografiya akademiyasi Urganch filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Xorazm viloyati",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 409,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "qoraqalpoq-davlat-universiteti",
+  "name": "Qoraqalpoq davlat universiteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": "Nukus",
+  "website": "http://www.karsu.uz/index.php/en/",
+  "foundedYear": 1976,
+  "uzbmbId": 346,
+  "rorId": "https://ror.org/059w0gb06",
+  "openalexId": "I4210162459",
+  "admission": {
+   "value": 67.2,
+   "programs": 55,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "nmpi",
+  "name": "Nukus davlat pedagogika instituti",
+  "shortName": "NMPI",
+  "ownership": "STATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": "Nukus",
+  "website": "https://ndpi.uz/",
+  "foundedYear": 1934,
+  "uzbmbId": 352,
+  "rorId": "https://ror.org/01b54nd92",
+  "openalexId": "I4210103860",
+  "admission": {
+   "value": 75.55,
+   "programs": 52,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "qoraqalpogiston-tibbiyot-instituti",
+  "name": "Qoraqalpog‘iston tibbiyot instituti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 349,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 137.5,
+   "programs": 12,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "nstu",
+  "name": "Nukus davlat texnika universiteti",
+  "shortName": "NSTU",
+  "ownership": "STATE",
+  "profile": "TECHNICAL",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": "Nukus",
+  "website": "https://nukusstu.uz",
+  "foundedYear": 2025,
+  "uzbmbId": 439,
+  "rorId": "https://ror.org/02ym5cp77",
+  "openalexId": "I4405275086",
+  "admission": {
+   "value": 59.5,
+   "programs": 57,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "toshkent-davlat-iqtisodiyot-universiteti-tortkol-fakulteti",
+  "name": "Toshkent davlat iqtisodiyot universiteti To‘rtko‘l fakulʼteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 412,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 80.9,
+   "programs": 7,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "iaak",
+  "name": "Qoraqalpog‘iston qishloq xo‘jaligi va agrotexnologiyalar instituti",
+  "shortName": "IAAK",
+  "ownership": "STATE",
+  "profile": "AGRICULTURE",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": "Nukus",
+  "website": "https://tdaunukus.uz",
+  "foundedYear": 2021,
+  "uzbmbId": 386,
+  "rorId": "https://ror.org/02b42av24",
+  "openalexId": null,
+  "admission": {
+   "value": 58.8,
+   "programs": 37,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-jismoniy-tarbiya-va-sport-universiteti-nuk",
+  "name": "Oʻzbekiston davlat jismoniy tarbiya va sport universiteti Nukus filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 399,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "qoraqalpoq-davlat-universiteti-chimboy-fakulteti",
+  "name": "Qoraqalpoq davlat universiteti Chimboy fakulʼteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 422,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 71.2,
+   "programs": 11,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-sanat-va-madaniyat-instituti-nukus-filiali",
+  "name": "O‘zbekiston davlat sanʼat va madaniyat instituti Nukus filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": "Nukus",
+  "website": "https://uzdsmi-nf.uz",
+  "foundedYear": 2008,
+  "uzbmbId": 393,
+  "rorId": "https://ror.org/014aset47",
+  "openalexId": "I4405270660",
+  "admission": {
+   "value": 59.849999999999994,
+   "programs": 4,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb",
+   "ror"
+  ]
+ },
+ {
+  "slug": "samarqand-davlat-veterinariya-meditsinasi-chorvachilik-va-bi-3",
+  "name": "Samarqand davlat veterinariya meditsinasi, chorvachilik va biotexnologiyalar universiteti Nukus filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MEDICAL",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 398,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 68.5,
+   "programs": 12,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "ozbekiston-davlat-konservatoriyasi-nukus-filiali",
+  "name": "O‘zbekiston davlat konservatoriyasi Nukus filiali",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "ARTS_SPORT",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 408,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": null,
+   "programs": 0,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "qoraqalpoq-davlat-universiteti-qongirot-fakulteti",
+  "name": "Qoraqalpoq davlat universiteti Qo‘ng‘irot fakulteti",
+  "shortName": null,
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Qoraqalpog‘iston Respublikasi",
+  "city": null,
+  "website": null,
+  "foundedYear": null,
+  "uzbmbId": 436,
+  "rorId": null,
+  "openalexId": null,
+  "admission": {
+   "value": 57,
+   "programs": 7,
+   "year": 2025
+  },
+  "sources": [
+   "uzbmb"
+  ]
+ },
+ {
+  "slug": "wiut",
+  "name": "Toshkent shahridagi Vestminster xalqaro universiteti",
+  "shortName": "WIUT",
+  "ownership": "INTERNATIONAL_BRANCH",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.wiut.uz",
+  "foundedYear": 2002,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/032vgar48",
+  "openalexId": "I61600748",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "iut",
+  "name": "Toshkent shahridagi Inha universiteti",
+  "shortName": "IUT",
+  "ownership": "INTERNATIONAL_BRANCH",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://inha.uz/en/",
+  "foundedYear": 2014,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/01f15r266",
+  "openalexId": "I2800378187",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "toshkent-shahridagi-turin-politexnika-universiteti",
+  "name": "Toshkent shahridagi Turin politexnika universiteti",
+  "shortName": null,
+  "ownership": "INTERNATIONAL_BRANCH",
+  "profile": "TECHNICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://polito.uz/index.php?lang=en",
+  "foundedYear": 2009,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/042xrxv40",
+  "openalexId": "I4210142780",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "g-v-plexanov-nomidagi-rossiya-iqtisodiyot-universitetining-t",
+  "name": "G.V. Plexanov nomidagi Rossiya iqtisodiyot universitetining Toshkent filiali",
+  "shortName": null,
+  "ownership": "INTERNATIONAL_BRANCH",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.rea.ru/",
+  "foundedYear": 1907,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/02etsyv71",
+  "openalexId": "I4210118158",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "yangi-ozbekiston-universiteti",
+  "name": "Yangi Oʻzbekiston universiteti",
+  "shortName": "NUU",
+  "ownership": "STATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://newuu.uz",
+  "foundedYear": 2021,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/035v3tr79",
+  "openalexId": "I4387155254",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "oriental-universiteti",
+  "name": "Oriental universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://orientaluniversity.uz",
+  "foundedYear": 2021,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/052bk0b97",
+  "openalexId": "I4405257245",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "mamun-universiteti",
+  "name": "Maʼmun universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Xorazm viloyati",
+  "city": "Xiva",
+  "website": "https://mamunedu.uz",
+  "foundedYear": 2020,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/03fatne33",
+  "openalexId": "I4405255828",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "tues",
+  "name": "Termiz iqtisodiyot va servis universiteti",
+  "shortName": "TUES",
+  "ownership": "PRIVATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Surxondaryo viloyati",
+  "city": "Termiz",
+  "website": "https://tesu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/01tts0094",
+  "openalexId": "I4405254457",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "tiu",
+  "name": "Toshkent xalqaro universiteti",
+  "shortName": "TIU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.tiu.uz",
+  "foundedYear": 2023,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/02xt0e812",
+  "openalexId": "I4405255361",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "tiue",
+  "name": "Toshkent xalqaro taʼlim universiteti",
+  "shortName": "TIUE",
+  "ownership": "PRIVATE",
+  "profile": "PEDAGOGICAL",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tiue.uz",
+  "foundedYear": 2021,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/04mks7528",
+  "openalexId": "I4405269594",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "atmu",
+  "name": "Axborot texnologiyalari va menejment universiteti",
+  "shortName": "ATMU",
+  "ownership": "PRIVATE",
+  "profile": "TECHNICAL",
+  "region": "Qashqadaryo viloyati",
+  "city": "Qarshi",
+  "website": "https://atmu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/000w5zc19",
+  "openalexId": "I4405261864",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "urganch-ranch-texnologiya-universiteti",
+  "name": "Urganch RANCH texnologiya universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "TECHNICAL",
+  "region": "Xorazm viloyati",
+  "city": "Urganch",
+  "website": "https://ranch.university",
+  "foundedYear": 2021,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/014qgt066",
+  "openalexId": "I4405268485",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "toshkent-ijtimoiy-innovatsiya-universiteti",
+  "name": "Toshkent ijtimoiy innovatsiya universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://tiiu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/00ggdkg91",
+  "openalexId": "I4405258343",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "time",
+  "name": "Toshkent menejment va iqtisodiyot instituti",
+  "shortName": "TIME",
+  "ownership": "PRIVATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://timeedu.uz",
+  "foundedYear": 2021,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/00cyf6533",
+  "openalexId": "I4405253188",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "bmu",
+  "name": "Toshkentdagi Britaniya menejment universiteti",
+  "shortName": "BMU",
+  "ownership": "PRIVATE",
+  "profile": "ECONOMICS_LAW",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://bmu-edu.uz",
+  "foundedYear": 2020,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/05ck7c689",
+  "openalexId": "I4399598376",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "bxu",
+  "name": "Buxoro xalqaro universiteti",
+  "shortName": "BXU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Buxoro viloyati",
+  "city": "Buxoro",
+  "website": "https://www.bxu.uz",
+  "foundedYear": 2021,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/03t94z196",
+  "openalexId": "I4405265997",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "yangi-asr-universiteti",
+  "name": "Yangi asr universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://yangiasr.uz",
+  "foundedYear": 2021,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/0477p5695",
+  "openalexId": "I4405284798",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "xalqaro-innovatsion-universiteti",
+  "name": "Xalqaro innovatsion universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Qashqadaryo viloyati",
+  "city": "Qarshi",
+  "website": "https://xiuedu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/057vd3p67",
+  "openalexId": "I4405263322",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "sarbon-universiteti",
+  "name": "Sarbon universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://sarbon.university",
+  "foundedYear": 2024,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/014zh3y29",
+  "openalexId": "I4405265914",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "sharq-universiteti",
+  "name": "Sharq universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Navoiy viloyati",
+  "city": "Navoiy",
+  "website": "https://sharqedu.uz",
+  "foundedYear": 2025,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/007fthm19",
+  "openalexId": "I4405263839",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "akhu",
+  "name": "Al-Xorazmiy universiteti",
+  "shortName": "AKHU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Xorazm viloyati",
+  "city": "Urganch",
+  "website": "https://www.akhu.uz",
+  "foundedYear": 2025,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/00svs2744",
+  "openalexId": "I4405262002",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "ku",
+  "name": "Qoʻqon universiteti",
+  "shortName": "KU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Fargʻona viloyati",
+  "city": "Qoʻqon",
+  "website": "https://www.kokanduni.uz",
+  "foundedYear": 2019,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/046q22e19",
+  "openalexId": null,
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "kuaf",
+  "name": "Qoʻqon universiteti Andijon filiali",
+  "shortName": "KUAF",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Andijon viloyati",
+  "city": "Andijon",
+  "website": "https://kuaf.uz",
+  "foundedYear": 2019,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/003d0er09",
+  "openalexId": "I4405263384",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "niu",
+  "name": "Xalqaro Nordik universiteti",
+  "shortName": "NIU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://nordicuniversity.org",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/00j9qzp88",
+  "openalexId": null,
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "camu",
+  "name": "Markaziy Osiyo tibbiyot universiteti",
+  "shortName": "CAMU",
+  "ownership": "PRIVATE",
+  "profile": "MEDICAL",
+  "region": "Fargʻona viloyati",
+  "city": "Fargʻona",
+  "website": "https://camuf.uz",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/05th6qs39",
+  "openalexId": null,
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "uriu",
+  "name": "Urganch innovatsion universiteti",
+  "shortName": "UrIU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Xorazm viloyati",
+  "city": "Urganch",
+  "website": "https://uriu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/00vmsps81",
+  "openalexId": null,
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "kiu",
+  "name": "Qarshi xalqaro universiteti",
+  "shortName": "KIU",
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Qashqadaryo viloyati",
+  "city": "Qarshi",
+  "website": "https://kiu.uz",
+  "foundedYear": 2022,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/0155vdr22",
+  "openalexId": "I4405286108",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ },
+ {
+  "slug": "yevroosiyo-multidisiplinar-universiteti",
+  "name": "Yevroosiyo multidisiplinar universiteti",
+  "shortName": null,
+  "ownership": "PRIVATE",
+  "profile": "MULTIDISCIPLINARY",
+  "region": "Toshkent shahri",
+  "city": "Toshkent",
+  "website": "https://www.emuni.uz",
+  "foundedYear": 2020,
+  "uzbmbId": null,
+  "rorId": "https://ror.org/04pxa8844",
+  "openalexId": "I4405269607",
+  "admission": null,
+  "sources": [
+   "ror"
+  ]
+ }
+]
