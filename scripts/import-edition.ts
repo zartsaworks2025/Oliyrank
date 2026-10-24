@@ -68,8 +68,24 @@ async function main() {
   ]);
 
   // Universities: upsert the curated list; hide anything else (e.g. old seed rows).
+  // Rows edited in the admin panel (adminLocked) keep their details and visibility;
+  // they are found by registry ID because the admin may have changed the slug.
   const ids = new Map<string, number>();
+  let locked = 0;
   for (const u of universities) {
+    const registry = [
+      ...(u.uzbmbId ? [{ uzbmbId: u.uzbmbId }] : []),
+      ...(u.rorId ? [{ rorId: u.rorId }] : []),
+    ];
+    const lockedRow = await db.university.findFirst({
+      where: { adminLocked: true, OR: [{ slug: u.slug }, ...registry] },
+      select: { id: true },
+    });
+    if (lockedRow) {
+      ids.set(u.slug, lockedRow.id);
+      locked += 1;
+      continue;
+    }
     const data = {
       name: u.name, shortName: u.shortName, ownership: u.ownership, profile: u.profile, region: u.region,
       city: u.city, website: u.website, foundedYear: u.foundedYear, uzbmbId: u.uzbmbId, rorId: u.rorId,
@@ -91,7 +107,7 @@ async function main() {
     ids.set(u.slug, row.id);
   }
   const hidden = await db.university.updateMany({
-    where: { slug: { notIn: universities.map((u) => u.slug) }, status: "ACTIVE" },
+    where: { slug: { notIn: universities.map((u) => u.slug) }, status: "ACTIVE", adminLocked: false },
     data: { status: "HIDDEN" },
   });
 
@@ -130,7 +146,7 @@ async function main() {
   await db.score.deleteMany({ where: { periodId: period.id } });
   await db.score.createMany({ data: scores });
 
-  console.log(`Universities: ${universities.length} active, ${hidden.count} hidden.`);
+  console.log(`Universities: ${universities.length} in list (${locked} admin-edited, left as is), ${hidden.count} hidden.`);
   console.log(`Edition "${EDITION_NAME}": ${scores.length} values; admission for ${universities.filter((u) => u.admission?.value != null).length}, research for ${researchMeasured}.`);
 }
 

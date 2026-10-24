@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { BookmarkSlot } from "@/components/auth/bookmark-slot";
 import { DemoNotice } from "@/components/ranking/demo-notice";
 import { EditionNotice } from "@/components/ranking/edition-notice";
 import { ScoreBar } from "@/components/ranking/score-bar";
@@ -108,16 +109,24 @@ async function UniversityProfile({ params }: Pick<PageProps<"/universities/[slug
               </div>
             ))}
           </dl>
-          {university.website && (
-            <a
-              href={university.website}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-1.5 font-medium text-firuza hover:underline"
-            >
-              Rasmiy sayt <span aria-hidden="true">↗</span>
-            </a>
-          )}
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Suspense fallback={<div className="h-11 w-32" aria-hidden="true" />}>
+              <BookmarkSlot universityId={university.id} slug={university.slug} />
+            </Suspense>
+            <Link href={`/compare?u=${university.slug}`} className="font-medium text-ink-soft hover:text-firuza">
+              Taqqoslash
+            </Link>
+            {university.website && (
+              <a
+                href={university.website}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 font-medium text-firuza hover:underline"
+              >
+                Rasmiy sayt <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
         </div>
 
         <aside className="rounded-3xl border border-line bg-paper-raised p-6 sm:p-7">

@@ -8,6 +8,7 @@ import type { Ownership, UniversityProfile } from "@/generated/prisma/client";
 export const RANKINGS_TAG = "rankings";
 
 export type UniversitySummary = {
+  id: number;
   slug: string;
   name: string;
   shortName: string | null;
@@ -127,6 +128,7 @@ async function getSnapshot(): Promise<Snapshot | null> {
       coverage: result.coverage,
       pillars: Object.fromEntries(PILLARS.map((p) => [p.key, result.pillars[p.key] ?? null])) as Record<PillarKey, number | null>,
       university: {
+        id: university.id,
         slug: university.slug,
         name: university.name,
         shortName: university.shortName,
@@ -207,4 +209,21 @@ export async function getUniversityProfile(slug: string): Promise<UniversityProf
 export async function getUniversitySlugs(): Promise<string[]> {
   const snapshot = await getSnapshot();
   return snapshot?.rows.map((row) => row.university.slug) ?? [];
+}
+
+export type CompareData = PublishedRanking & {
+  indicators: Record<string, IndicatorDetail[]>;
+};
+
+/** Everything the compare page needs, from the same cached snapshot. */
+export async function getCompareData(): Promise<CompareData | null> {
+  const snapshot = await getSnapshot();
+  if (!snapshot) return null;
+  return {
+    period: snapshot.period,
+    isDemo: snapshot.isDemo,
+    scope: snapshot.scope,
+    rows: snapshot.rows,
+    indicators: Object.fromEntries(Object.entries(snapshot.details).map(([slug, detail]) => [slug, detail.indicators])),
+  };
 }

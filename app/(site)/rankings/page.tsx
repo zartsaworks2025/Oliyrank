@@ -89,7 +89,11 @@ export default async function RankingsPage() {
       </div>
 
       <p className="mt-8 text-sm leading-relaxed text-ink-faint">
-        Nashr: {ranking.period.name}. Ballar 0–100 oraligʻida: 100 — shu koʻrsatkich boʻyicha eng kuchli universitetlar
+        Nashr: {ranking.period.name}. OliyRank mustaqil loyiha, rasmiy reyting emas.{" "}
+        <Link href="/terms#disclaimer" className="text-firuza hover:underline">
+          Disclaimer
+        </Link>
+        . Ballar 0–100 oraligʻida: 100 — shu koʻrsatkich boʻyicha eng kuchli universitetlar
         darajasi. Teng ballar bir xil oʻrinni egallaydi (masalan, “=5”).{" "}
         <Link href="/methodology" className="text-firuza hover:underline">
           Qanday hisoblanadi →

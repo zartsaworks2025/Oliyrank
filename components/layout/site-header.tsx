@@ -7,7 +7,11 @@ import { Logo } from "@/components/brand/logo";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { NAV_LINKS } from "./nav";
 
-export function SiteHeader() {
+/**
+ * `account` / `mobileAccount` are server-rendered slots (sign-in buttons or the
+ * user's account link), passed in by the layout inside Suspense.
+ */
+export function SiteHeader({ account, mobileAccount }: { account?: React.ReactNode; mobileAccount?: React.ReactNode }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,18 +62,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
-          <Link
-            href="/signin"
-            className="hidden whitespace-nowrap rounded-full px-4 py-2 text-[0.95rem] text-ink-soft transition-colors hover:text-ink sm:inline-flex"
-          >
-            Kirish
-          </Link>
-          <Link
-            href="/signup"
-            className="hidden whitespace-nowrap rounded-full bg-ink px-4 py-2 text-[0.95rem] font-medium text-paper transition-colors hover:bg-firuza sm:inline-flex"
-          >
-            Roʻyxatdan oʻtish
-          </Link>
+          {account}
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
@@ -99,22 +92,7 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              <Link
-                href="/signin"
-                onClick={() => setMenuOpen(false)}
-                className="rounded-full border border-line-strong px-4 py-3 text-center font-medium"
-              >
-                Kirish
-              </Link>
-              <Link
-                href="/signup"
-                onClick={() => setMenuOpen(false)}
-                className="rounded-full bg-ink px-4 py-3 text-center font-medium text-paper"
-              >
-                Roʻyxatdan oʻtish
-              </Link>
-            </div>
+            <div onClick={() => setMenuOpen(false)}>{mobileAccount}</div>
           </nav>
         </div>
       )}

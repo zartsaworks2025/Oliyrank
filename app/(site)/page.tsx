@@ -25,9 +25,9 @@ const STEPS = [
 ];
 
 const FEATURES = [
-  { title: "Yonma-yon taqqoslash", body: "Universitetlarni koʻrsatkichma-koʻrsatkich solishtiring." },
-  { title: "Tasdiqlangan talabalar fikri", body: "Faqat haqiqiy talabalar baho beradi — bir kishi, bir ovoz." },
-  { title: "Saqlab qoʻying", body: "Qiziqtirgan universitetlarni roʻyxatga qoʻshing va keyinroq qayting." },
+  { title: "Yonma-yon taqqoslash", body: "Ikki-uch universitetni koʻrsatkichma-koʻrsatkich solishtiring." },
+  { title: "Har bir raqamning manbasi", body: "Profilda xom qiymat, 0–100 ball va maʼlumot manbasi birga koʻrsatiladi." },
+  { title: "Jurnal", body: "Reyting, qabul va oliy taʼlim haqida tushunarli maqolalar." },
 ];
 
 export default async function HomePage() {
@@ -186,14 +186,14 @@ export default async function HomePage() {
         <div className="container-page relative flex flex-col items-start justify-between gap-8 py-16 md:flex-row md:items-center lg:py-20">
           <div>
             <h2 className="max-w-2xl font-serif text-3xl font-medium text-balance sm:text-4xl">
-              Siz oʻqigan universitet haqida halol fikr qoldiring.
+              OliyRank sinov bosqichida. Davom ettiraylikmi?
             </h2>
             <p className="mt-3 max-w-xl opacity-80">
-              Sizning tajribangiz keyingi avlod abituriyentlariga toʻgʻri tanlov qilishga yordam beradi.
+              Taklif, tanqid yoki xato topgan boʻlsangiz — yozing. Sizning fikringiz loyihaning kelajagini hal qiladi.
             </p>
           </div>
-          <Link href="/signup" className="shrink-0 rounded-full bg-paper px-6 py-3 font-medium text-ink transition-transform hover:-translate-y-0.5">
-            Hisob ochish
+          <Link href="/contact" className="shrink-0 rounded-full bg-paper px-6 py-3 font-medium text-ink transition-transform hover:-translate-y-0.5">
+            Fikr bildirish
           </Link>
         </div>
       </section>

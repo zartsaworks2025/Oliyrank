@@ -28,13 +28,29 @@ model User {
   image        String?
   role         UserRole   @default(USER)
   status       UserStatus @default(ACTIVE)
+  /// When the user accepted the privacy policy and terms at sign-up.
+  consentAt    DateTime?
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 
+  sessions      Session[]
+  articles      Article[]
   reviews       Review[]
   reviewVotes   ReviewVote[]
   reviewReports ReviewReport[]
   bookmarks     Bookmark[]
+}
+
+/// Sign-in session. The cookie holds a random token; only its SHA-256 hash is stored.
+model Session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 // ─── Universities ───────────────────────────────────────────────────────────
@@ -80,6 +96,9 @@ model University {
   uzbmbId     Int?              @unique
   rorId       String?           @unique
   openalexId  String?           @unique
+  /// Set when edited or removed in the admin panel; data imports then leave the
+  /// university's details alone.
+  adminLocked Boolean           @default(false)
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
 
@@ -272,4 +291,30 @@ model Bookmark {
 
   @@unique([userId, universityId])
   @@index([userId])
+}
+
+// ─── Journal ────────────────────────────────────────────────────────────────
+
+enum ArticleStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Article {
+  id            Int           @id @default(autoincrement())
+  slug          String        @unique
+  title         String
+  excerpt       String
+  /// Markdown (GitHub-flavoured).
+  body          String
+  coverImageUrl String?
+  status        ArticleStatus @default(DRAFT)
+  publishedAt   DateTime?
+  authorId      String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  author User? @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  @@index([status, publishedAt])
 }

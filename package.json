@@ -18,7 +18,8 @@
     "data:fetch": "node scripts/fetch-uzbmb.mjs && node scripts/fetch-registries.mjs && node scripts/fetch-openalex-research.mjs",
     "data:build": "node scripts/build-universities.mjs",
     "data:import": "tsx scripts/import-edition.ts",
-    "data:export": "tsx scripts/export-excel.ts"
+    "data:export": "tsx scripts/export-excel.ts",
+    "admin:make": "tsx scripts/make-admin.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
@@ -27,6 +28,8 @@
     "pg": "8.23.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {
