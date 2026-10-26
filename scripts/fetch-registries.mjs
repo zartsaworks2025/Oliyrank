@@ -5,21 +5,19 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { sleep, withRetry } from "./lib/http.mjs";
 
 const ROOT = join(import.meta.dirname, "..", "data", "raw");
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function getJson(url, attempt = 1) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
-  } catch (error) {
-    if (attempt >= 4) throw new Error(`${url}: ${error.message}`);
-    await sleep(2000 * attempt);
-    return getJson(url, attempt + 1);
-  }
-}
+const getJson = (url) =>
+  withRetry(
+    async () => {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    },
+    { label: url },
+  );
 
 // OpenAlex: cursor paging, all institution types in Uzbekistan.
 mkdirSync(join(ROOT, "openalex"), { recursive: true });

@@ -12,7 +12,7 @@ npm install
 npm run db:local        # start a local Postgres (no Docker needed)
 cp .env.example .env    # paste the postgres:// URL printed above into DATABASE_URL
 npm run db:migrate      # create tables
-npm run db:seed         # methodology indicators
+npm run db:seed         # methodology indicators and starter articles
 npm run data:fetch      # download official/open source data (a few minutes)
 npm run data:build      # build the curated university list
 npm run data:import     # load the edition into the database
@@ -48,11 +48,16 @@ openalex.org/settings/api) if downloads start failing.
 | Path | What lives there |
 | --- | --- |
 | `app/` | Routes, layouts and global styles |
-| `components/` | UI: `brand/`, `layout/`, `theme/` |
+| `components/` | UI: `admin/`, `article/`, `auth/`, `brand/`, `layout/`, `ranking/`, `theme/` |
 | `lib/methodology.ts` | Ranking pillars, indicators, weights and scoring rules (single source of truth) |
 | `lib/ranking/compute.ts` | Ranking engine: pure scoring maths, unit-tested |
 | `lib/ranking/data.ts` | Loads raw values, runs the engine, caches the result for pages |
 | `lib/db.ts` | Prisma client (server only) |
+| `lib/auth/`, `lib/admin/` | Accounts and sessions; admin panel actions |
+| `lib/articles.ts` | Journal articles |
+| `content/articles/` | Starter journal articles, loaded once by the seed |
+| `data/` | Curated university list and curation decisions (`data/raw/` is downloaded, git-ignored) |
+| `scripts/` | Data pipeline and admin scripts; shared helpers in `scripts/lib/` |
 | `docs/methodology.md` | Methodology rationale, research and sources |
 | `prisma/` | Schema, migrations and seed script |
 
@@ -71,6 +76,11 @@ Headings use Literata and body text uses Onest; both cover Latin and Cyrillic.
 | `lint` / `typecheck` / `test` | ESLint / TypeScript / Vitest |
 | `db:local` | Local Prisma Postgres server |
 | `db:migrate` / `db:push` | Apply schema changes |
-| `db:seed` | Seed methodology indicators |
+| `db:seed` | Seed methodology indicators and starter articles |
 | `data:fetch` / `data:build` / `data:import` / `data:export` | Data pipeline (see above) |
 | `db:studio` | Browse the database |
+| `admin:make` | Give an account admin rights: `npm run admin:make -- you@example.com` |
+
+`node scripts/ror-search.mjs "keywords"` searches the downloaded ROR records while curating.
+
+`_legacy/` (git-ignored) holds the previous team codebase for reference; it is not part of this project.

@@ -7,6 +7,7 @@ import { OWNERSHIP_LABELS, PILLAR_BG, PROFILE_LABELS, STATUS_LABELS, type Owners
 import { INDICATOR_COUNT, PILLARS, pillarWeight, type PillarDef, type PillarKey } from "@/lib/methodology";
 import { formatRank } from "@/lib/ranking/compute";
 import type { RankingRow } from "@/lib/ranking/data";
+import { normalizeSearch as normalize } from "@/lib/search";
 import { ScoreBar } from "./score-bar";
 
 type SortKey = "rank" | "name" | PillarKey;
@@ -18,7 +19,6 @@ const OWNERSHIP_FILTERS: { value: "all" | OwnershipKey; label: string }[] = [
   { value: "INTERNATIONAL_BRANCH", label: OWNERSHIP_LABELS.INTERNATIONAL_BRANCH },
 ];
 
-const normalize = (text: string) => text.toLocaleLowerCase("uz").replace(/[ʻʼ'`‘’]/g, "");
 const fmt = (value: number | null) => (value === null ? "—" : value.toFixed(1));
 
 export function RankingsExplorer({ rows, pillarKeys }: { rows: RankingRow[]; pillarKeys: PillarKey[] }) {

@@ -4,14 +4,9 @@
  *   npm run admin:make -- you@example.com
  *   npm run admin:make -- you@example.com --revoke
  */
-import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient } from "../generated/prisma/client";
+import { createScriptDb } from "./lib/db";
 
-try {
-  process.loadEnvFile(".env");
-} catch {}
-
-const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL, max: 1 }) });
+const db = createScriptDb();
 const email = process.argv[2]?.trim().toLowerCase();
 const revoke = process.argv.includes("--revoke");
 

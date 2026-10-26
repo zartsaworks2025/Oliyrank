@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { OWNERSHIP_LABELS, PILLAR_BG, PROFILE_LABELS, STATUS_LABELS } from "@/lib/labels";
 import { PILLARS } from "@/lib/methodology";
-import { formatRank } from "@/lib/ranking/compute";
+import { formatRank, formatRawValue } from "@/lib/ranking/compute";
 import type { CompareData, RankingRow } from "@/lib/ranking/data";
 import { ScoreBar } from "./score-bar";
 
@@ -12,7 +12,7 @@ const MAX = 3;
 
 const formatRaw = (raw: number | null, unit: string) => {
   if (raw === null) return "—";
-  const value = raw.toFixed(Math.abs(raw) < 10 ? 2 : 1).replace(/\.?0+$/, "");
+  const value = formatRawValue(raw);
   return unit === "%" ? `${value}%` : value;
 };
 

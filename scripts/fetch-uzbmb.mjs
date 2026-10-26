@@ -7,25 +7,22 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { sleep, withRetry } from "./lib/http.mjs";
 
 const BASE = "https://my.uzbmb.uz";
 const OUT = join(import.meta.dirname, "..", "data", "raw", "uzbmb");
 const DELAY_MS = 600;
 const force = process.argv.includes("--force");
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-async function get(path, attempt = 1) {
-  try {
-    const response = await fetch(BASE + path, { headers: { "User-Agent": "OliyRank data collection (research)" } });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.text();
-  } catch (error) {
-    if (attempt >= 4) throw new Error(`${path}: ${error.message}`);
-    await sleep(2000 * attempt);
-    return get(path, attempt + 1);
-  }
-}
+const get = (path) =>
+  withRetry(
+    async () => {
+      const response = await fetch(BASE + path, { headers: { "User-Agent": "OliyRank data collection (research)" } });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.text();
+    },
+    { label: path },
+  );
 
 async function cached(file, path) {
   const target = join(OUT, file);

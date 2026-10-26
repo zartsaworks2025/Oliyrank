@@ -13,6 +13,7 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { sleep, withRetry } from "./lib/http.mjs";
 import { authorshipShare } from "./lib/research.mjs";
 
 const ROOT = join(import.meta.dirname, "..", "data", "raw", "openalex");
@@ -20,20 +21,17 @@ const OUT = join(ROOT, "research");
 const YEARS = "2021-2025";
 const force = process.argv.includes("--force");
 const key = process.env.OPENALEX_API_KEY ? `&api_key=${process.env.OPENALEX_API_KEY}` : "";
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function getJson(url, attempt = 1) {
-  try {
-    const response = await fetch(url + key);
-    if (response.status === 429) throw new Error("rate limited (429)");
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
-  } catch (error) {
-    if (attempt >= 5) throw new Error(`${url}: ${error.message}`);
-    await sleep(3000 * attempt);
-    return getJson(url, attempt + 1);
-  }
-}
+const getJson = (url) =>
+  withRetry(
+    async () => {
+      const response = await fetch(url + key);
+      if (response.status === 429) throw new Error("rate limited (429)");
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    },
+    { label: url, attempts: 5, backoffMs: 3000 },
+  );
 
 const filter = (id) =>
   `authorships.institutions.lineage:${id},publication_year:${YEARS},type:article|review,primary_location.source.is_core:true`;

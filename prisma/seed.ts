@@ -8,13 +8,10 @@
  */
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient } from "../generated/prisma/client";
 import { ALL_INDICATORS, METHODOLOGY_VERSION } from "../lib/methodology";
+import { createScriptDb } from "../scripts/lib/db";
 
-const db = new PrismaClient({
-  adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL, max: 1 }),
-});
+const db = createScriptDb();
 
 async function main() {
   for (const indicator of ALL_INDICATORS) {

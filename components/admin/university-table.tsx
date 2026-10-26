@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
 import { deleteUniversity, setUniversityVisible } from "@/lib/admin/actions";
 import { OWNERSHIP_LABELS, PROFILE_LABELS, type OwnershipKey, type ProfileKey } from "@/lib/labels";
+import { normalizeSearch as normalize } from "@/lib/search";
 
 export type AdminUniversity = {
   id: number;
@@ -19,8 +20,6 @@ export type AdminUniversity = {
   adminLocked: boolean;
   fromRegistry: boolean;
 };
-
-const normalize = (s: string) => s.toLowerCase().replace(/[ʻʼ'`‘’]/g, "");
 
 export function UniversityTable({ universities }: { universities: AdminUniversity[] }) {
   const params = useSearchParams();

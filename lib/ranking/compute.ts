@@ -180,3 +180,6 @@ export function computeRanking(
 
 export const formatRank = (result: Pick<EngineResult, "rank" | "tied">) =>
   result.rank === null ? "—" : `${result.tied ? "=" : ""}${result.rank}`;
+
+/** Raw indicator value with trailing zeros trimmed: 2 decimals below 10, else 1 (3.25, 12.5, 40). */
+export const formatRawValue = (raw: number) => raw.toFixed(Math.abs(raw) < 10 ? 2 : 1).replace(/\.?0+$/, "");

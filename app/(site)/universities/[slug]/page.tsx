@@ -8,7 +8,7 @@ import { EditionNotice } from "@/components/ranking/edition-notice";
 import { ScoreBar } from "@/components/ranking/score-bar";
 import { OWNERSHIP_LABELS, PILLAR_BG, PROFILE_LABELS, STATUS_LABELS } from "@/lib/labels";
 import { PILLARS, pillarWeight } from "@/lib/methodology";
-import { formatRank } from "@/lib/ranking/compute";
+import { formatRank, formatRawValue } from "@/lib/ranking/compute";
 import { getUniversityProfile, getUniversitySlugs, type IndicatorDetail } from "@/lib/ranking/data";
 
 export async function generateStaticParams() {
@@ -31,8 +31,7 @@ export async function generateMetadata({ params }: PageProps<"/universities/[slu
 
 const formatRaw = (indicator: IndicatorDetail) => {
   if (indicator.raw === null) return null;
-  const digits = Math.abs(indicator.raw) < 10 ? 2 : 1;
-  const value = indicator.raw.toFixed(digits).replace(/\.?0+$/, "");
+  const value = formatRawValue(indicator.raw);
   return indicator.unit === "%" ? `${value}%` : `${value} ${indicator.unit}`;
 };
 

@@ -11,9 +11,9 @@
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient, type Ownership, type UniversityProfile } from "../generated/prisma/client";
+import type { Ownership, UniversityProfile } from "../generated/prisma/client";
 import { ALL_INDICATORS, METHODOLOGY_VERSION, PREVIEW_INDICATORS, SCORING } from "../lib/methodology";
+import { createScriptDb } from "./lib/db";
 import { researchIndicators } from "./lib/research.mjs";
 
 type BuiltUniversity = {
@@ -43,13 +43,7 @@ type Research = {
 
 export const EDITION_NAME = "2026 · Dastlabki nashr";
 
-
-// Standalone scripts do not get Prisma's config loading, so read .env here.
-try {
-  process.loadEnvFile(".env");
-} catch {}
-
-const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL, max: 1 }) });
+const db = createScriptDb();
 const universities: BuiltUniversity[] = JSON.parse(
   readFileSync(join(import.meta.dirname, "..", "data", "universities.json"), "utf8"),
 );

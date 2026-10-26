@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { ALL_INDICATORS, PILLARS, SCORING, pillarWeight } from "@/lib/methodology";
-import { buildScale, computeRanking, formatRank, percentile, type EngineIndicator, type RawValues } from "./compute";
+import { buildScale, computeRanking, formatRank, formatRawValue, percentile, type EngineIndicator, type RawValues } from "./compute";
 
 const NO_WINSORIZE = [0, 1] as const;
 const rules = { ...SCORING, winsorize: NO_WINSORIZE };
@@ -154,5 +154,11 @@ describe("computeRanking", () => {
     );
     expect(result.map((r) => r.universityId)).toEqual([2, 1]);
     expect(result.map(formatRank)).toEqual(["=1", "=1"]);
+  });
+});
+
+describe("formatRawValue", () => {
+  it("uses 2 decimals below 10, 1 above, and trims trailing zeros", () => {
+    expect([3.254, 0.5, 0, 12.46, 40, 100, -2.5].map(formatRawValue)).toEqual(["3.25", "0.5", "0", "12.5", "40", "100", "-2.5"]);
   });
 });

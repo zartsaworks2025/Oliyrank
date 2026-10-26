@@ -13,18 +13,11 @@
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import ExcelJS from "exceljs";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient } from "../generated/prisma/client";
 import { ALL_INDICATORS, METHODOLOGY_VERSION, SCORING } from "../lib/methodology";
 import { computeRanking, formatRank, percentile } from "../lib/ranking/compute";
+import { createScriptDb } from "./lib/db";
 
-
-// Standalone scripts do not get Prisma's config loading, so read .env here.
-try {
-  process.loadEnvFile(".env");
-} catch {}
-
-const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL, max: 1 }) });
+const db = createScriptDb();
 
 const OWNERSHIP = { STATE: "State", PRIVATE: "Private", INTERNATIONAL_BRANCH: "Foreign branch" } as const;
 const PROFILE = {
