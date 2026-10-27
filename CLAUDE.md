@@ -35,18 +35,19 @@ Done and committed on local `main`:
   `lib/ranking/compute.ts`, `scripts/lib/db.ts`, `scripts/lib/http.mjs`.
 - Typecheck, lint and 22 tests pass.
 
+- **GitHub** (2026-10-28): remote `origin` = github.com/zartsaworks2025/Oliyrank
+  (public, owner has admin) now has the rebuild on `main`. A ruleset ("protect main")
+  blocks force-pushes, so the old team version (0fb0503) was joined with a
+  `merge -s ours` commit (e173d5a): the tree is the rebuild, old commits stay in
+  history. Push normally from now on. Other remote branches (`Rajabboy`, `sultonboy`,
+  `zayniddin`, `vercel/...`) are old code; leave them unless asked.
+
 Not done yet:
-- **GitHub**: remote `origin` = github.com/zartsaworks2025/Oliyrank (public, owner has
-  admin). Its `main` still holds the OLD team version (0fb0503). The owner agreed to
-  replace it with a force-push, but the auto-mode classifier blocks Claude from
-  force-pushing, so the owner must run `git push --force origin main` themselves.
-  Other remote branches (`Rajabboy`, `sultonboy`, `zayniddin`, `vercel/...`) are old
-  code; leave them unless asked.
 - **Deployment**: not started (see Next steps).
 
 ## Next steps (deployment plan)
 
-1. Owner force-pushes `main` to GitHub.
+1. ~~Push `main` to GitHub~~ (done).
 2. Database: Supabase (connector is connected). Project `jelzzissqofhhneznlcg`
    ("zartsaworks2025's Project", region ap-southeast-1, Postgres 17) exists and is
    EMPTY. Use the pooled connection string for the site (`DATABASE_URL` on Vercel)
