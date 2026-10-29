@@ -5,4 +5,4 @@ export const mailto = (subject?: string) =>
   `mailto:${CONTACT_EMAIL}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
 
 /** Date the legal pages were last reviewed; update it whenever they change. */
-export const LEGAL_UPDATED = "2026-yil 24-oktabr";
+export const LEGAL_UPDATED = "2026-yil 30-oktabr";

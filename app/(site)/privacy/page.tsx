@@ -40,11 +40,17 @@ export default function PrivacyPage() {
             bildiruvchi sessiya.
           </p>
           <p>
+            <strong>Tashrif statistikasi:</strong> qaysi sahifalar necha marta ochilgani — umumlashtirilgan holda (mamlakat,
+            qurilma va brauzer turi, qaysi saytdan kelingani). Buning uchun xosting provayderimiz Vercelning Web Analytics
+            xizmati ishlatiladi: u cookie qoʻymaydi, IP manzilni saqlamaydi va tashrifchini 24 soatdan ortiq taniy olmaydi.
+            Bu maʼlumotlar sizni shaxsan aniqlash uchun ishlatilmaydi.
+          </p>
+          <p>
             <strong>Bizga xat yozganingizda:</strong> xatda oʻzingiz yuborgan maʼlumotlar (email manzil, ism, xat matni).
           </p>
           <p>
             Biz pasport maʼlumotlari, telefon raqami, biometrik, genetik yoki boshqa maxsus toifadagi maʼlumotlarni{" "}
-            <strong>yigʻmaymiz</strong>. Saytda reklama yoki kuzatuv (analitika) xizmatlari ishlatilmaydi.
+            <strong>yigʻmaymiz</strong>. Saytda reklama xizmatlari ishlatilmaydi.
           </p>
         </ProseSection>
 
@@ -93,6 +99,7 @@ export default function PrivacyPage() {
               Brauzeringiz xotirasida (localStorage) faqat tanlangan rang mavzusi va yopilgan xabarnoma eslab qolinadi. Bu
               maʼlumotlar bizga yuborilmaydi.
             </li>
+            <li>Tashrif statistikasi cookie ham, brauzer xotirasini ham ishlatmaydi.</li>
           </ul>
         </ProseSection>
 

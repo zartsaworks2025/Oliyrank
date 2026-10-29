@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Literata, Onest } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { themeInitScript } from "@/components/theme/theme-script";
 import "./globals.css";
 
@@ -42,7 +43,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
