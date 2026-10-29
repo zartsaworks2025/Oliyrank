@@ -23,7 +23,7 @@ Stack: Next.js 16 (App Router, Cache Components), React 19, TypeScript 6, Tailwi
 Prisma 7 + PostgreSQL (`@prisma/adapter-pg`), Vitest. Auth is custom: database sessions
 with a hashed cookie token (`lib/auth/`), not Auth.js.
 
-## Status (2026-10-26)
+## Status (2026-10-30)
 
 Done and committed on local `main`:
 - Site: home, rankings (search/filters), university profiles, compare, journal,
@@ -42,8 +42,14 @@ Done and committed on local `main`:
   history. Push normally from now on. Other remote branches (`Rajabboy`, `sultonboy`,
   `zayniddin`, `vercel/...`) are old code; leave them unless asked.
 
+- **Live** (2026-10-30): https://oliyrank.com (and www) serves the rebuild from Vercel
+  project `oliyrank` (team flivnels-projects, reused from the old team version; the
+  domain was already attached, DNS on Cloudflare). Vercel Web Analytics is on.
+
 Not done yet:
-- **Deployment**: database done; Vercel hosting not started (see Next steps).
+- Make the owner admin once they sign up on the live site (see Next steps 3).
+- Legal: privacy page section 5 cites the data-localisation article 27¹, but user
+  data sits in Supabase Singapore. Owner was told; wording unchanged pending their call.
 
 ## Next steps (deployment plan)
 
@@ -61,12 +67,13 @@ Not done yet:
 3. ~~Fill it~~ (done): migrated, seeded, imported (166 universities, 179 scores).
    Still to do: after the owner signs up on the live site, `npm run admin:make -- <email>`
    against Supabase.
-4. Hosting: Vercel. The Vercel connector is read-only (projects, deployments, logs),
-   so create/link the project and set env vars with the Vercel CLI after the owner
-   runs `vercel login`. Only env var needed: `DATABASE_URL` = `POOLED_URL`
-   (transaction pooler, port 6543; the build reads the DB).
-   Do not set `DATABASE_POOL_MAX`/`NEXT_BUILD_CPUS` there; they are local-only.
-5. Optional: custom domain; remove the unused `AUTH_SECRET` line from `.env.example`.
+4. ~~Hosting~~ (done). Deploy from this folder with the Vercel CLI (`.vercel/` links it;
+   the project is not Git-connected, so pushing does not deploy): `npx vercel deploy`
+   for a preview (behind Vercel login; check with `npx vercel curl <url>/path`), then
+   `npx vercel deploy --prod`. In the owner's PowerShell use `npx.cmd` (script
+   execution policy blocks `npx.ps1`). Only env var: `DATABASE_URL` = `POOLED_URL`
+   (Production + Preview). Do not set `DATABASE_POOL_MAX`/`NEXT_BUILD_CPUS` there.
+5. Optional: remove the unused `AUTH_SECRET` line from `.env.example`.
 
 ## Local environment gotchas (Windows)
 
