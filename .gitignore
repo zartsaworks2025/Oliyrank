@@ -50,3 +50,8 @@ next-env.d.ts
 # raw source downloads (re-create with npm run data:fetch) and generated exports
 /data/raw
 /exports
+
+# local AI-assistant notes and config (kept on the machine, not published)
+/CLAUDE.md
+/AGENTS.md
+/.claude
