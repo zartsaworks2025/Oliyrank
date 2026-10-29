@@ -43,22 +43,28 @@ Done and committed on local `main`:
   `zayniddin`, `vercel/...`) are old code; leave them unless asked.
 
 Not done yet:
-- **Deployment**: not started (see Next steps).
+- **Deployment**: database done; Vercel hosting not started (see Next steps).
 
 ## Next steps (deployment plan)
 
 1. ~~Push `main` to GitHub~~ (done).
-2. Database: Supabase (connector is connected). Project `jelzzissqofhhneznlcg`
-   ("zartsaworks2025's Project", region ap-southeast-1, Postgres 17) exists and is
-   EMPTY. Use the pooled connection string for the site (`DATABASE_URL` on Vercel)
-   and the direct one for migrations/import. Ask before creating or changing anything.
-3. Fill it from this machine (raw data in `data/raw/` is local only), with `.env`
-   pointed at Supabase: `npx prisma migrate deploy`, `npm run db:seed`,
-   `npm run data:import`; then after the owner signs up on the live site,
-   `npm run admin:make -- <email>`. Switch `.env` back to the local DB afterwards.
+2. ~~Database~~ (done 2026-10-30). Supabase project `ocpjlvuuidsjtjxbrblf`
+   ("oliyrank_database", ap-southeast-1, Postgres 17). The older empty project
+   `jelzzissqofhhneznlcg` is unused. Connection strings live in git-ignored
+   `.env.supabase` (`DIRECT_URL`, `POOLED_URL`). Ask before changing anything there.
+   - The direct host is IPv6-only and this machine has no IPv6: run migrations and
+     scripts through the session pooler (`POOLED_URL` with port 6543 → 5432). Scripts
+     honour a `DATABASE_URL` already in the environment, so `.env` need not change.
+   - RLS is enabled on every table (migration `enable_rls`) to close Supabase's
+     public REST API; Prisma connects as owner and is unaffected. New tables need
+     `ENABLE ROW LEVEL SECURITY` in their migration.
+3. ~~Fill it~~ (done): migrated, seeded, imported (166 universities, 179 scores).
+   Still to do: after the owner signs up on the live site, `npm run admin:make -- <email>`
+   against Supabase.
 4. Hosting: Vercel. The Vercel connector is read-only (projects, deployments, logs),
    so create/link the project and set env vars with the Vercel CLI after the owner
-   runs `vercel login`. Only env var needed: `DATABASE_URL` (the build reads the DB).
+   runs `vercel login`. Only env var needed: `DATABASE_URL` = `POOLED_URL`
+   (transaction pooler, port 6543; the build reads the DB).
    Do not set `DATABASE_POOL_MAX`/`NEXT_BUILD_CPUS` there; they are local-only.
 5. Optional: custom domain; remove the unused `AUTH_SECRET` line from `.env.example`.
 
